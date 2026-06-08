@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PolymorphismDemo — Java SDE2 Lessons</title>
+  <title>LESSON 01C — POLYMORPHISM — Java SDE2 Lessons</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/style.css">
   <link rel="stylesheet" href="../../assets/pygments.css">
 </head>
@@ -14,32 +14,37 @@
   <header class="topbar">
     <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
     <a class="topbar-brand" href="../../index.html">
-      <span class="brand-icon">Jv</span>
-      Java SDE2 Prep
+      <span class="brand-mark">Jv</span>
+      Java Lessons
     </a>
-    <div class="topbar-actions">
-      <a class="topbar-link" href="https://github.com/cipheraxat/java-concepts-n-LLD" target="_blank" rel="noopener">GitHub ↗</a>
-    </div>
+    <div class="topbar-spacer"></div>
+    <a class="topbar-link" href="https://github.com/cipheraxat/java-concepts-n-LLD" target="_blank" rel="noopener">Source</a>
   </header>
   <div class="nav-overlay" onclick="document.body.classList.remove('nav-open')"></div>
   <div class="layout">
-    <nav class="sidebar"><p class="sidebar-label">Lessons</p>
+    <nav class="sidebar"><div class="progress-block">
+<div class="progress-label">Your progress</div>
+<div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+<div class="progress-text" id="progress-text">0 / 32 explored</div>
+</div>
+<input type="search" class="nav-search" id="nav-search" placeholder="Search lessons…" aria-label="Search lessons">
+<p class="sidebar-label">Curriculum</p>
 <ul class="nav-list">
-<li class="nav-topic">
-<details>
-<summary><span class="topic-num">01</span>OOP Concepts<a class="topic-link" href="../../topics/oop-concepts.html" onclick="event.stopPropagation()">overview</a></summary>
+<li class="nav-topic active">
+<details open>
+<summary><span class="topic-num">01</span>OOP Concepts<a class="topic-link" href="../../topics/oop-concepts.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/oop-concepts/AbstractionDemo.html">AbstractionDemo</a></li>
 <li><a href="../../lessons/oop-concepts/EncapsulationDemo.html">EncapsulationDemo</a></li>
 <li><a href="../../lessons/oop-concepts/InheritanceDemo.html">InheritanceDemo</a></li>
 <li><a href="../../lessons/oop-concepts/InterfaceDemo.html">InterfaceDemo</a></li>
 <li><a href="../../lessons/oop-concepts/ObjectMethodsDemo.html">ObjectMethodsDemo</a></li>
-<li><a href="../../lessons/oop-concepts/PolymorphismDemo.html">PolymorphismDemo</a></li>
+<li class="active"><a href="../../lessons/oop-concepts/PolymorphismDemo.html">PolymorphismDemo</a></li>
 </ul>
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">02</span>Collections Framework<a class="topic-link" href="../../topics/collections-framework.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">02</span>Collections Framework<a class="topic-link" href="../../topics/collections-framework.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/collections-framework/AdvancedMapDemo.html">AdvancedMapDemo</a></li>
 <li><a href="../../lessons/collections-framework/CollectionsHierarchyDemo.html">CollectionsHierarchyDemo</a></li>
@@ -51,7 +56,7 @@
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">03</span>Generics<a class="topic-link" href="../../topics/generics.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">03</span>Generics<a class="topic-link" href="../../topics/generics.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/generics/GenericClassDemo.html">GenericClassDemo</a></li>
 <li><a href="../../lessons/generics/WildcardDemo.html">WildcardDemo</a></li>
@@ -59,7 +64,7 @@
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">04</span>Exception Handling<a class="topic-link" href="../../topics/exception-handling.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">04</span>Exception Handling<a class="topic-link" href="../../topics/exception-handling.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/exception-handling/ExceptionHierarchyDemo.html">ExceptionHierarchyDemo</a></li>
 <li><a href="../../lessons/exception-handling/TryWithResourcesDemo.html">TryWithResourcesDemo</a></li>
@@ -67,7 +72,7 @@
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">05</span>Multithreading &amp; Concurrency<a class="topic-link" href="../../topics/multithreading-concurrency.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">05</span>Multithreading &amp; Concurrency<a class="topic-link" href="../../topics/multithreading-concurrency.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/multithreading-concurrency/ConcurrentCollectionsDemo.html">ConcurrentCollectionsDemo</a></li>
 <li><a href="../../lessons/multithreading-concurrency/ConcurrentUtilsDemo.html">ConcurrentUtilsDemo</a></li>
@@ -77,7 +82,7 @@
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">06</span>Java 8+ Features<a class="topic-link" href="../../topics/java8-features.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">06</span>Java 8+ Features<a class="topic-link" href="../../topics/java8-features.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/java8-features/LambdaFunctionalDemo.html">LambdaFunctionalDemo</a></li>
 <li><a href="../../lessons/java8-features/OptionalDemo.html">OptionalDemo</a></li>
@@ -86,7 +91,7 @@
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">07</span>Design Patterns<a class="topic-link" href="../../topics/design-patterns.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">07</span>Design Patterns<a class="topic-link" href="../../topics/design-patterns.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/design-patterns/BehavioralPatternDemo.html">BehavioralPatternDemo</a></li>
 <li><a href="../../lessons/design-patterns/SingletonDemo.html">SingletonDemo</a></li>
@@ -94,58 +99,270 @@
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">08</span>JVM Internals<a class="topic-link" href="../../topics/jvm-internals.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">08</span>JVM Internals<a class="topic-link" href="../../topics/jvm-internals.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/jvm-internals/JVMInternalsDemo.html">JVMInternalsDemo</a></li>
 </ul>
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">09</span>String Handling<a class="topic-link" href="../../topics/string-handling.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">09</span>String Handling<a class="topic-link" href="../../topics/string-handling.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/string-handling/StringHandlingDemo.html">StringHandlingDemo</a></li>
 </ul>
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">10</span>SOLID Principles<a class="topic-link" href="../../topics/solid-principles.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">10</span>SOLID Principles<a class="topic-link" href="../../topics/solid-principles.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/solid-principles/SOLIDDemo.html">SOLIDDemo</a></li>
 </ul>
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">11</span>Access Modifiers<a class="topic-link" href="../../topics/access-modifiers.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">11</span>Access Modifiers<a class="topic-link" href="../../topics/access-modifiers.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/access-modifiers/AccessModifiersDemo.html">AccessModifiersDemo</a></li>
 </ul>
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">12</span>static &amp; final<a class="topic-link" href="../../topics/static-and-final.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">12</span>static &amp; final<a class="topic-link" href="../../topics/static-and-final.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/static-and-final/StaticFinalDemo.html">StaticFinalDemo</a></li>
 </ul>
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">13</span>Inner Classes<a class="topic-link" href="../../topics/inner-classes.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">13</span>Inner Classes<a class="topic-link" href="../../topics/inner-classes.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/inner-classes/InnerClassesDemo.html">InnerClassesDemo</a></li>
 </ul>
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">14</span>Wrapper Classes<a class="topic-link" href="../../topics/wrapper-classes.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">14</span>Wrapper Classes<a class="topic-link" href="../../topics/wrapper-classes.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/wrapper-classes/WrapperAutoboxingDemo.html">WrapperAutoboxingDemo</a></li>
 </ul>
 </details></li>
 </ul></nav>
-    <main class="content">
+    <main class="content has-toc">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../topics/oop-concepts.html">OOP Concepts</a><span class="sep">/</span><span class="current">PolymorphismDemo</span></nav>
-      <header class="page-header"><h1>PolymorphismDemo</h1><p class="page-subtitle">01 — OOP Concepts · PolymorphismDemo.java</p></header>
-      <section class="code-section"><div class="code-window-bar"><div class="window-dots"><span></span><span></span><span></span></div><span class="code-filename">PolymorphismDemo.java</span><div class="code-meta"><button type="button" onclick="copyCode(this)">Copy</button></div></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+      <header class="page-header"><h1>LESSON 01C — POLYMORPHISM</h1><p class="page-subtitle">OOP Concepts · PolymorphismDemo.java</p></header>
+      <div class="lesson-meta"><span class="meta-pill accent">PolymorphismDemo</span><span class="meta-pill">126 lines</span><span class="meta-pill">~3 min read</span></div><div class="lesson-intro"><p>Two Types:<br>1. Compile-time (static)  — Method OVERLOADING, resolved by compiler based on parameter types<br>2. Runtime (dynamic)      — Method OVERRIDING, resolved by JVM based on actual object type</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;Can we overload methods that differ only in return type?&quot; =&gt; NO, compile error (ambiguous call)</li><li>&quot;What is covariant return type?&quot; =&gt; Overriding method can return a subtype of parent&#x27;s return type</li><li>&quot;Can we achieve runtime polymorphism with static/private/final methods?&quot; =&gt; NO</li><li>&quot;What is dynamic method dispatch?&quot; =&gt; JVM looks up the vtable at runtime for the actual type</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>COMPILE-TIME Polymorphism (Method Overloading)</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 1. COMPILE-TIME Polymorphism (Method Overloading) ──────────────────────</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Calculator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Same method name, different parameter types/count</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w">           </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// ILLEGAL — cannot overload by return type alone</span>
+<span class="w">        </span><span class="c1">// long add(int a, int b) { return a + b; }  // COMPILE ERROR</span>
+
+<span class="w">        </span><span class="c1">// Autoboxing / widening priority in overloading resolution:</span>
+<span class="w">        </span><span class="c1">// widening &gt; boxing &gt; varargs</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w">     </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;long: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">Integer</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Integer: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// int arg → prefers widening to long over boxing to Integer</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>RUNTIME Polymorphism (Method Overriding)</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 2. RUNTIME Polymorphism (Method Overriding) ────────────────────────────</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Shape</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">area</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Template method pattern — uses runtime polymorphism internally</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">describe</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">getClass</span><span class="p">().</span><span class="na">getSimpleName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; with area = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">area</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Circle</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Circle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="nf">area</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Rectangle</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Rectangle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w</span><span class="p">;</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="nf">area</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Square</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Rectangle</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Square</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">side</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">super</span><span class="p">(</span><span class="n">side</span><span class="p">,</span><span class="w"> </span><span class="n">side</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Covariant return type example: returning more specific type</span>
+<span class="w">        </span><span class="c1">// If parent returned Shape, child could return Square</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div></article><article class="lesson-section" id="section-3"><div class="section-header"><span class="section-num">3</span><h2>Covariant Return Type</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 3. Covariant Return Type ────────────────────────────────────────────────</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AnimalFactory</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Animal</span><span class="w"> </span><span class="nf">create</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Animal</span><span class="p">(</span><span class="s">&quot;Generic&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DogFactory</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AnimalFactory</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nd">@Override</span>
+<span class="w">        </span><span class="n">Dog</span><span class="w"> </span><span class="nf">create</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">&quot;Buddy&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// Covariant — more specific return type OK</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"> </span><span class="n">Animal</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">speak</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Dog</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">super</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="nd">@Override</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">speak</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; barks&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div></article><article class="lesson-section" id="section-4"><div class="section-header"><span class="section-num">4</span><h2>Overriding Rules Summary</h2></div><div class="concept-block"><p>Rule                        | Detail<br>─────────────────────────────|─────────────────────────────────────────────<br>Same method signature        | name + parameter list must match exactly<br>Return type                  | same OR covariant (subtype) — since Java 5<br>Access modifier              | can WIDEN (protected → public), cannot NARROW<br>Exception                    | can throw fewer/narrower checked exceptions<br>Cannot override              | static, private, final methods<br>@Override annotation         | best practice — compile error if not actually overriding</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 4. Overriding Rules Summary ────────────────────────────────────────────</span>
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     *  Rule                        | Detail</span>
+<span class="cm">     * ─────────────────────────────|─────────────────────────────────────────────</span>
+<span class="cm">     * Same method signature        | name + parameter list must match exactly</span>
+<span class="cm">     * Return type                  | same OR covariant (subtype) — since Java 5</span>
+<span class="cm">     * Access modifier              | can WIDEN (protected → public), cannot NARROW</span>
+<span class="cm">     * Exception                    | can throw fewer/narrower checked exceptions</span>
+<span class="cm">     * Cannot override              | static, private, final methods</span>
+<span class="cm">     * @Override annotation         | best practice — compile error if not actually overriding</span>
+<span class="cm">     */</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;=== Compile-time Polymorphism (Overloading) ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Calculator</span><span class="w"> </span><span class="n">calc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Calculator</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">calc</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">));</span><span class="w">             </span><span class="c1">// int version → 5</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">calc</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span><span class="w"> </span><span class="mf">3.5</span><span class="p">));</span><span class="w">         </span><span class="c1">// double version → 6.0</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">calc</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">));</span><span class="w">          </span><span class="c1">// 3-arg version → 6</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">calc</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// String version → HelloWorld</span>
+<span class="w">        </span><span class="n">calc</span><span class="p">.</span><span class="na">test</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">  </span><span class="c1">// widening wins: long version called even though int fits Integer too</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Runtime Polymorphism (Overriding) ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Shape</span><span class="o">[]</span><span class="w"> </span><span class="n">shapes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Circle</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Square</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">};</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Shape</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">shapes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">s</span><span class="p">.</span><span class="na">describe</span><span class="p">();</span><span class="w">   </span><span class="c1">// JVM calls the correct area() at runtime via vtable</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Covariant Return Type ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">AnimalFactory</span><span class="w"> </span><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DogFactory</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Animal</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="p">.</span><span class="na">create</span><span class="p">();</span><span class="w">   </span><span class="c1">// returns Dog, stored as Animal — polymorphism!</span>
+<span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="na">speak</span><span class="p">();</span><span class="w">                     </span><span class="c1">// &quot;Buddy barks&quot; — runtime dispatch</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Dynamic Dispatch ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Reference type = Animal, actual object type = Dog</span>
+<span class="w">        </span><span class="n">Animal</span><span class="w"> </span><span class="n">ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="s">&quot;Max&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ref</span><span class="p">.</span><span class="na">speak</span><span class="p">();</span><span class="w">   </span><span class="c1">// Calls Dog.speak(), NOT Animal.speak()</span>
+<span class="w">        </span><span class="c1">// ref.fetch(); // COMPILE ERROR — Animal ref doesn&#39;t know about Dog.fetch()</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div></article><details class="full-source"><summary>View complete source file</summary><div class="full-source-panel"><div class="code-section"><div class="code-bar"><span class="code-lang">PolymorphismDemo.java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>
@@ -397,33 +614,14 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-</section>
+</div></div></details></div><aside class="lesson-toc"><div class="toc-label">In this lesson</div><ol><li><a href="#section-1">COMPILE-TIME Polymorphism (Method Overloading)</a></li><li><a href="#section-2">RUNTIME Polymorphism (Method Overriding)</a></li><li><a href="#section-3">Covariant Return Type</a></li><li><a href="#section-4">Overriding Rules Summary</a></li></ol></aside></div><nav class="lesson-nav"><a class="prev" href="../../lessons/oop-concepts/ObjectMethodsDemo.html"><span class="nav-label">Previous</span><span class="nav-title">ObjectMethodsDemo</span></a><a class="next" href="../../lessons/collections-framework/AdvancedMapDemo.html"><span class="nav-label">Next</span><span class="nav-title">AdvancedMapDemo</span></a></nav>
       <footer class="page-footer">
         <a href="../../index.html">← All lessons</a>
-        <span>32 demos · 14 topics</span>
+        <span>32 lessons · 14 topics</span>
       </footer>
     </main>
   </div>
-  <div class="toast" id="toast">Copied!</div>
-  <script>
-    function copyCode(btn) {
-      var code = document.querySelector('.highlight pre');
-      if (!code) return;
-      navigator.clipboard.writeText(code.innerText).then(function() {
-        btn.textContent = 'Copied!';
-        btn.classList.add('copied');
-        var t = document.getElementById('toast');
-        t.classList.add('show');
-        setTimeout(function() {
-          btn.textContent = 'Copy';
-          btn.classList.remove('copied');
-          t.classList.remove('show');
-        }, 2000);
-      });
-    }
-    document.querySelectorAll('pre code').forEach(function(block) {
-      block.setAttribute('tabindex', '0');
-    });
-  </script>
+  <div class="toast" id="toast">Copied to clipboard</div>
+  <script src="../../assets/app.js"></script>
 </body>
 </html>

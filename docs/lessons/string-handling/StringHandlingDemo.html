@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StringHandlingDemo — Java SDE2 Lessons</title>
+  <title>LESSON 09 — String Handling (SDE2 Interview) — Java SDE2 Lessons</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/style.css">
   <link rel="stylesheet" href="../../assets/pygments.css">
 </head>
@@ -14,20 +14,25 @@
   <header class="topbar">
     <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
     <a class="topbar-brand" href="../../index.html">
-      <span class="brand-icon">Jv</span>
-      Java SDE2 Prep
+      <span class="brand-mark">Jv</span>
+      Java Lessons
     </a>
-    <div class="topbar-actions">
-      <a class="topbar-link" href="https://github.com/cipheraxat/java-concepts-n-LLD" target="_blank" rel="noopener">GitHub ↗</a>
-    </div>
+    <div class="topbar-spacer"></div>
+    <a class="topbar-link" href="https://github.com/cipheraxat/java-concepts-n-LLD" target="_blank" rel="noopener">Source</a>
   </header>
   <div class="nav-overlay" onclick="document.body.classList.remove('nav-open')"></div>
   <div class="layout">
-    <nav class="sidebar"><p class="sidebar-label">Lessons</p>
+    <nav class="sidebar"><div class="progress-block">
+<div class="progress-label">Your progress</div>
+<div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+<div class="progress-text" id="progress-text">0 / 32 explored</div>
+</div>
+<input type="search" class="nav-search" id="nav-search" placeholder="Search lessons…" aria-label="Search lessons">
+<p class="sidebar-label">Curriculum</p>
 <ul class="nav-list">
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">01</span>OOP Concepts<a class="topic-link" href="../../topics/oop-concepts.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">01</span>OOP Concepts<a class="topic-link" href="../../topics/oop-concepts.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/oop-concepts/AbstractionDemo.html">AbstractionDemo</a></li>
 <li><a href="../../lessons/oop-concepts/EncapsulationDemo.html">EncapsulationDemo</a></li>
@@ -39,7 +44,7 @@
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">02</span>Collections Framework<a class="topic-link" href="../../topics/collections-framework.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">02</span>Collections Framework<a class="topic-link" href="../../topics/collections-framework.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/collections-framework/AdvancedMapDemo.html">AdvancedMapDemo</a></li>
 <li><a href="../../lessons/collections-framework/CollectionsHierarchyDemo.html">CollectionsHierarchyDemo</a></li>
@@ -51,7 +56,7 @@
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">03</span>Generics<a class="topic-link" href="../../topics/generics.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">03</span>Generics<a class="topic-link" href="../../topics/generics.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/generics/GenericClassDemo.html">GenericClassDemo</a></li>
 <li><a href="../../lessons/generics/WildcardDemo.html">WildcardDemo</a></li>
@@ -59,7 +64,7 @@
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">04</span>Exception Handling<a class="topic-link" href="../../topics/exception-handling.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">04</span>Exception Handling<a class="topic-link" href="../../topics/exception-handling.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/exception-handling/ExceptionHierarchyDemo.html">ExceptionHierarchyDemo</a></li>
 <li><a href="../../lessons/exception-handling/TryWithResourcesDemo.html">TryWithResourcesDemo</a></li>
@@ -67,7 +72,7 @@
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">05</span>Multithreading &amp; Concurrency<a class="topic-link" href="../../topics/multithreading-concurrency.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">05</span>Multithreading &amp; Concurrency<a class="topic-link" href="../../topics/multithreading-concurrency.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/multithreading-concurrency/ConcurrentCollectionsDemo.html">ConcurrentCollectionsDemo</a></li>
 <li><a href="../../lessons/multithreading-concurrency/ConcurrentUtilsDemo.html">ConcurrentUtilsDemo</a></li>
@@ -77,7 +82,7 @@
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">06</span>Java 8+ Features<a class="topic-link" href="../../topics/java8-features.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">06</span>Java 8+ Features<a class="topic-link" href="../../topics/java8-features.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/java8-features/LambdaFunctionalDemo.html">LambdaFunctionalDemo</a></li>
 <li><a href="../../lessons/java8-features/OptionalDemo.html">OptionalDemo</a></li>
@@ -86,7 +91,7 @@
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">07</span>Design Patterns<a class="topic-link" href="../../topics/design-patterns.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">07</span>Design Patterns<a class="topic-link" href="../../topics/design-patterns.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/design-patterns/BehavioralPatternDemo.html">BehavioralPatternDemo</a></li>
 <li><a href="../../lessons/design-patterns/SingletonDemo.html">SingletonDemo</a></li>
@@ -94,58 +99,400 @@
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">08</span>JVM Internals<a class="topic-link" href="../../topics/jvm-internals.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">08</span>JVM Internals<a class="topic-link" href="../../topics/jvm-internals.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/jvm-internals/JVMInternalsDemo.html">JVMInternalsDemo</a></li>
 </ul>
 </details></li>
-<li class="nav-topic">
-<details>
-<summary><span class="topic-num">09</span>String Handling<a class="topic-link" href="../../topics/string-handling.html" onclick="event.stopPropagation()">overview</a></summary>
+<li class="nav-topic active">
+<details open>
+<summary><span class="topic-num">09</span>String Handling<a class="topic-link" href="../../topics/string-handling.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
-<li><a href="../../lessons/string-handling/StringHandlingDemo.html">StringHandlingDemo</a></li>
+<li class="active"><a href="../../lessons/string-handling/StringHandlingDemo.html">StringHandlingDemo</a></li>
 </ul>
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">10</span>SOLID Principles<a class="topic-link" href="../../topics/solid-principles.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">10</span>SOLID Principles<a class="topic-link" href="../../topics/solid-principles.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/solid-principles/SOLIDDemo.html">SOLIDDemo</a></li>
 </ul>
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">11</span>Access Modifiers<a class="topic-link" href="../../topics/access-modifiers.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">11</span>Access Modifiers<a class="topic-link" href="../../topics/access-modifiers.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/access-modifiers/AccessModifiersDemo.html">AccessModifiersDemo</a></li>
 </ul>
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">12</span>static &amp; final<a class="topic-link" href="../../topics/static-and-final.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">12</span>static &amp; final<a class="topic-link" href="../../topics/static-and-final.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/static-and-final/StaticFinalDemo.html">StaticFinalDemo</a></li>
 </ul>
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">13</span>Inner Classes<a class="topic-link" href="../../topics/inner-classes.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">13</span>Inner Classes<a class="topic-link" href="../../topics/inner-classes.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/inner-classes/InnerClassesDemo.html">InnerClassesDemo</a></li>
 </ul>
 </details></li>
 <li class="nav-topic">
 <details>
-<summary><span class="topic-num">14</span>Wrapper Classes<a class="topic-link" href="../../topics/wrapper-classes.html" onclick="event.stopPropagation()">overview</a></summary>
+<summary><span class="topic-num">14</span>Wrapper Classes<a class="topic-link" href="../../topics/wrapper-classes.html" onclick="event.stopPropagation()">guide</a></summary>
 <ul class="nav-lessons">
 <li><a href="../../lessons/wrapper-classes/WrapperAutoboxingDemo.html">WrapperAutoboxingDemo</a></li>
 </ul>
 </details></li>
 </ul></nav>
-    <main class="content">
+    <main class="content has-toc">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../topics/string-handling.html">String Handling</a><span class="sep">/</span><span class="current">StringHandlingDemo</span></nav>
-      <header class="page-header"><h1>StringHandlingDemo</h1><p class="page-subtitle">09 — String Handling · StringHandlingDemo.java</p></header>
-      <section class="code-section"><div class="code-window-bar"><div class="window-dots"><span></span><span></span><span></span></div><span class="code-filename">StringHandlingDemo.java</span><div class="code-meta"><button type="button" onclick="copyCode(this)">Copy</button></div></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+      <header class="page-header"><h1>LESSON 09 — String Handling (SDE2 Interview)</h1><p class="page-subtitle">String Handling · StringHandlingDemo.java</p></header>
+      <div class="lesson-meta"><span class="meta-pill accent">StringHandlingDemo</span><span class="meta-pill">210 lines</span><span class="meta-pill">~5 min read</span></div><div class="lesson-intro"><p>Key Topics:<br>1. String immutability<br>2. String pool (interning)<br>3. StringBuilder vs StringBuffer vs String concatenation<br>4. String methods (charAt, indexOf, substring, split, replace, matches)<br>5. equals vs == for Strings<br>6. String.format vs formatted()<br>7. Regular expressions<br>8. Interview coding patterns</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;Why is String immutable in Java?&quot; =&gt;Security (class loading, network), thread safety, hashCode caching, String pool feasibility</li><li>&quot;String vs StringBuilder vs StringBuffer?&quot; =&gt;String: immutable. StringBuilder: mutable, NOT thread-safe, faster. StringBuffer: mutable, synchronized (thread-safe), slower.</li><li>&quot;What is the String pool?&quot; =&gt;Special area in heap; string literals are deduplicated. new String(&quot;hi&quot;) bypasses the pool.</li><li>&quot;When is == true for strings?&quot; =&gt;Only when both references point to same object (same pool literal or same new String reference)</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>Immutability + String Pool</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 1. Immutability + String Pool ────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;=== String Pool and ==  ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span><span class="w">           </span><span class="c1">// String pool</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span><span class="w">           </span><span class="c1">// same pool object</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// new heap object — NOT from pool</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">intern</span><span class="p">();</span><span class="w">        </span><span class="c1">// explicitly add to/get from pool</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;a == b:        &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">));</span><span class="w">   </span><span class="c1">// true  — same pool object</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;a == c:        &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">c</span><span class="p">));</span><span class="w">   </span><span class="c1">// false — different objects</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;a == d:        &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">d</span><span class="p">));</span><span class="w">   </span><span class="c1">// true  — d is interned</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;a.equals(c):   &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">c</span><span class="p">));</span><span class="w"> </span><span class="c1">// true  — same content</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;ALWAYS use equals() for String comparison!&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+</div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>String is immutable</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 2. String is immutable ─────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Immutability ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">();</span><span class="w">  </span><span class="c1">// creates NEW String, s is unchanged</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;s: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (unchanged)&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;s2: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (new string)&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// s += &quot; World&quot;;  // creates new String objects on heap: &quot;Hello&quot; + &quot; World&quot; = &quot;Hello World&quot;</span>
+</code></pre></div></td></tr></table></div>
+</div></article><article class="lesson-section" id="section-3"><div class="section-header"><span class="section-num">3</span><h2>StringBuilder (mutable, not thread-safe)</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 3. StringBuilder (mutable, not thread-safe) ──────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== StringBuilder ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="w">          </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;, &quot;</span><span class="p">)</span>
+<span class="w">          </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">)</span>
+<span class="w">          </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">)</span>
+<span class="w">          </span><span class="p">.</span><span class="na">insert</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; Beautiful&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// insert at index</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Built: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sb</span><span class="p">);</span>
+<span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">reverse</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Reversed: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sb</span><span class="p">);</span>
+<span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;After delete(0,7): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sb</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Capacity: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">capacity</span><span class="p">());</span><span class="w"> </span><span class="c1">// default 16, grows as needed</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Length: &quot;</span><span class="w">   </span><span class="o">+</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">length</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// Performance: String concat in loops creates many objects</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== String concat vs StringBuilder performance ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="c1">// BAD: O(n²) — creates 1000 intermediate Strings</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;String concat (1000 iters): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1_000_000</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;ms&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">();</span>
+<span class="w">        </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sbPerf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">sbPerf</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w">  </span><span class="c1">// GOOD: O(n) — single buffer</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;StringBuilder (1000 iters): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">nanoTime</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1_000_000</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;ms&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Note: Java compiler auto-optimizes simple + in single expression, but NOT in loops</span>
+</code></pre></div></td></tr></table></div>
+</div></article><article class="lesson-section" id="section-4"><div class="section-header"><span class="section-num">4</span><h2>Core String Methods</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 4. Core String Methods ────────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Core String Methods ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;  Hello, World!  &quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;trim:         &#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">trim</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39;&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// trims whitespace</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;strip:        &#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">strip</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39;&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Java 11+, Unicode-aware</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;stripLeading: &#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">stripLeading</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39;&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;stripTrailing:&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">stripTrailing</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39;&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;isBlank:       &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;   &quot;</span><span class="p">.</span><span class="na">isBlank</span><span class="p">());</span><span class="w">   </span><span class="c1">// Java 11+: true if empty/whitespace</span>
+
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">clean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">trim</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;length:  &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clean</span><span class="p">.</span><span class="na">length</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;charAt:  &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clean</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span><span class="w">         </span><span class="c1">// &#39;H&#39;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;indexOf: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clean</span><span class="p">.</span><span class="na">indexOf</span><span class="p">(</span><span class="sc">&#39;o&#39;</span><span class="p">));</span><span class="w">       </span><span class="c1">// 4</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;lastIndexOf: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clean</span><span class="p">.</span><span class="na">lastIndexOf</span><span class="p">(</span><span class="sc">&#39;o&#39;</span><span class="p">));</span><span class="w"> </span><span class="c1">// 8</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;substring(7):   &#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clean</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39;&quot;</span><span class="p">);</span><span class="w">    </span><span class="c1">// &quot;World!&quot;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;substring(7,12):&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clean</span><span class="p">.</span><span class="na">substring</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39;&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// &quot;World&quot;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;contains:  &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clean</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;startsWith:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clean</span><span class="p">.</span><span class="na">startsWith</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;endsWith:  &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clean</span><span class="p">.</span><span class="na">endsWith</span><span class="p">(</span><span class="s">&quot;!&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;replace:   &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clean</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Java&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;replaceAll:&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clean</span><span class="p">.</span><span class="na">replaceAll</span><span class="p">(</span><span class="s">&quot;[aeiou]&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;*&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// regex replace</span>
+</code></pre></div></td></tr></table></div>
+</div></article><article class="lesson-section" id="section-5"><div class="section-header"><span class="section-num">5</span><h2>split</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 5. split ─────────────────────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== split ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">csv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Alice,Bob,,Charlie,Dave&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span><span class="w">         </span><span class="c1">// default: removes trailing empty strings</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Parts: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; length=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">parts</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">allParts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// -1 limit: keeps trailing empty strings</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;All parts: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">allParts</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; length=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">allParts</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// join (reverse of split)</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Join: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">join</span><span class="p">(</span><span class="s">&quot; | &quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Charlie&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Join list: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">join</span><span class="p">(</span><span class="s">&quot;, &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&quot;X&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Y&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Z&quot;</span><span class="p">)));</span>
+</code></pre></div></td></tr></table></div>
+</div></article><article class="lesson-section" id="section-6"><div class="section-header"><span class="section-num">6</span><h2>String.format and formatted</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 6. String.format and formatted ───────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== String formatting ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">formatted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Name: %-10s Age: %3d GPA: %.2f&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mf">3.987</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">formatted</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Java 15+ instance method:</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello, %s! You have %d messages.&quot;</span><span class="p">.</span><span class="na">formatted</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fmt</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+</div></article><article class="lesson-section" id="section-7"><div class="section-header"><span class="section-num">7</span><h2>Regular Expressions</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 7. Regular Expressions ───────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Regular Expressions ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// matches: entire string must match</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Email valid: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;test@example.com&quot;</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">&quot;[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Number: &quot;</span><span class="w">      </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;12345&quot;</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">&quot;\\d+&quot;</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// Pattern + Matcher for groups / find</span>
+<span class="w">        </span><span class="n">Pattern</span><span class="w"> </span><span class="n">emailPattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pattern</span><span class="p">.</span><span class="na">compile</span><span class="p">(</span><span class="s">&quot;([\\w.%+-]+)@([\\w.-]+)\\.([a-zA-Z]{2,})&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Matcher</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emailPattern</span><span class="p">.</span><span class="na">matcher</span><span class="p">(</span><span class="s">&quot;Contact alice@example.com or bob@test.org for info&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="na">find</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Found email: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">group</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (user=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, domain=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="na">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// replaceAll with regex</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">cleaned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;He11o W0r1d&quot;</span><span class="p">.</span><span class="na">replaceAll</span><span class="p">(</span><span class="s">&quot;[^a-zA-Z]&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Remove non-letters: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cleaned</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+</div></article><article class="lesson-section" id="section-8"><div class="section-header"><span class="section-num">8</span><h2>Common Interview Coding Patterns</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 8. Common Interview Coding Patterns ───────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Interview: Reverse a String ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">).</span><span class="na">reverse</span><span class="p">());</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Interview: Check Palindrome ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isPalindrome</span><span class="p">(</span><span class="s">&quot;racecar&quot;</span><span class="p">));</span><span class="w">  </span><span class="c1">// true</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">isPalindrome</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span><span class="w">    </span><span class="c1">// false</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Interview: Count character frequency ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">charFrequency</span><span class="p">(</span><span class="s">&quot;programming&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Interview: First non-repeating character ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;First non-repeating in &#39;programming&#39;: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">firstNonRepeating</span><span class="p">(</span><span class="s">&quot;programming&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// &#39;p&#39;... actually let&#39;s trace</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Interview: Anagram check ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;listen/silent anagram: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">areAnagrams</span><span class="p">(</span><span class="s">&quot;listen&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;silent&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// true</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Interview: String compression ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">compress</span><span class="p">(</span><span class="s">&quot;aabcccdddd&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// a2b1c3d4</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isPalindrome</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">left</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">right</span><span class="o">--</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">charFrequency</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Character</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">())</span><span class="w"> </span><span class="n">freq</span><span class="p">.</span><span class="na">merge</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">::</span><span class="n">sum</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Frequency of &#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39;: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">freq</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="nf">firstNonRepeating</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Character</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedHashMap</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"> </span><span class="c1">// preserves insertion order</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">())</span><span class="w"> </span><span class="n">freq</span><span class="p">.</span><span class="na">merge</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="p">::</span><span class="n">sum</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">Entry</span><span class="o">&lt;</span><span class="n">Character</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">freq</span><span class="p">.</span><span class="na">entrySet</span><span class="p">())</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getValue</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">getKey</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">areAnagrams</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">length</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">26</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">())</span><span class="w"> </span><span class="n">count</span><span class="o">[</span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="o">]++</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">())</span><span class="w"> </span><span class="n">count</span><span class="o">[</span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="o">]--</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">compress</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">        </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)).</span><span class="na">append</span><span class="p">(</span><span class="n">count</span><span class="p">);</span>
+<span class="w">                </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div></article><details class="full-source"><summary>View complete source file</summary><div class="full-source-panel"><div class="code-section"><div class="code-bar"><span class="code-lang">StringHandlingDemo.java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>
@@ -565,33 +912,14 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-</section>
+</div></div></details></div><aside class="lesson-toc"><div class="toc-label">In this lesson</div><ol><li><a href="#section-1">Immutability + String Pool</a></li><li><a href="#section-2">String is immutable</a></li><li><a href="#section-3">StringBuilder (mutable, not thread-safe)</a></li><li><a href="#section-4">Core String Methods</a></li><li><a href="#section-5">split</a></li><li><a href="#section-6">String.format and formatted</a></li><li><a href="#section-7">Regular Expressions</a></li><li><a href="#section-8">Common Interview Coding Patterns</a></li></ol></aside></div><nav class="lesson-nav"><a class="prev" href="../../lessons/jvm-internals/JVMInternalsDemo.html"><span class="nav-label">Previous</span><span class="nav-title">JVMInternalsDemo</span></a><a class="next" href="../../lessons/solid-principles/SOLIDDemo.html"><span class="nav-label">Next</span><span class="nav-title">SOLIDDemo</span></a></nav>
       <footer class="page-footer">
         <a href="../../index.html">← All lessons</a>
-        <span>32 demos · 14 topics</span>
+        <span>32 lessons · 14 topics</span>
       </footer>
     </main>
   </div>
-  <div class="toast" id="toast">Copied!</div>
-  <script>
-    function copyCode(btn) {
-      var code = document.querySelector('.highlight pre');
-      if (!code) return;
-      navigator.clipboard.writeText(code.innerText).then(function() {
-        btn.textContent = 'Copied!';
-        btn.classList.add('copied');
-        var t = document.getElementById('toast');
-        t.classList.add('show');
-        setTimeout(function() {
-          btn.textContent = 'Copy';
-          btn.classList.remove('copied');
-          t.classList.remove('show');
-        }, 2000);
-      });
-    }
-    document.querySelectorAll('pre code').forEach(function(block) {
-      block.setAttribute('tabindex', '0');
-    });
-  </script>
+  <div class="toast" id="toast">Copied to clipboard</div>
+  <script src="../../assets/app.js"></script>
 </body>
 </html>
