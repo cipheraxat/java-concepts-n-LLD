@@ -28,8 +28,9 @@
   --radius: 16px;
   --radius-sm: 12px;
   --radius-xs: 9999px;
-  --sidebar: 275px;
-  --toc: 220px;
+  --sidebar: 260px;
+  --toc: 300px;
+  --content-pad: 2rem;
   --header: 53px;
   --serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -124,10 +125,10 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 
 .layout {
   display: grid;
-  grid-template-columns: var(--sidebar) 1fr;
+  grid-template-columns: var(--sidebar) minmax(0, 1fr);
   min-height: calc(100vh - var(--header));
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
 }
 
 .sidebar {
@@ -319,25 +320,30 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 /* ── Content ── */
 
 .content {
-  max-width: 600px;
-  padding: 0 1rem 3rem;
+  width: 100%;
+  max-width: none;
+  padding: 0 var(--content-pad) 3rem;
   border-right: 1px solid var(--border);
   min-height: calc(100vh - var(--header));
 }
 
 .content.has-toc {
-  max-width: 720px;
-  padding: 0 1rem 3rem;
+  max-width: none;
+  padding: 0 var(--content-pad) 3rem calc(var(--content-pad) + 0.5rem);
 }
 
 .lesson-page {
   display: grid;
-  grid-template-columns: 1fr var(--toc);
-  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) var(--toc);
+  gap: 2.5rem;
   align-items: start;
+  width: 100%;
 }
 
-.lesson-main { min-width: 0; }
+.lesson-main {
+  min-width: 0;
+  max-width: none;
+}
 
 .breadcrumbs {
   display: flex;
@@ -1058,14 +1064,16 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .lesson-toc {
   position: sticky;
   top: calc(var(--header) + 1rem);
-  padding: 0.75rem 0;
+  padding: 1rem 0 1rem 1rem;
+  border-left: 1px solid var(--border);
+  min-width: var(--toc);
 }
 
 .toc-label {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--text-heading);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.65rem;
 }
 
 .lesson-toc ol {
@@ -1077,12 +1085,13 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 
 .lesson-toc a {
   display: block;
-  padding: 0.35rem 0;
-  font-size: 0.85rem;
+  padding: 0.4rem 0;
+  font-size: 0.875rem;
   font-weight: 400;
   color: var(--text-secondary);
   border: none;
-  line-height: 1.35;
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 .lesson-toc a:hover { color: var(--text-heading); text-decoration: none; }
@@ -1388,7 +1397,12 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   .content, .content.has-toc {
     max-width: 100%;
     border-right: none;
-    padding: 0 1rem 3rem;
+    padding: 0 1.15rem 3rem;
+  }
+
+  .lesson-toc {
+    border-left: none;
+    padding-left: 0;
   }
 
   .sidebar {
