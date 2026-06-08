@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/style.css">
   <link rel="stylesheet" href="../../assets/pygments.css">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -150,7 +150,7 @@
     <main class="content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../topics/oop-concepts.html">OOP Concepts</a><span class="sep">/</span><span class="current">InheritanceDemo</span></nav>
       <header class="page-header"><h1>LESSON 01B — INHERITANCE</h1><p class="page-subtitle">OOP Concepts · InheritanceDemo.java</p></header>
-      <div class="lesson-meta"><span class="meta-pill accent">InheritanceDemo</span><span class="meta-pill">127 lines</span><span class="meta-pill">~3 min read</span></div><div class="lesson-intro"><p>Inheritance = a child class acquires all non-private members of a parent class.<br>Java supports: Single, Multi-level, Hierarchical  (NOT multiple via classes — use interfaces for that)</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;Why doesn&#x27;t Java support multiple inheritance with classes?&quot; =&gt;Diamond problem — ambiguous method resolution. Solved via interfaces.</li><li>&quot;What is the difference between method hiding and method overriding?&quot; =&gt;Static methods are hidden (resolved at compile time by reference type),</li><li>&quot;Can a subclass constructor skip calling super()?&quot; =&gt;Compiler auto-inserts super() if no explicit call. If parent has no no-arg constructor,</li></ul></aside><div class="code-section"><div class="code-bar"><span class="code-lang">InheritanceDemo.java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+      <div class="lesson-meta"><span class="meta-pill accent">InheritanceDemo</span><span class="meta-pill">127 lines</span><span class="meta-pill">~3 min read</span></div><div class="lesson-intro"><p>Inheritance = a child class acquires all non-private members of a parent class.<br>Java supports: Single, Multi-level, Hierarchical  (NOT multiple via classes — use interfaces for that)</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;Why doesn&#x27;t Java support multiple inheritance with classes?&quot; =&gt; Diamond problem — ambiguous method resolution. Solved via interfaces.</li><li>&quot;What is the difference between method hiding and method overriding?&quot; =&gt; Static methods are hidden (resolved at compile time by reference type),</li><li>&quot;Can a subclass constructor skip calling super()?&quot; =&gt; Compiler auto-inserts super() if no explicit call. If parent has no no-arg constructor,</li></ul></aside><div class="code-section"><div class="code-bar"><span class="code-lang">InheritanceDemo.java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>

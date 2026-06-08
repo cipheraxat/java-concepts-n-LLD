@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/pygments.css">
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -163,7 +163,7 @@
 <li><code>protected</code> access across packages (inheritance vs reference)</li>
 </ol>
 <h2>Key Interview Points</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Concept</th>
@@ -220,9 +220,9 @@
 <td><code>protected</code> adds subclass access in other packages; default is package-only</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2>Access Scope Table</h2>
-<pre><code>┌───────────┬───────┬─────────┬────────────────┬───────┐
+<div class="readme-code"><pre><code>┌───────────┬───────┬─────────┬────────────────┬───────┐
 │ Modifier  │ Class │ Package │ Subclass       │ World │
 │           │       │         │ (diff package) │       │
 ├───────────┼───────┼─────────┼────────────────┼───────┤
@@ -231,7 +231,7 @@
 │ protected │  ✅   │   ✅    │      ✅        │  ❌   │
 │ public    │  ✅   │   ✅    │      ✅        │  ✅   │
 └───────────┴───────┴─────────┴────────────────┴───────┘
-</code></pre>
+</code></pre></div>
 <h2>Files in this Lesson</h2>
 <ul>
 <li><code>AccessModifiersDemo.java</code> — All four modifiers, overriding rules, interfaces, nested classes, private constructors</li>

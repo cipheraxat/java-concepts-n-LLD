@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/pygments.css">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -159,23 +159,14 @@
     <div class="hero-stat"><strong>Q&A</strong><span>Interview focus</span></div>
   </div>
 </section>
-      <section class="hero">
-  <span class="hero-eyebrow">SDE2 Interview Preparation</span>
-  <h1>Learn Java, one concept at a time</h1>
-  <p class="hero-lead">Structured lessons with theory, interview questions, and annotated code — designed for focused study, not just reading source files.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><strong>32</strong><span>Interactive lessons</span></div>
-    <div class="hero-stat"><strong>14</strong><span>Core topics</span></div>
-    <div class="hero-stat"><strong>Q&A</strong><span>Interview focus</span></div>
-  </div>
-</section><section class="study-path"><h2>Suggested study path</h2><div class="path-grid"><div class="path-card"><div class="path-week">Week 1</div><p><a href="topics/oop-concepts.html">OOP Concepts</a> → <a href="topics/collections-framework.html">Collections Framework</a> → <a href="topics/string-handling.html">String Handling</a> → <a href="topics/exception-handling.html">Exception Handling</a></p></div><div class="path-card"><div class="path-week">Week 2</div><p><a href="topics/java8-features.html">Java 8+ Features</a> → <a href="topics/generics.html">Generics</a> → <a href="topics/solid-principles.html">SOLID Principles</a></p></div><div class="path-card"><div class="path-week">Week 3</div><p><a href="topics/multithreading-concurrency.html">Multithreading &amp; Concurrency</a> → <a href="topics/design-patterns.html">Design Patterns</a> → <a href="topics/jvm-internals.html">JVM Internals</a></p></div></div></section><details class="curriculum-details"><summary>Full curriculum guide</summary><section class="readme"><h1>Core Java — SDE2 Interview Preparation</h1>
+      <section class="study-path"><h2>Suggested study path</h2><div class="path-grid"><div class="path-card"><div class="path-week">Week 1</div><p><a href="topics/oop-concepts.html">OOP Concepts</a> → <a href="topics/collections-framework.html">Collections Framework</a> → <a href="topics/string-handling.html">String Handling</a> → <a href="topics/exception-handling.html">Exception Handling</a></p></div><div class="path-card"><div class="path-week">Week 2</div><p><a href="topics/java8-features.html">Java 8+ Features</a> → <a href="topics/generics.html">Generics</a> → <a href="topics/solid-principles.html">SOLID Principles</a></p></div><div class="path-card"><div class="path-week">Week 3</div><p><a href="topics/multithreading-concurrency.html">Multithreading &amp; Concurrency</a> → <a href="topics/design-patterns.html">Design Patterns</a> → <a href="topics/jvm-internals.html">JVM Internals</a></p></div></div></section><details class="curriculum-details"><summary>Full curriculum guide</summary><section class="readme"><h1>Core Java — SDE2 Interview Preparation</h1>
 <blockquote>
 <p>Comprehensive Java lessons covering all topics tested in SDE2-level interviews.
 Each lesson contains theory, annotated code examples, and answers to common interview questions.</p>
 </blockquote>
 <hr />
 <h2>Lesson Index</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>#</th>
@@ -270,11 +261,11 @@ Each lesson contains theory, annotated code examples, and answers to common inte
 <td>⭐⭐</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <hr />
 <h2>SDE2 Interview Focus Areas</h2>
 <h3>Must-Know (High Frequency)</h3>
-<pre><code>✅ HashMap internals (hashing, collision, Java 8 treeification, load factor)
+<div class="readme-code"><pre><code>✅ HashMap internals (hashing, collision, Java 8 treeification, load factor)
 ✅ Java Memory Model (volatile, happens-before, synchronized)
 ✅ Thread pool configuration (core/max/queue/rejection policy)
 ✅ CompletableFuture chaining (thenApply/thenCompose/thenCombine/exceptionally)
@@ -284,7 +275,7 @@ Each lesson contains theory, annotated code examples, and answers to common inte
 ✅ Singleton patterns (enum, DCL, holder)
 ✅ SOLID + Design Patterns (explain + code)
 ✅ Checked vs Unchecked exceptions, try-with-resources
-</code></pre>
+</code></pre></div>
 <h3>Common Interview Questions by Category</h3>
 <h4>OOP</h4>
 <ul>
@@ -348,7 +339,7 @@ java --enable-preview -cp out lessons.collections_framework.MapDemo
 java --enable-preview -cp out lessons.java8_features.StreamAPIDemo
 java --enable-preview -cp out lessons.multithreading_concurrency.ConcurrentUtilsDemo
 java --enable-preview -cp out lessons.inner_classes.InnerClassesDemo
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> <code>--enable-preview</code> is needed for sealed classes and some modern Java features.<br />
 Tested with Java 17 and Java 21.</p>

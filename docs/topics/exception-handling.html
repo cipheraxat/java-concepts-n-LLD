@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/pygments.css">
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -163,14 +163,14 @@
 <li>Best practices — what to do and NOT do</li>
 </ol>
 <h2>Exception Hierarchy</h2>
-<pre><code>Throwable
+<div class="readme-code"><pre><code>Throwable
 ├── Error           (unchecked — JVM issues, don't catch: OutOfMemoryError, StackOverflowError)
 └── Exception
     ├── RuntimeException  (unchecked — programming errors: NPE, AIOOBE, ClassCastException)
     └── [Checked exceptions]  (must declare/handle: IOException, SQLException, etc.)
-</code></pre>
+</code></pre></div>
 <h2>Key Interview Points</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Question</th>
@@ -203,7 +203,7 @@
 <td>Wrapping original exception as cause so root cause is not lost</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2>Files in this Lesson</h2>
 <ul>
 <li><code>ExceptionHierarchyDemo.java</code> — hierarchy, checked/unchecked, common exceptions</li>

@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/pygments.css">
+  <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -167,7 +167,7 @@
 <li>Common problems: race condition, deadlock, livelock, starvation</li>
 </ol>
 <h2>Key Interview Points</h2>
-<table>
+<div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Concept</th>
@@ -204,7 +204,7 @@
 <td>ConcurrentHashMap: bucket-level sync (CAS), no global lock, better throughput</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <h2>Files in this Lesson</h2>
 <ul>
 <li><code>ThreadBasicsDemo.java</code> — Thread, Runnable, Callable, thread lifecycle</li>

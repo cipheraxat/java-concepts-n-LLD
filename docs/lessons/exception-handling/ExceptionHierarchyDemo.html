@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/style.css">
   <link rel="stylesheet" href="../../assets/pygments.css">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -150,7 +150,7 @@
     <main class="content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../topics/exception-handling.html">Exception Handling</a><span class="sep">/</span><span class="current">ExceptionHierarchyDemo</span></nav>
       <header class="page-header"><h1>LESSON 04A — Exception Hierarchy and Core Mechanics</h1><p class="page-subtitle">Exception Handling · ExceptionHierarchyDemo.java</p></header>
-      <div class="lesson-meta"><span class="meta-pill accent">ExceptionHierarchyDemo</span><span class="meta-pill">159 lines</span><span class="meta-pill">~3 min read</span></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;What is the difference between throw and throws?&quot; =&gt;throw: used to actually throw an exception; throws: declares what method may throw (checked)</li><li>&quot;Can we have try without catch?&quot; =&gt; YES, if there is a finally block (try-finally)</li><li>&quot;What happens when exception is thrown in finally?&quot; =&gt; It replaces the original exception!</li><li>&quot;Order of catch blocks?&quot; =&gt; Must go from most specific to least specific (subclass before superclass)</li></ul></aside><div class="code-section"><div class="code-bar"><span class="code-lang">ExceptionHierarchyDemo.java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+      <div class="lesson-meta"><span class="meta-pill accent">ExceptionHierarchyDemo</span><span class="meta-pill">159 lines</span><span class="meta-pill">~3 min read</span></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;What is the difference between throw and throws?&quot; =&gt; throw: used to actually throw an exception; throws: declares what method may throw (checked)</li><li>&quot;Can we have try without catch?&quot; =&gt; YES, if there is a finally block (try-finally)</li><li>&quot;What happens when exception is thrown in finally?&quot; =&gt; It replaces the original exception!</li><li>&quot;Order of catch blocks?&quot; =&gt; Must go from most specific to least specific (subclass before superclass)</li></ul></aside><div class="code-section"><div class="code-bar"><span class="code-lang">ExceptionHierarchyDemo.java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>

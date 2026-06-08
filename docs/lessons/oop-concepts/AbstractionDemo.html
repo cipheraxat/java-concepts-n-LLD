@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/style.css">
   <link rel="stylesheet" href="../../assets/pygments.css">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -150,7 +150,7 @@
     <main class="content has-toc">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../topics/oop-concepts.html">OOP Concepts</a><span class="sep">/</span><span class="current">AbstractionDemo</span></nav>
       <header class="page-header"><h1>LESSON 01D — ABSTRACTION</h1><p class="page-subtitle">OOP Concepts · AbstractionDemo.java</p></header>
-      <div class="lesson-meta"><span class="meta-pill accent">AbstractionDemo</span><span class="meta-pill">160 lines</span><span class="meta-pill">~4 min read</span></div><div class="lesson-intro"><p>Abstraction = exposing essential features, hiding implementation details.<br>Two mechanisms: Abstract Class, Interface</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;When to use abstract class vs interface?&quot; =&gt;Abstract class: shared state/code + IS-A relationship (e.g., Template Method pattern)</li><li>&quot;Can an interface have constructors?&quot; =&gt; NO</li><li>&quot;Can an abstract class have no abstract methods?&quot; =&gt; YES (prevents direct instantiation)</li><li>&quot;What are default methods in Java 8 interfaces?&quot; =&gt; Concrete method in interface; enables</li><li>&quot;Diamond problem with default methods?&quot; =&gt; Must override in implementing class when ambiguous</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>Abstract Class</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+      <div class="lesson-meta"><span class="meta-pill accent">AbstractionDemo</span><span class="meta-pill">160 lines</span><span class="meta-pill">~4 min read</span></div><div class="lesson-intro"><p>Abstraction = exposing essential features, hiding implementation details.<br>Two mechanisms: Abstract Class, Interface</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;When to use abstract class vs interface?&quot; =&gt; Abstract class: shared state/code + IS-A relationship (e.g., Template Method pattern)</li><li>&quot;Can an interface have constructors?&quot; =&gt; NO</li><li>&quot;Can an abstract class have no abstract methods?&quot; =&gt; YES (prevents direct instantiation)</li><li>&quot;What are default methods in Java 8 interfaces?&quot; =&gt; Concrete method in interface; enables</li><li>&quot;Diamond problem with default methods?&quot; =&gt; Must override in implementing class when ambiguous</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>Abstract Class</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -189,9 +189,7 @@
 <span class="normal">37</span>
 <span class="normal">38</span>
 <span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 1. Abstract Class ───────────────────────────────────────────────────────</span>
-<span class="w">    </span><span class="c1">// Has: state, constructors, abstract + concrete methods, access modifiers on members</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Has: state, constructors, abstract + concrete methods, access modifiers on members</span>
 <span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DatabaseConnector</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">host</span><span class="p">;</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">port</span><span class="p">;</span>
@@ -269,9 +267,7 @@
 <span class="normal">35</span>
 <span class="normal">36</span>
 <span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 2. Interface ────────────────────────────────────────────────────────────</span>
-<span class="w">    </span><span class="c1">// All fields are implicitly: public static final</span>
+<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// All fields are implicitly: public static final</span>
 <span class="w">    </span><span class="c1">// All methods are implicitly: public abstract (unless default/static/private)</span>
 <span class="w">    </span><span class="kd">interface</span> <span class="nc">Drawable</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span><span class="w">    </span><span class="c1">// public static final</span>
@@ -310,37 +306,16 @@
 <span class="w">        </span><span class="nd">@Override</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">resize</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">factor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">factor</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-3"><div class="section-header"><span class="section-num">3</span><h2>Abstract Class vs Interface — Side-by-Side</h2></div><div class="concept-block"><p>Feature                    | Abstract Class     | Interface<br>                               (extends)            (implements)<br>────────────────────────────|────────────────────|──────────────────────────<br>Instantiation               | NO                 | NO<br>Constructors                | YES                | NO<br>Instance fields (state)     | YES                | NO (only static final)<br>Access modifiers on members | YES                | public only (mostly)<br>Multiple inheritance        | NO (single)        | YES (implement many)<br>Default/static methods      | YES                | YES (Java 8+)<br>When to use                 | Shared base impl   | Pure contract/capability</p><p>Example: AbstractList (abstract class) vs List (interface)</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 3. Abstract Class vs Interface — Side-by-Side ──────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     *  Feature                    | Abstract Class     | Interface</span>
-<span class="cm">     *                                (extends)            (implements)</span>
-<span class="cm">     * ────────────────────────────|────────────────────|──────────────────────────</span>
-<span class="cm">     * Instantiation               | NO                 | NO</span>
-<span class="cm">     * Constructors                | YES                | NO</span>
-<span class="cm">     * Instance fields (state)     | YES                | NO (only static final)</span>
-<span class="cm">     * Access modifiers on members | YES                | public only (mostly)</span>
-<span class="cm">     * Multiple inheritance        | NO (single)        | YES (implement many)</span>
-<span class="cm">     * Default/static methods      | YES                | YES (Java 8+)</span>
-<span class="cm">     * When to use                 | Shared base impl   | Pure contract/capability</span>
-<span class="cm">     *</span>
-<span class="cm">     * Example: AbstractList (abstract class) vs List (interface)</span>
-<span class="cm">     */</span>
-</code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-4"><div class="section-header"><span class="section-num">4</span><h2>Diamond Problem with Interfaces</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+</div></article><article class="lesson-section" id="section-3"><div class="section-header"><span class="section-num">3</span><h2>Abstract Class vs Interface — Side-by-Side</h2></div><div class="concept-block"><pre class="concept-pre">Feature                    | Abstract Class     | Interface
+                               (extends)            (implements)
+────────────────────────────|────────────────────|──────────────────────────
+Instantiation               | NO                 | NO
+Constructors                | YES                | NO
+Instance fields (state)     | YES                | NO (only static final)
+Access modifiers on members | YES                | public only (mostly)
+Multiple inheritance        | NO (single)        | YES (implement many)
+Default/static methods      | YES                | YES (Java 8+)
+When to use                 | Shared base impl   | Pure contract/capability</pre><p>Example: AbstractList (abstract class) vs List (interface)</p></div></article><article class="lesson-section" id="section-4"><div class="section-header"><span class="section-num">4</span><h2>Diamond Problem with Interfaces</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -380,9 +355,7 @@
 <span class="normal">38</span>
 <span class="normal">39</span>
 <span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 4. Diamond Problem with Interfaces ──────────────────────────────────────</span>
-<span class="w">    </span><span class="kd">interface</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">interface</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">default</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">hello</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hello from A&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 

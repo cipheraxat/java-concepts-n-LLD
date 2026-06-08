@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/style.css">
   <link rel="stylesheet" href="../../assets/pygments.css">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -150,31 +150,15 @@
     <main class="content has-toc">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../topics/access-modifiers.html">Access Modifiers</a><span class="sep">/</span><span class="current">AccessModifiersDemo</span></nav>
       <header class="page-header"><h1>LESSON 11A — ACCESS MODIFIERS</h1><p class="page-subtitle">Access Modifiers · AccessModifiersDemo.java</p></header>
-      <div class="lesson-meta"><span class="meta-pill accent">AccessModifiersDemo</span><span class="meta-pill">309 lines</span><span class="meta-pill">~7 min read</span></div><div class="lesson-intro"><p>Java has 4 access levels (most restrictive → least restrictive):<br>private → default (package-private) → protected → public</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;Explain all four access modifiers with scope.&quot;</li><li>&quot;Can a subclass in a different package access protected members?&quot; =&gt;YES — via inheritance only, NOT through object reference of parent type.</li><li>&quot;What is the default access level?&quot; =&gt; Package-private (no keyword)</li><li>&quot;Can a top-level class be private or protected?&quot; =&gt; NO — only public or default</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>Access Modifier Scope</h2></div><div class="concept-block"><p>┌───────────┬───────┬─────────┬────────────┬───────┐<br>│ Modifier  │ Class │ Package │ Subclass   │ World │<br>│           │       │         │ (diff pkg) │       │<br>├───────────┼───────┼─────────┼────────────┼───────┤<br>│ private   │  ✅   │   ❌    │    ❌      │  ❌   │<br>│ default   │  ✅   │   ✅    │    ❌      │  ❌   │<br>│ protected │  ✅   │   ✅    │    ✅      │  ❌   │<br>│ public    │  ✅   │   ✅    │    ✅      │  ✅   │<br>└───────────┴───────┴─────────┴────────────┴───────┘</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 1. Access Modifier Scope ────────────────────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * ┌───────────┬───────┬─────────┬────────────┬───────┐</span>
-<span class="cm">     * │ Modifier  │ Class │ Package │ Subclass   │ World │</span>
-<span class="cm">     * │           │       │         │ (diff pkg) │       │</span>
-<span class="cm">     * ├───────────┼───────┼─────────┼────────────┼───────┤</span>
-<span class="cm">     * │ private   │  ✅   │   ❌    │    ❌      │  ❌   │</span>
-<span class="cm">     * │ default   │  ✅   │   ✅    │    ❌      │  ❌   │</span>
-<span class="cm">     * │ protected │  ✅   │   ✅    │    ✅      │  ❌   │</span>
-<span class="cm">     * │ public    │  ✅   │   ✅    │    ✅      │  ✅   │</span>
-<span class="cm">     * └───────────┴───────┴─────────┴────────────┴───────┘</span>
-<span class="cm">     */</span>
-</code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>private — Class-only access</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+      <div class="lesson-meta"><span class="meta-pill accent">AccessModifiersDemo</span><span class="meta-pill">309 lines</span><span class="meta-pill">~7 min read</span></div><div class="lesson-intro"><p>Java has 4 access levels (most restrictive → least restrictive):<br>private → default (package-private) → protected → public</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;Explain all four access modifiers with scope.&quot;</li><li>&quot;Can a subclass in a different package access protected members?&quot; =&gt; YES — via inheritance only, NOT through object reference of parent type.</li><li>&quot;What is the default access level?&quot; =&gt; Package-private (no keyword)</li><li>&quot;Can a top-level class be private or protected?&quot; =&gt; NO — only public or default</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>Access Modifier Scope</h2></div><div class="concept-block"><pre class="concept-pre">┌───────────┬───────┬─────────┬────────────┬───────┐
+│ Modifier  │ Class │ Package │ Subclass   │ World │
+│           │       │         │ (diff pkg) │       │
+├───────────┼───────┼─────────┼────────────┼───────┤
+│ private   │  ✅   │   ❌    │    ❌      │  ❌   │
+│ default   │  ✅   │   ✅    │    ❌      │  ❌   │
+│ protected │  ✅   │   ✅    │    ✅      │  ❌   │
+│ public    │  ✅   │   ✅    │    ✅      │  ✅   │
+└───────────┴───────┴─────────┴────────────┴───────┘</pre></div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>private — Class-only access</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -192,11 +176,7 @@
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 2. private — Class-only access ──────────────────────────────────────────</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Credentials</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Credentials</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="p">;</span><span class="w">  </span><span class="c1">// only accessible within Credentials</span>
 
 <span class="w">        </span><span class="n">Credentials</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -216,28 +196,14 @@
 <span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getMasked</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mask</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-3"><div class="section-header"><span class="section-num">3</span><h2>default (package-private) — Same package only</h2></div><div class="concept-block"><p>No keyword → default access.<br>Classes, methods, and fields without any modifier are package-private.<br>This is Java&#x27;s way of grouping related collaborators within a package.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 3. default (package-private) — Same package only ────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * No keyword → default access.</span>
-<span class="cm">     * Classes, methods, and fields without any modifier are package-private.</span>
-<span class="cm">     * This is Java&#39;s way of grouping related collaborators within a package.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PackageHelper</span><span class="w"> </span><span class="p">{</span>
+</div></article><article class="lesson-section" id="section-3"><div class="section-header"><span class="section-num">3</span><h2>default (package-private) — Same package only</h2></div><div class="concept-block"><p>No keyword → default access.<br>Classes, methods, and fields without any modifier are package-private.<br>This is Java&#x27;s way of grouping related collaborators within a package.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PackageHelper</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// default access — visible only within lessons.access_modifiers package</span>
 <span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">internalName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;helper&quot;</span><span class="p">;</span>
 
@@ -269,11 +235,7 @@
 <span class="normal">21</span>
 <span class="normal">22</span>
 <span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 4. protected — Same package + subclasses ────────────────────────────────</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">protected</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
 
 <span class="w">        </span><span class="kd">protected</span><span class="w"> </span><span class="nf">Animal</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -304,11 +266,7 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 5. public — Accessible everywhere ───────────────────────────────────────</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MathUtils</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MathUtils</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159265</span><span class="p">;</span>
 
 <span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">circleArea</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -344,25 +302,7 @@
 <span class="normal">26</span>
 <span class="normal">27</span>
 <span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 6. Private Constructor — Utility Classes &amp; Singleton ────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Interview: &quot;When would you make a constructor private?&quot;</span>
-<span class="cm">     *  1. Singleton pattern — only one instance</span>
-<span class="cm">     *  2. Utility class — all static methods, no instantiation</span>
-<span class="cm">     *  3. Factory pattern — control object creation via static factory methods</span>
-<span class="cm">     *  4. Builder pattern — construction through nested Builder</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Registry</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Registry</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Registry</span><span class="w"> </span><span class="n">INSTANCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Registry</span><span class="p">();</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
@@ -392,7 +332,12 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-7"><div class="section-header"><span class="section-num">7</span><h2>Access Modifiers &amp; Method Overriding</h2></div><div class="concept-block"><p>RULE: Overriding method CANNOT have MORE restrictive access than the parent.<br>      (Can be same or wider)</p><p>Parent method      → Valid overrides in child<br>  ─────────────         ─────────────────────────<br>  public             → public ONLY<br>  protected          → protected OR public<br>  default            → default, protected, OR public<br>  private            → NOT overridden (not visible to child)</p><p>WHY? Liskov Substitution — a subclass instance must be usable wherever<br>the parent type is expected. Restricting access would break that contract.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+</div></article><article class="lesson-section" id="section-7"><div class="section-header"><span class="section-num">7</span><h2>Access Modifiers &amp; Method Overriding</h2></div><div class="concept-block"><p>RULE: Overriding method CANNOT have MORE restrictive access than the parent.<br>      (Can be same or wider)</p><pre class="concept-pre">Parent method      → Valid overrides in child
+  ─────────────         ─────────────────────────
+  public             → public ONLY
+  protected          → protected OR public
+  default            → default, protected, OR public
+  private            → NOT overridden (not visible to child)</pre><p>WHY? Liskov Substitution — a subclass instance must be usable wherever<br>the parent type is expected. Restricting access would break that contract.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -410,39 +355,7 @@
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 7. Access Modifiers &amp; Method Overriding ─────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * RULE: Overriding method CANNOT have MORE restrictive access than the parent.</span>
-<span class="cm">     *       (Can be same or wider)</span>
-<span class="cm">     *</span>
-<span class="cm">     *   Parent method      → Valid overrides in child</span>
-<span class="cm">     *   ─────────────         ─────────────────────────</span>
-<span class="cm">     *   public             → public ONLY</span>
-<span class="cm">     *   protected          → protected OR public</span>
-<span class="cm">     *   default            → default, protected, OR public</span>
-<span class="cm">     *   private            → NOT overridden (not visible to child)</span>
-<span class="cm">     *</span>
-<span class="cm">     * WHY? Liskov Substitution — a subclass instance must be usable wherever</span>
-<span class="cm">     * the parent type is expected. Restricting access would break that contract.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">protected</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">action</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  Base#action (protected)&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
@@ -481,31 +394,7 @@
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 8. Access Modifiers on Interfaces ───────────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Interface members have implicit modifiers:</span>
-<span class="cm">     *  - Methods       → public abstract    (before Java 8)</span>
-<span class="cm">     *  - Default methods → public           (Java 8+)</span>
-<span class="cm">     *  - Static methods  → public           (Java 8+)</span>
-<span class="cm">     *  - Private methods → private          (Java 9+ — helper for default methods)</span>
-<span class="cm">     *  - Fields        → public static final (constants)</span>
-<span class="cm">     *</span>
-<span class="cm">     * You CANNOT use protected or default access on interface methods.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">interface</span> <span class="nc">Loggable</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">interface</span> <span class="nc">Loggable</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// implicitly public abstract</span>
 <span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="nf">getLogPrefix</span><span class="p">();</span>
 
@@ -526,39 +415,15 @@
 <span class="w">        </span><span class="c1">// Must be public — interface methods are implicitly public</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-9"><div class="section-header"><span class="section-num">9</span><h2>Access Modifiers on Top-level Classes</h2></div><div class="concept-block"><p>Top-level class can ONLY be:<br>  - public  → one public class per file, filename must match<br>  - default → package-private, accessible only within same package</p><p>CANNOT be private or protected at top level.</p><p>Inner/nested classes can use ALL four modifiers:<br>  public class Outer {<br>      private   class PrivateInner   {}  // ✅<br>      protected class ProtectedInner {}  // ✅<br>                class DefaultInner   {}  // ✅<br>      public    class PublicInner    {}  // ✅<br>  }</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 9. Access Modifiers on Top-level Classes ────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Top-level class can ONLY be:</span>
-<span class="cm">     *   - public  → one public class per file, filename must match</span>
-<span class="cm">     *   - default → package-private, accessible only within same package</span>
-<span class="cm">     *</span>
-<span class="cm">     * CANNOT be private or protected at top level.</span>
-<span class="cm">     *</span>
-<span class="cm">     * Inner/nested classes can use ALL four modifiers:</span>
-<span class="cm">     *   public class Outer {</span>
-<span class="cm">     *       private   class PrivateInner   {}  // ✅</span>
-<span class="cm">     *       protected class ProtectedInner {}  // ✅</span>
-<span class="cm">     *                 class DefaultInner   {}  // ✅</span>
-<span class="cm">     *       public    class PublicInner    {}  // ✅</span>
-<span class="cm">     *   }</span>
-<span class="cm">     */</span>
-</code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-10"><div class="section-header"><span class="section-num">10</span><h2>Nested Class Access Rules</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+</div></article><article class="lesson-section" id="section-9"><div class="section-header"><span class="section-num">9</span><h2>Access Modifiers on Top-level Classes</h2></div><div class="concept-block"><pre class="concept-pre">Top-level class can ONLY be:
+  - public  → one public class per file, filename must match
+  - default → package-private, accessible only within same package</pre><p>CANNOT be private or protected at top level.</p><pre class="concept-pre">Inner/nested classes can use ALL four modifiers:
+  public class Outer {
+      private   class PrivateInner   {}  // ✅
+      protected class ProtectedInner {}  // ✅
+                class DefaultInner   {}  // ✅
+      public    class PublicInner    {}  // ✅
+  }</pre></div></article><article class="lesson-section" id="section-10"><div class="section-header"><span class="section-num">10</span><h2>Nested Class Access Rules</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -634,11 +499,7 @@
 <span class="normal">74</span>
 <span class="normal">75</span>
 <span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 10. Nested Class Access Rules ───────────────────────────────────────────</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Outer</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Outer</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">staticSecret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 

@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/style.css">
   <link rel="stylesheet" href="../../assets/pygments.css">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -150,7 +150,7 @@
     <main class="content has-toc">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../topics/string-handling.html">String Handling</a><span class="sep">/</span><span class="current">StringHandlingDemo</span></nav>
       <header class="page-header"><h1>LESSON 09 — String Handling (SDE2 Interview)</h1><p class="page-subtitle">String Handling · StringHandlingDemo.java</p></header>
-      <div class="lesson-meta"><span class="meta-pill accent">StringHandlingDemo</span><span class="meta-pill">210 lines</span><span class="meta-pill">~5 min read</span></div><div class="lesson-intro"><p>Key Topics:<br>1. String immutability<br>2. String pool (interning)<br>3. StringBuilder vs StringBuffer vs String concatenation<br>4. String methods (charAt, indexOf, substring, split, replace, matches)<br>5. equals vs == for Strings<br>6. String.format vs formatted()<br>7. Regular expressions<br>8. Interview coding patterns</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;Why is String immutable in Java?&quot; =&gt;Security (class loading, network), thread safety, hashCode caching, String pool feasibility</li><li>&quot;String vs StringBuilder vs StringBuffer?&quot; =&gt;String: immutable. StringBuilder: mutable, NOT thread-safe, faster. StringBuffer: mutable, synchronized (thread-safe), slower.</li><li>&quot;What is the String pool?&quot; =&gt;Special area in heap; string literals are deduplicated. new String(&quot;hi&quot;) bypasses the pool.</li><li>&quot;When is == true for strings?&quot; =&gt;Only when both references point to same object (same pool literal or same new String reference)</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>Immutability + String Pool</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+      <div class="lesson-meta"><span class="meta-pill accent">StringHandlingDemo</span><span class="meta-pill">210 lines</span><span class="meta-pill">~5 min read</span></div><div class="lesson-intro"><p>Key Topics:<br>1. String immutability<br>2. String pool (interning)<br>3. StringBuilder vs StringBuffer vs String concatenation<br>4. String methods (charAt, indexOf, substring, split, replace, matches)<br>5. equals vs == for Strings<br>6. String.format vs formatted()<br>7. Regular expressions<br>8. Interview coding patterns</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;Why is String immutable in Java?&quot; =&gt; Security (class loading, network), thread safety, hashCode caching, String pool feasibility</li><li>&quot;String vs StringBuilder vs StringBuffer?&quot; =&gt; String: immutable. StringBuilder: mutable, NOT thread-safe, faster. StringBuffer: mutable, synchronized (thread-safe), slower.</li><li>&quot;What is the String pool?&quot; =&gt; Special area in heap; string literals are deduplicated. new String(&quot;hi&quot;) bypasses the pool.</li><li>&quot;When is == true for strings?&quot; =&gt; Only when both references point to same object (same pool literal or same new String reference)</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>Immutability + String Pool</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -160,9 +160,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 1. Immutability + String Pool ────────────────────────────────────────</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;=== String Pool and ==  ===&quot;</span><span class="p">);</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;=== String Pool and ==  ===&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span><span class="w">           </span><span class="c1">// String pool</span>
 <span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span><span class="p">;</span><span class="w">           </span><span class="c1">// same pool object</span>
 <span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// new heap object — NOT from pool</span>
@@ -179,9 +177,7 @@
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 2. String is immutable ─────────────────────────────────────────────</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Immutability ===&quot;</span><span class="p">);</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Immutability ===&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">;</span>
 <span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="na">toUpperCase</span><span class="p">();</span><span class="w">  </span><span class="c1">// creates NEW String, s is unchanged</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;s: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (unchanged)&quot;</span><span class="p">);</span>
@@ -215,9 +211,7 @@
 <span class="normal">25</span>
 <span class="normal">26</span>
 <span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 3. StringBuilder (mutable, not thread-safe) ──────────────────────────</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== StringBuilder ===&quot;</span><span class="p">);</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== StringBuilder ===&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
 <span class="w">        </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span>
 <span class="w">          </span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;, &quot;</span><span class="p">)</span>
@@ -265,9 +259,7 @@
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 4. Core String Methods ────────────────────────────────────────────────</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Core String Methods ===&quot;</span><span class="p">);</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Core String Methods ===&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;  Hello, World!  &quot;</span><span class="p">;</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;trim:         &#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">trim</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39;&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// trims whitespace</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;strip:        &#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="na">strip</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;&#39;&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Java 11+, Unicode-aware</span>
@@ -298,9 +290,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 5. split ─────────────────────────────────────────────────────────────</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== split ===&quot;</span><span class="p">);</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== split ===&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">csv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Alice,Bob,,Charlie,Dave&quot;</span><span class="p">;</span>
 <span class="w">        </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">);</span><span class="w">         </span><span class="c1">// default: removes trailing empty strings</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Parts: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; length=&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">parts</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
@@ -317,9 +307,7 @@
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 6. String.format and formatted ───────────────────────────────────────</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== String formatting ===&quot;</span><span class="p">);</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== String formatting ===&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">formatted</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;Name: %-10s Age: %3d GPA: %.2f&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mf">3.987</span><span class="p">);</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">formatted</span><span class="p">);</span>
 <span class="w">        </span><span class="c1">// Java 15+ instance method:</span>
@@ -340,9 +328,7 @@
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 7. Regular Expressions ───────────────────────────────────────────────</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Regular Expressions ===&quot;</span><span class="p">);</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Regular Expressions ===&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="c1">// matches: entire string must match</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Email valid: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;test@example.com&quot;</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">&quot;[\\w.%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}&quot;</span><span class="p">));</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Number: &quot;</span><span class="w">      </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;12345&quot;</span><span class="p">.</span><span class="na">matches</span><span class="p">(</span><span class="s">&quot;\\d+&quot;</span><span class="p">));</span>
@@ -423,9 +409,7 @@
 <span class="normal">63</span>
 <span class="normal">64</span>
 <span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span><span class="c1">// ── 8. Common Interview Coding Patterns ───────────────────────────────────</span>
-<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Interview: Reverse a String ===&quot;</span><span class="p">);</span>
+<span class="normal">66</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Interview: Reverse a String ===&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">).</span><span class="na">reverse</span><span class="p">());</span>
 
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Interview: Check Palindrome ===&quot;</span><span class="p">);</span>

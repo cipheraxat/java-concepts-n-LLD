@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/style.css">
   <link rel="stylesheet" href="../../assets/pygments.css">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -150,7 +150,7 @@
     <main class="content has-toc">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../topics/static-and-final.html">static &amp; final</a><span class="sep">/</span><span class="current">StaticFinalDemo</span></nav>
       <header class="page-header"><h1>LESSON 12A — MASTERING static AND final KEYWORDS</h1><p class="page-subtitle">static &amp; final · StaticFinalDemo.java</p></header>
-      <div class="lesson-meta"><span class="meta-pill accent">StaticFinalDemo</span><span class="meta-pill">555 lines</span><span class="meta-pill">~13 min read</span></div><div class="lesson-intro"><p>Two of the most frequently misunderstood keywords in Java interviews.<br>static = belongs to the CLASS, not to any instance.<br>final  = &quot;cannot be changed&quot; — but what &quot;changed&quot; means depends on context.</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;Can a static method access instance variables?&quot; =&gt;NO — no `this` reference in static context.</li><li>&quot;What does final mean on a reference variable?&quot; =&gt;The reference cannot be reassigned, but the object it points to CAN be mutated.</li><li>&quot;Can we override a static method?&quot; =&gt;NO — static methods are hidden, not overridden (resolved at compile time).</li><li>&quot;Can we override a final method?&quot; =&gt;NO — final methods cannot be overridden.</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>1 Static Fields (Class Variables)</h2></div><div class="concept-block"><p>Shared across ALL instances of the class.<br>Stored in the Metaspace (not heap per-object).<br>Accessed via ClassName.field (preferred) or instance.field (discouraged).</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+      <div class="lesson-meta"><span class="meta-pill accent">StaticFinalDemo</span><span class="meta-pill">555 lines</span><span class="meta-pill">~13 min read</span></div><div class="lesson-intro"><p>Two of the most frequently misunderstood keywords in Java interviews.<br>static = belongs to the CLASS, not to any instance.<br>final  = &quot;cannot be changed&quot; — but what &quot;changed&quot; means depends on context.</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;Can a static method access instance variables?&quot; =&gt; NO — no `this` reference in static context.</li><li>&quot;What does final mean on a reference variable?&quot; =&gt; The reference cannot be reassigned, but the object it points to CAN be mutated.</li><li>&quot;Can we override a static method?&quot; =&gt; NO — static methods are hidden, not overridden (resolved at compile time).</li><li>&quot;Can we override a final method?&quot; =&gt; NO — final methods cannot be overridden.</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>1 Static Fields (Class Variables)</h2></div><div class="concept-block"><p>Shared across ALL instances of the class.<br>Stored in the Metaspace (not heap per-object).<br>Accessed via ClassName.field (preferred) or instance.field (discouraged).</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -169,21 +169,7 @@
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 1.1 Static Fields (Class Variables) ─────────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Shared across ALL instances of the class.</span>
-<span class="cm">     * Stored in the Metaspace (not heap per-object).</span>
-<span class="cm">     * Accessed via ClassName.field (preferred) or instance.field (discouraged).</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Employee</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Employee</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">totalCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// shared — one copy for the class</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">COMPANY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;TechCorp&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// static + final = constant</span>
 
@@ -219,27 +205,7 @@
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 1.2 Static Methods ─────────────────────────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * - No `this` reference → cannot access instance fields/methods directly.</span>
-<span class="cm">     * - Cannot be overridden (only hidden) — dispatch is at compile time.</span>
-<span class="cm">     * - Common uses: utility/helper methods, factory methods, main().</span>
-<span class="cm">     *</span>
-<span class="cm">     * Interview: &quot;Why is main() static?&quot;</span>
-<span class="cm">     * =&gt; JVM needs to invoke it without creating an instance of the class.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MathHelper</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MathHelper</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Negative input&quot;</span><span class="p">);</span>
 <span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -278,27 +244,7 @@
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 1.3 Static Blocks (Class Initializers) ─────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Executed ONCE when the class is first loaded by the ClassLoader.</span>
-<span class="cm">     * Runs BEFORE any constructor or static method is called.</span>
-<span class="cm">     * Multiple static blocks execute in declaration order.</span>
-<span class="cm">     *</span>
-<span class="cm">     * Use cases: complex initialization of static fields, loading native libs,</span>
-<span class="cm">     *            populating lookup maps.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Config</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Config</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">DEFAULTS</span><span class="p">;</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">VERSION</span><span class="p">;</span>
 
@@ -322,7 +268,14 @@
 <span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getVersion</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">VERSION</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>4 Static Nested Class vs Inner Class</h2></div><div class="concept-block"><p>Static nested class:<br>  - Does NOT hold reference to enclosing instance.<br>  - Can only access outer class&#x27;s STATIC members.<br>  - Lower memory footprint — no hidden Outer.this pointer.<br>  - Preferred unless you need access to instance members.</p><p>Inner class (non-static):<br>  - Holds implicit reference to the enclosing instance (Outer.this).<br>  - Can access ALL outer members, including private instance fields.<br>  - Can cause memory leaks if the inner object outlives the outer.</p><p>Interview: &quot;When to use static nested class vs inner class?&quot;<br>=&gt; Prefer static nested unless you genuinely need access to instance state.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+</div></article><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>4 Static Nested Class vs Inner Class</h2></div><div class="concept-block"><pre class="concept-pre">Static nested class:
+  - Does NOT hold reference to enclosing instance.
+  - Can only access outer class&#x27;s STATIC members.
+  - Lower memory footprint — no hidden Outer.this pointer.
+  - Preferred unless you need access to instance members.</pre><pre class="concept-pre">Inner class (non-static):
+  - Holds implicit reference to the enclosing instance (Outer.this).
+  - Can access ALL outer members, including private instance fields.
+  - Can cause memory leaks if the inner object outlives the outer.</pre><p>Interview: &quot;When to use static nested class vs inner class?&quot;<br>=&gt; Prefer static nested unless you genuinely need access to instance state.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -335,41 +288,7 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 1.4 Static Nested Class vs Inner Class ─────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Static nested class:</span>
-<span class="cm">     *   - Does NOT hold reference to enclosing instance.</span>
-<span class="cm">     *   - Can only access outer class&#39;s STATIC members.</span>
-<span class="cm">     *   - Lower memory footprint — no hidden Outer.this pointer.</span>
-<span class="cm">     *   - Preferred unless you need access to instance members.</span>
-<span class="cm">     *</span>
-<span class="cm">     * Inner class (non-static):</span>
-<span class="cm">     *   - Holds implicit reference to the enclosing instance (Outer.this).</span>
-<span class="cm">     *   - Can access ALL outer members, including private instance fields.</span>
-<span class="cm">     *   - Can cause memory leaks if the inner object outlives the outer.</span>
-<span class="cm">     *</span>
-<span class="cm">     * Interview: &quot;When to use static nested class vs inner class?&quot;</span>
-<span class="cm">     * =&gt; Prefer static nested unless you genuinely need access to instance state.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Connection</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Connection</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;jdbc:mysql://localhost/db&quot;</span><span class="p">;</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;com.mysql.cj.jdbc.Driver&quot;</span><span class="p">;</span>
 
@@ -397,25 +316,7 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 1.5 Static Method Hiding (NOT overriding) ──────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Static methods are resolved at COMPILE TIME based on reference type.</span>
-<span class="cm">     * When a subclass defines a static method with the same signature, it HIDES</span>
-<span class="cm">     * the parent&#39;s version — it does NOT override it.</span>
-<span class="cm">     *</span>
-<span class="cm">     * This means: no polymorphic dispatch for static methods.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Parent</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Parent</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">greet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hello from Parent&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="nf">instanceGreet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Instance Parent&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
@@ -430,7 +331,12 @@
 <span class="w">    </span><span class="c1">// PART 2 — THE final KEYWORD</span>
 <span class="w">    </span><span class="c1">// ═════════════════════════════════════════════════════════════════════════════</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>1 final Variables</h2></div><div class="concept-block"><p>Primitive final    → value cannot change.<br>Reference final    → reference cannot be reassigned, but object can be MUTATED.</p><p>final int x = 10;       x = 20;     // ❌ COMPILE ERROR<br>  final List&lt;String&gt; list = new ArrayList&lt;&gt;();<br>  list.add(&quot;hello&quot;);                   // ✅ OK — mutating the object<br>  list = new ArrayList&lt;&gt;();            // ❌ COMPILE ERROR — reassigning reference</p><p>Interview: &quot;Does final make an object immutable?&quot;<br>=&gt; NO. It only prevents reassignment of the reference. The object&#x27;s internal<br>   state can still change. For true immutability, design the class to be immutable.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+</div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>1 final Variables</h2></div><div class="concept-block"><p>Primitive final    → value cannot change.<br>Reference final    → reference cannot be reassigned, but object can be MUTATED.</p><pre class="concept-pre">final int x = 10;       x = 20;     // ❌ COMPILE ERROR
+  final List&lt;String&gt; list = new ArrayList&lt;&gt;();
+  list.add(&quot;hello&quot;);                   // ✅ OK — mutating the object
+  list = new ArrayList&lt;&gt;();            // ❌ COMPILE ERROR — reassigning reference</pre><pre class="concept-pre">Interview: &quot;Does final make an object immutable?&quot;
+=&gt; NO. It only prevents reassignment of the reference. The object&#x27;s internal
+   state can still change. For true immutability, design the class to be immutable.</pre></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -440,37 +346,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 2.1 final Variables ─────────────────────────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Primitive final    → value cannot change.</span>
-<span class="cm">     * Reference final    → reference cannot be reassigned, but object can be MUTATED.</span>
-<span class="cm">     *</span>
-<span class="cm">     *   final int x = 10;       x = 20;     // ❌ COMPILE ERROR</span>
-<span class="cm">     *   final List&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
-<span class="cm">     *   list.add(&quot;hello&quot;);                   // ✅ OK — mutating the object</span>
-<span class="cm">     *   list = new ArrayList&lt;&gt;();            // ❌ COMPILE ERROR — reassigning reference</span>
-<span class="cm">     *</span>
-<span class="cm">     * Interview: &quot;Does final make an object immutable?&quot;</span>
-<span class="cm">     * =&gt; NO. It only prevents reassignment of the reference. The object&#39;s internal</span>
-<span class="cm">     *    state can still change. For true immutability, design the class to be immutable.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">finalVariableDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">finalVariableDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 <span class="w">        </span><span class="c1">// MAX = 200;  // ❌ COMPILE ERROR</span>
 
@@ -498,23 +374,7 @@
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 2.2 Blank Final Variables ──────────────────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * A final instance field that is NOT initialized at declaration.</span>
-<span class="cm">     * Must be assigned EXACTLY ONCE — in every constructor path.</span>
-<span class="cm">     *</span>
-<span class="cm">     * Useful for values that depend on constructor arguments.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ImmutablePoint</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ImmutablePoint</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">  </span><span class="c1">// blank final</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w">  </span><span class="c1">// blank final</span>
 
@@ -532,7 +392,11 @@
 <span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;(&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>3 final Methods</h2></div><div class="concept-block"><p>Cannot be overridden by subclasses.<br>Use cases:<br>  - Prevent breaking critical logic (e.g., template method skeleton).<br>  - Security — prevent subclass from altering behavior.<br>  - JVM can inline final methods → potential performance gain.</p><p>Interview: &quot;Can we override a final method?&quot;<br>=&gt; NO — compile error.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+</div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>3 final Methods</h2></div><div class="concept-block"><pre class="concept-pre">Cannot be overridden by subclasses.
+Use cases:
+  - Prevent breaking critical logic (e.g., template method skeleton).
+  - Security — prevent subclass from altering behavior.
+  - JVM can inline final methods → potential performance gain.</pre><p>Interview: &quot;Can we override a final method?&quot;<br>=&gt; NO — compile error.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -552,31 +416,7 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 2.3 final Methods ──────────────────────────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Cannot be overridden by subclasses.</span>
-<span class="cm">     * Use cases:</span>
-<span class="cm">     *   - Prevent breaking critical logic (e.g., template method skeleton).</span>
-<span class="cm">     *   - Security — prevent subclass from altering behavior.</span>
-<span class="cm">     *   - JVM can inline final methods → potential performance gain.</span>
-<span class="cm">     *</span>
-<span class="cm">     * Interview: &quot;Can we override a final method?&quot;</span>
-<span class="cm">     * =&gt; NO — compile error.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TemplateProcessor</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TemplateProcessor</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Template method pattern — final skeleton, customizable steps</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">validate</span><span class="p">();</span>
@@ -598,7 +438,9 @@
 <span class="w">        </span><span class="c1">// @Override void process() {}  // ❌ COMPILE ERROR — process() is final</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>4 final Classes</h2></div><div class="concept-block"><p>Cannot be subclassed.<br>Examples in JDK: String, Integer, Math, LocalDate.</p><p>Why make a class final?<br> 1. Immutability guarantee — no subclass can add mutable state.<br> 2. Security — prevents malicious subclass overriding equals/hashCode.<br> 3. Design intent — class is complete, not designed for extension.</p><p>Interview: &quot;Why is String final?&quot;<br>=&gt; Immutability + security (class loading, String pool) + thread safety.<br>   If String could be subclassed, a MaliciousString could override methods.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+</div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>4 final Classes</h2></div><div class="concept-block"><p>Cannot be subclassed.<br>Examples in JDK: String, Integer, Math, LocalDate.</p><p>Why make a class final?<br> 1. Immutability guarantee — no subclass can add mutable state.<br> 2. Security — prevents malicious subclass overriding equals/hashCode.<br> 3. Design intent — class is complete, not designed for extension.</p><pre class="concept-pre">Interview: &quot;Why is String final?&quot;
+=&gt; Immutability + security (class loading, String pool) + thread safety.
+   If String could be subclassed, a MaliciousString could override methods.</pre></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -619,37 +461,7 @@
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 2.4 final Classes ──────────────────────────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Cannot be subclassed.</span>
-<span class="cm">     * Examples in JDK: String, Integer, Math, LocalDate.</span>
-<span class="cm">     *</span>
-<span class="cm">     * Why make a class final?</span>
-<span class="cm">     *  1. Immutability guarantee — no subclass can add mutable state.</span>
-<span class="cm">     *  2. Security — prevents malicious subclass overriding equals/hashCode.</span>
-<span class="cm">     *  3. Design intent — class is complete, not designed for extension.</span>
-<span class="cm">     *</span>
-<span class="cm">     * Interview: &quot;Why is String final?&quot;</span>
-<span class="cm">     * =&gt; Immutability + security (class loading, String pool) + thread safety.</span>
-<span class="cm">     *    If String could be subclassed, a MaliciousString could override methods.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Money</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Money</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">cents</span><span class="p">;</span><span class="w">       </span><span class="c1">// final field</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">currency</span><span class="p">;</span><span class="w">  </span><span class="c1">// final field</span>
 
@@ -672,27 +484,17 @@
 
 <span class="w">    </span><span class="c1">// static class ExtendedMoney extends Money {}  // ❌ COMPILE ERROR — Money is final</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>5 final Parameters</h2></div><div class="concept-block"><p>Prevents reassignment of method parameters inside the method body.<br>Commonly seen in lambdas — captured variables must be effectively final.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 2.5 final Parameters ───────────────────────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Prevents reassignment of method parameters inside the method body.</span>
-<span class="cm">     * Commonly seen in lambdas — captured variables must be effectively final.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">formatGreeting</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>5 final Parameters</h2></div><div class="concept-block"><p>Prevents reassignment of method parameters inside the method body.<br>Commonly seen in lambdas — captured variables must be effectively final.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">formatGreeting</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// name = &quot;other&quot;;  // ❌ COMPILE ERROR — parameter is final</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Hello, &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; (age &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;)&quot;</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>6 Effectively Final (Java 8+)</h2></div><div class="concept-block"><p>A local variable that is not declared final but is never reassigned.<br>Can be used in lambdas and anonymous classes just like final.</p><p>Interview: &quot;What is effectively final?&quot;<br>=&gt; A variable not declared final but never reassigned after initialization.<br>   The compiler treats it as if it were final.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+</div></article><article class="lesson-section" id="section-2"><div class="section-header"><span class="section-num">2</span><h2>6 Effectively Final (Java 8+)</h2></div><div class="concept-block"><p>A local variable that is not declared final but is never reassigned.<br>Can be used in lambdas and anonymous classes just like final.</p><pre class="concept-pre">Interview: &quot;What is effectively final?&quot;
+=&gt; A variable not declared final but never reassigned after initialization.
+   The compiler treats it as if it were final.</pre></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -705,27 +507,7 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 2.6 Effectively Final (Java 8+) ────────────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * A local variable that is not declared final but is never reassigned.</span>
-<span class="cm">     * Can be used in lambdas and anonymous classes just like final.</span>
-<span class="cm">     *</span>
-<span class="cm">     * Interview: &quot;What is effectively final?&quot;</span>
-<span class="cm">     * =&gt; A variable not declared final but never reassigned after initialization.</span>
-<span class="cm">     *    The compiler treats it as if it were final.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">effectivelyFinalDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">effectivelyFinalDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;LOG&quot;</span><span class="p">;</span><span class="w">  </span><span class="c1">// effectively final — never reassigned</span>
 <span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;start&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;process&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;end&quot;</span><span class="p">);</span>
 
@@ -740,37 +522,16 @@
 <span class="w">    </span><span class="c1">// PART 3 — static + final COMBINED PATTERNS</span>
 <span class="w">    </span><span class="c1">// ═════════════════════════════════════════════════════════════════════════════</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-3"><div class="section-header"><span class="section-num">3</span><h2>1 Constants (static final)</h2></div><div class="concept-block"><p>static final = compile-time or class-level constant.<br>Convention: UPPER_SNAKE_CASE.</p><p>Primitive/String constants are inlined by the compiler:<br>  static final int X = 10;  → references to X become literal 10 in bytecode.</p><p>Interview: &quot;Where are static final constants stored?&quot;<br>=&gt; In the constant pool of the class. Primitives/Strings may be inlined.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 3.1 Constants (static final) ────────────────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * static final = compile-time or class-level constant.</span>
-<span class="cm">     * Convention: UPPER_SNAKE_CASE.</span>
-<span class="cm">     *</span>
-<span class="cm">     * Primitive/String constants are inlined by the compiler:</span>
-<span class="cm">     *   static final int X = 10;  → references to X become literal 10 in bytecode.</span>
-<span class="cm">     *</span>
-<span class="cm">     * Interview: &quot;Where are static final constants stored?&quot;</span>
-<span class="cm">     * =&gt; In the constant pool of the class. Primitives/Strings may be inlined.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX_RETRIES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</div></article><article class="lesson-section" id="section-3"><div class="section-header"><span class="section-num">3</span><h2>1 Constants (static final)</h2></div><div class="concept-block"><p>static final = compile-time or class-level constant.<br>Convention: UPPER_SNAKE_CASE.</p><p>Primitive/String constants are inlined by the compiler:<br>  static final int X = 10;  → references to X become literal 10 in bytecode.</p><p>Interview: &quot;Where are static final constants stored?&quot;<br>=&gt; In the constant pool of the class. Primitives/Strings may be inlined.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX_RETRIES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">DEFAULT_ENCODING</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;UTF-8&quot;</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">SUPPORTED_TYPES</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;JSON&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;XML&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CSV&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// immutable list</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-3"><div class="section-header"><span class="section-num">3</span><h2>2 Static Final Collections — Immutable vs Unmodifiable</h2></div><div class="concept-block"><p>List.of()  / Map.of()  → truly immutable (Java 9+)<br>Collections.unmodifiableList() → unmodifiable VIEW of a mutable list</p><p>Interview: &quot;Difference between immutable and unmodifiable collection?&quot;<br>=&gt; Unmodifiable is a read-only wrapper — if someone has the original reference,<br>   they can still mutate it, and changes are reflected through the wrapper.<br>   Truly immutable (List.of) has no backing mutable list.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+</div></article><article class="lesson-section" id="section-3"><div class="section-header"><span class="section-num">3</span><h2>2 Static Final Collections — Immutable vs Unmodifiable</h2></div><div class="concept-block"><p>List.of()  / Map.of()  → truly immutable (Java 9+)<br>Collections.unmodifiableList() → unmodifiable VIEW of a mutable list</p><pre class="concept-pre">Interview: &quot;Difference between immutable and unmodifiable collection?&quot;
+=&gt; Unmodifiable is a read-only wrapper — if someone has the original reference,
+   they can still mutate it, and changes are reflected through the wrapper.
+   Truly immutable (List.of) has no backing mutable list.</pre></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -780,29 +541,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 3.2 Static Final Collections — Immutable vs Unmodifiable ────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * List.of()  / Map.of()  → truly immutable (Java 9+)</span>
-<span class="cm">     * Collections.unmodifiableList() → unmodifiable VIEW of a mutable list</span>
-<span class="cm">     *</span>
-<span class="cm">     * Interview: &quot;Difference between immutable and unmodifiable collection?&quot;</span>
-<span class="cm">     * =&gt; Unmodifiable is a read-only wrapper — if someone has the original reference,</span>
-<span class="cm">     *    they can still mutate it, and changes are reflected through the wrapper.</span>
-<span class="cm">     *    Truly immutable (List.of) has no backing mutable list.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">collectionsDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">collectionsDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Truly immutable</span>
 <span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">immutable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="c1">// immutable.add(&quot;D&quot;);  // ❌ UnsupportedOperationException</span>
@@ -835,11 +574,7 @@
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 3.3 Static Factory with Final (Cached Instances) ────────────────────────</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Color</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Color</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">BLACK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
@@ -875,23 +610,7 @@
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 3.4 Static Initializer + Final Field Gotcha ─────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Order matters! Static fields are initialized in declaration order.</span>
-<span class="cm">     * A static block referencing a field declared later sees the default value (0/null).</span>
-<span class="cm">     *</span>
-<span class="cm">     * Interview trick question:</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderMatters</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OrderMatters</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">A</span><span class="p">;</span>
 <span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">B</span><span class="p">;</span>
 
@@ -906,19 +625,15 @@
 <span class="w">    </span><span class="c1">// PART 4 — COMMON INTERVIEW TRAPS</span>
 <span class="w">    </span><span class="c1">// ═════════════════════════════════════════════════════════════════════════════</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-4"><div class="section-header"><span class="section-num">4</span><h2>1 Static method hiding vs instance method overriding</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 4.1 Static method hiding vs instance method overriding ──────────────────</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">staticHidingDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</div></article><article class="lesson-section" id="section-4"><div class="section-header"><span class="section-num">4</span><h2>1 Static method hiding vs instance method overriding</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">staticHidingDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">Parent</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ChildClass</span><span class="p">();</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  Static via Parent ref: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">greet</span><span class="p">());</span><span class="w">         </span><span class="c1">// Parent — hiding</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  Instance via Parent ref: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">instanceGreet</span><span class="p">());</span><span class="w"> </span><span class="c1">// Child — overriding</span>
@@ -928,7 +643,19 @@
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  Instance via Child ref: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">instanceGreet</span><span class="p">());</span><span class="w"> </span><span class="c1">// Child</span>
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-4"><div class="section-header"><span class="section-num">4</span><h2>2 Can we have static methods in interfaces?</h2></div><div class="concept-block"><p>YES (Java 8+). They are NOT inherited by implementing classes.<br>Must be called via InterfaceName.method().</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+</div></article><article class="lesson-section" id="section-4"><div class="section-header"><span class="section-num">4</span><h2>2 Can we have static methods in interfaces?</h2></div><div class="concept-block"><p>YES (Java 8+). They are NOT inherited by implementing classes.<br>Must be called via InterfaceName.method().</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">interface</span> <span class="nc">IdGenerator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">generate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">().</span><span class="na">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div></article><article class="lesson-section" id="section-4"><div class="section-header"><span class="section-num">4</span><h2>3 final and try-with-resources</h2></div><div class="concept-block"><pre class="concept-pre">Since Java 9, effectively final variables can be used in try-with-resources:
+  final var resource = new FileInputStream(&quot;file.txt&quot;);
+  try (resource) { ... }</pre></div></article><article class="lesson-section" id="section-4"><div class="section-header"><span class="section-num">4</span><h2>4 static and Serialization</h2></div><div class="concept-block"><p>Static fields are NOT serialized — they belong to the class, not the instance.<br>After deserialization, static fields hold whatever value the class currently has.</p><p>Interview: &quot;Are static fields serialized?&quot;<br>=&gt; NO.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -938,142 +665,90 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 4.2 Can we have static methods in interfaces? ──────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * YES (Java 8+). They are NOT inherited by implementing classes.</span>
-<span class="cm">     * Must be called via InterfaceName.method().</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="kd">interface</span> <span class="nc">IdGenerator</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">generate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">UUID</span><span class="p">.</span><span class="na">randomUUID</span><span class="p">().</span><span class="na">toString</span><span class="p">().</span><span class="na">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-4"><div class="section-header"><span class="section-num">4</span><h2>3 final and try-with-resources</h2></div><div class="concept-block"><p>Since Java 9, effectively final variables can be used in try-with-resources:<br>  final var resource = new FileInputStream(&quot;file.txt&quot;);<br>  try (resource) { ... }</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 4.3 final and try-with-resources ────────────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Since Java 9, effectively final variables can be used in try-with-resources:</span>
-<span class="cm">     *   final var resource = new FileInputStream(&quot;file.txt&quot;);</span>
-<span class="cm">     *   try (resource) { ... }</span>
-<span class="cm">     */</span>
-</code></pre></div></td></tr></table></div>
-</div></article><article class="lesson-section" id="section-4"><div class="section-header"><span class="section-num">4</span><h2>4 static and Serialization</h2></div><div class="concept-block"><p>Static fields are NOT serialized — they belong to the class, not the instance.<br>After deserialization, static fields hold whatever value the class currently has.</p><p>Interview: &quot;Are static fields serialized?&quot;<br>=&gt; NO.</p></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
-<span class="normal">  2</span>
-<span class="normal">  3</span>
-<span class="normal">  4</span>
-<span class="normal">  5</span>
-<span class="normal">  6</span>
-<span class="normal">  7</span>
-<span class="normal">  8</span>
-<span class="normal">  9</span>
-<span class="normal"> 10</span>
-<span class="normal"> 11</span>
-<span class="normal"> 12</span>
-<span class="normal"> 13</span>
-<span class="normal"> 14</span>
-<span class="normal"> 15</span>
-<span class="normal"> 16</span>
-<span class="normal"> 17</span>
-<span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 4.4 static and Serialization ────────────────────────────────────────────</span>
-<span class="w">    </span><span class="cm">/*</span>
-<span class="cm">     * Static fields are NOT serialized — they belong to the class, not the instance.</span>
-<span class="cm">     * After deserialization, static fields hold whatever value the class currently has.</span>
-<span class="cm">     *</span>
-<span class="cm">     * Interview: &quot;Are static fields serialized?&quot;</span>
-<span class="cm">     * =&gt; NO.</span>
-<span class="cm">     */</span>
-
-<span class="w">    </span><span class="c1">// ═════════════════════════════════════════════════════════════════════════════</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ═════════════════════════════════════════════════════════════════════════════</span>
 <span class="w">    </span><span class="c1">// MAIN — demo all concepts</span>
 <span class="w">    </span><span class="c1">// ═════════════════════════════════════════════════════════════════════════════</span>
 

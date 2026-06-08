@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/style.css">
   <link rel="stylesheet" href="../../assets/pygments.css">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -150,12 +150,10 @@
     <main class="content has-toc">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../topics/java8-features.html">Java 8+ Features</a><span class="sep">/</span><span class="current">LambdaFunctionalDemo</span></nav>
       <header class="page-header"><h1>LESSON 06A — Lambda Expressions + Functional Interfaces + Method References</h1><p class="page-subtitle">Java 8+ Features · LambdaFunctionalDemo.java</p></header>
-      <div class="lesson-meta"><span class="meta-pill accent">LambdaFunctionalDemo</span><span class="meta-pill">153 lines</span><span class="meta-pill">~3 min read</span></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;What can a lambda capture from enclosing scope?&quot; =&gt;Local variables that are effectively final (not modified after assignment)</li><li>&quot;Difference between lambda and anonymous class?&quot; =&gt;Lambda: no &#x27;this&#x27;, no shadowing. Anonymous class: has own &#x27;this&#x27;, can shadow outer variables</li><li>&quot;What are the core functional interfaces?&quot; =&gt;Function&lt;T,R&gt;, Predicate&lt;T&gt;, Consumer&lt;T&gt;, Supplier&lt;T&gt;, BiFunction&lt;T,U,R&gt;, UnaryOperator&lt;T&gt;</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>Lambda syntax evolution</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+      <div class="lesson-meta"><span class="meta-pill accent">LambdaFunctionalDemo</span><span class="meta-pill">153 lines</span><span class="meta-pill">~3 min read</span></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;What can a lambda capture from enclosing scope?&quot; =&gt; Local variables that are effectively final (not modified after assignment)</li><li>&quot;Difference between lambda and anonymous class?&quot; =&gt; Lambda: no &#x27;this&#x27;, no shadowing. Anonymous class: has own &#x27;this&#x27;, can shadow outer variables</li><li>&quot;What are the core functional interfaces?&quot; =&gt; Function&lt;T,R&gt;, Predicate&lt;T&gt;, Consumer&lt;T&gt;, Supplier&lt;T&gt;, BiFunction&lt;T,U,R&gt;, UnaryOperator&lt;T&gt;</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>Lambda syntax evolution</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 1. Lambda syntax evolution ──────────────────────────────────────────────</span>
-<span class="w">    </span><span class="nd">@FunctionalInterface</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@FunctionalInterface</span>
 <span class="w">    </span><span class="kd">interface</span> <span class="nc">MathOperation</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="nf">operate</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
@@ -202,11 +200,7 @@
 <span class="normal">40</span>
 <span class="normal">41</span>
 <span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 2. Core Functional Interfaces ───────────────────────────────────────────</span>
-
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">coreFunctionalInterfaces</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">coreFunctionalInterfaces</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// Function&lt;T, R&gt;: takes T, returns R</span>
 <span class="w">        </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">strLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">::</span><span class="n">length</span><span class="p">;</span>
 <span class="w">        </span><span class="n">Function</span><span class="o">&lt;</span><span class="n">Integer</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">intToStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Number: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
@@ -275,9 +269,7 @@
 <span class="normal">23</span>
 <span class="normal">24</span>
 <span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 3. Method References ─────────────────────────────────────────────────────</span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">methodReferences</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">methodReferences</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Method References ===&quot;</span><span class="p">);</span>
 
 <span class="w">        </span><span class="c1">// Static method reference: ClassName::staticMethod</span>
@@ -323,9 +315,7 @@
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 4. Lambda capturing variables ────────────────────────────────────────────</span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">capturingDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">capturingDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Lambda Variable Capture ===&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">multiplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">  </span><span class="c1">// effectively final — cannot reassign after lambda uses it</span>
 <span class="w">        </span><span class="c1">// multiplier = 10; // would cause compile error if uncommented</span>
@@ -376,9 +366,7 @@
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 5. Lambda as MathOperation ──────────────────────────────────────────────</span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">MathOperation</span><span class="w"> </span><span class="n">op</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">MathOperation</span><span class="w"> </span><span class="n">op</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">op</span><span class="p">.</span><span class="na">operate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 

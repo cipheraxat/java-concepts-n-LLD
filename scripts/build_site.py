@@ -114,7 +114,7 @@ def parse_javadoc(source: str) -> LessonMeta:
         if in_interview:
             if line.startswith("=>"):
                 if meta.interview_questions:
-                    meta.interview_questions[-1] += " =>" + line[2:].strip()
+                    meta.interview_questions[-1] += " => " + line[2:].strip()
                 continue
             if line.startswith("-") or line.startswith("•") or "?" in line:
                 q = line.lstrip("-• ").strip()
@@ -167,14 +167,47 @@ def parse_sections(source: str) -> list[LessonSection]:
     return sections
 
 
+ASCII_BOX_RE = re.compile(r"[┌┐└┘├┤┬┴┼│─╭╮╰╯╞╡╪╫]")
+
+
 def format_concept_html(text: str) -> str:
     if not text:
         return ""
     escaped = html.escape(text)
-    paragraphs = [p.strip() for p in escaped.split("\n\n") if p.strip()]
-    if not paragraphs:
-        paragraphs = [escaped]
-    return "".join(f'<p>{p.replace(chr(10), "<br>")}</p>' for p in paragraphs)
+    blocks = [b.strip() for b in re.split(r"\n\n+", escaped) if b.strip()]
+    if not blocks:
+        blocks = [escaped]
+    parts: list[str] = []
+    for block in blocks:
+        if ASCII_BOX_RE.search(block) or (
+            block.count("\n") >= 2 and re.search(r"^\s{2,}\S", block, re.MULTILINE)
+        ):
+            parts.append(f'<pre class="concept-pre">{block}</pre>')
+        else:
+            parts.append(f'<p>{block.replace(chr(10), "<br>")}</p>')
+    return "".join(parts)
+
+
+def clean_section_code(code: str, has_concept: bool) -> str:
+    cleaned = SECTION_RE.sub("", code, count=1)
+    if has_concept:
+        cleaned = re.sub(r"/\*.*?\*/", "", cleaned, flags=re.DOTALL)
+    lines = []
+    for line in cleaned.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("// ───"):
+            continue
+        lines.append(line)
+    return "\n".join(lines).strip()
+
+
+def is_meaningful_code(code: str) -> bool:
+    for line in code.splitlines():
+        s = line.strip()
+        if not s or s.startswith("//") or s.startswith("/*") or s.startswith("*"):
+            continue
+        return True
+    return False
 
 
 def format_interview_html(questions: list[str]) -> str:
@@ -215,7 +248,16 @@ def code_block(source: str, label: str = "Java") -> str:
 
 
 def render_markdown(text: str) -> str:
-    return markdown.markdown(text, extensions=["tables", "fenced_code"])
+    rendered = markdown.markdown(text, extensions=["tables", "fenced_code"])
+    rendered = re.sub(r"<table>", '<div class="table-wrap"><table>', rendered)
+    rendered = rendered.replace("</table>", "</table></div>")
+    rendered = re.sub(
+        r"<pre><code>",
+        '<div class="readme-code"><pre><code>',
+        rendered,
+    )
+    rendered = rendered.replace("</code></pre>", "</code></pre></div>")
+    return rendered
 
 
 def breadcrumbs_html(crumbs: list[tuple[str, str | None]], prefix: str) -> str:
@@ -257,8 +299,8 @@ def page_shell(
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{prefix}assets/style.css">
   <link rel="stylesheet" href="{prefix}assets/pygments.css">
+  <link rel="stylesheet" href="{prefix}assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -449,17 +491,19 @@ def build_lesson_body(
 
         section_html_parts = []
         for s in sections:
-            concept = format_concept_html(s.concept)
+            concept_html = format_concept_html(s.concept)
             concept_block = (
-                f'<div class="concept-block">{concept}</div>' if concept else ""
+                f'<div class="concept-block">{concept_html}</div>' if concept_html else ""
             )
+            cleaned_code = clean_section_code(s.code, bool(s.concept))
+            code_html = code_block(cleaned_code) if is_meaningful_code(cleaned_code) else ""
             section_html_parts.append(
                 f'<article class="lesson-section" id="{s.slug}">'
                 f'<div class="section-header">'
                 f'<span class="section-num">{s.number}</span>'
                 f"<h2>{html.escape(s.title)}</h2></div>"
                 f"{concept_block}"
-                f"{code_block(s.code)}"
+                f"{code_html}"
                 f"</article>"
             )
 
@@ -646,7 +690,7 @@ def write_index(nav: str, lessons: list[tuple[str, str, str]]) -> None:
         )
     cards.append("</div></section>")
 
-    body = hero + study_path_html() + intro + "\n".join(cards)
+    body = study_path_html() + intro + "\n".join(cards)
     page = page_shell("Core Java — SDE2 Interview Prep", body, nav, 0, hero=hero)
     (DOCS / "index.html").write_text(page, encoding="utf-8")
 

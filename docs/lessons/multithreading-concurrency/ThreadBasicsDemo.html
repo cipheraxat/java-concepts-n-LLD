@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/style.css">
   <link rel="stylesheet" href="../../assets/pygments.css">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -150,7 +150,7 @@
     <main class="content has-toc">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../topics/multithreading-concurrency.html">Multithreading &amp; Concurrency</a><span class="sep">/</span><span class="current">ThreadBasicsDemo</span></nav>
       <header class="page-header"><h1>LESSON 05A — Thread Basics + Synchronization</h1><p class="page-subtitle">Multithreading &amp; Concurrency · ThreadBasicsDemo.java</p></header>
-      <div class="lesson-meta"><span class="meta-pill accent">ThreadBasicsDemo</span><span class="meta-pill">161 lines</span><span class="meta-pill">~4 min read</span></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;Runnable vs Callable vs Thread?&quot; =&gt;Thread: is a thread. Runnable: task without result. Callable: task with result (+ checked exception).</li><li>&quot;What is a race condition?&quot; =&gt;Two threads read-modify-write shared state concurrently: lost updates.</li><li>&quot;What is synchronized?&quot; =&gt; JVM-level mutual exclusion on object monitor (intrinsic lock)</li><li>&quot;What is the Java Memory Model (JMM)?&quot; =&gt;Defines when writes by one thread become visible to others. synchronized &amp; volatile provide visibility.</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>Thread Creation: Thread subclass</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+      <div class="lesson-meta"><span class="meta-pill accent">ThreadBasicsDemo</span><span class="meta-pill">161 lines</span><span class="meta-pill">~4 min read</span></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;Runnable vs Callable vs Thread?&quot; =&gt; Thread: is a thread. Runnable: task without result. Callable: task with result (+ checked exception).</li><li>&quot;What is a race condition?&quot; =&gt; Two threads read-modify-write shared state concurrently: lost updates.</li><li>&quot;What is synchronized?&quot; =&gt; JVM-level mutual exclusion on object monitor (intrinsic lock)</li><li>&quot;What is the Java Memory Model (JMM)?&quot; =&gt; Defines when writes by one thread become visible to others. synchronized &amp; volatile provide visibility.</li></ul></aside><div class="lesson-page"><div class="lesson-main"><article class="lesson-section" id="section-1"><div class="section-header"><span class="section-num">1</span><h2>Thread Creation: Thread subclass</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -164,9 +164,7 @@
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 1. Thread Creation: Thread subclass ────────────────────────────────────</span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CounterThread</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CounterThread</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">label</span><span class="p">;</span>
 <span class="w">        </span><span class="n">CounterThread</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">label</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
@@ -191,9 +189,7 @@
 <span class="normal"> 7</span>
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 2. Thread Creation: Runnable (preferred — separates task from thread) ──</span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="nf">makeRunnable</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">label</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="nf">makeRunnable</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">label</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// Lambda Runnable</span>
 <span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">label</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
@@ -207,9 +203,7 @@
 </div></article><article class="lesson-section" id="section-3"><div class="section-header"><span class="section-num">3</span><h2>Race Condition — unsynchronized shared counter</h2></div><div class="code-section"><div class="code-bar"><span class="code-lang">Java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 3. Race Condition — unsynchronized shared counter ───────────────────────</span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UnsafeCounter</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UnsafeCounter</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">   </span><span class="c1">// NOT atomic: read → add → write (3 steps!)</span>
 <span class="w">    </span><span class="p">}</span>
@@ -218,9 +212,7 @@
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 4. Synchronized method — fixes race condition ──────────────────────────</span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SafeCounter</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SafeCounter</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// holds intrinsic lock on `this`</span>
 <span class="w">        </span><span class="kd">synchronized</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getCount</span><span class="p">()</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">count</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
@@ -236,9 +228,7 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 5. Synchronized block (fine-grained locking) ───────────────────────────</span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FineGrainedCounter</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FineGrainedCounter</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">countA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">countB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">lockA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span><span class="w">  </span><span class="c1">// separate locks for A and B</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">lockB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span>
@@ -262,9 +252,7 @@
 <span class="normal">10</span>
 <span class="normal">11</span>
 <span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 6. Volatile — visibility guarantee, NOT atomicity ───────────────────────</span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StopFlag</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StopFlag</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">volatile</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">stopped</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// volatile: writes visible across threads</span>
 
 <span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">stop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">stopped</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
@@ -341,16 +329,7 @@
 <span class="normal">61</span>
 <span class="normal">62</span>
 <span class="normal">63</span>
-<span class="normal">64</span>
-<span class="normal">65</span>
-<span class="normal">66</span>
-<span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="c1">// ─── 7. Atomic classes — lock-free thread safety using CAS ──────────────────</span>
-<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AtomicCounter</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AtomicCounter</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AtomicInteger</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 
 <span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">increment</span><span class="p">()</span><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="p">.</span><span class="na">incrementAndGet</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w">          </span><span class="c1">// atomic</span>
@@ -406,14 +385,7 @@
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Atomic count (always 100): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">atomicCounter</span><span class="p">.</span><span class="na">getCount</span><span class="p">());</span>
 
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Thread States ===&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="cm">/*</span>
-<span class="cm">         *  NEW          — created, not started</span>
-<span class="cm">         *  RUNNABLE     — running or ready to run</span>
-<span class="cm">         *  BLOCKED      — waiting to acquire a lock (synchronized)</span>
-<span class="cm">         *  WAITING      — waiting indefinitely (wait(), join(), LockSupport.park())</span>
-<span class="cm">         *  TIMED_WAITING — waiting for specified time (sleep(), wait(timeout))</span>
-<span class="cm">         *  TERMINATED   — run() completed or exception thrown</span>
-<span class="cm">         */</span>
+<span class="w">        </span>
 <span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">demo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{});</span>
 <span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;State before start: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">demo</span><span class="p">.</span><span class="na">getState</span><span class="p">());</span><span class="w">  </span><span class="c1">// NEW</span>
 <span class="w">        </span><span class="n">demo</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>

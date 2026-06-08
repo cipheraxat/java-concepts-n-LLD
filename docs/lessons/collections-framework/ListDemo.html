@@ -7,8 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/style.css">
   <link rel="stylesheet" href="../../assets/pygments.css">
+  <link rel="stylesheet" href="../../assets/style.css">
 </head>
 <body>
   <header class="topbar">
@@ -150,7 +150,7 @@
     <main class="content">
       <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span class="sep">/</span><a href="../../topics/collections-framework.html">Collections Framework</a><span class="sep">/</span><span class="current">ListDemo</span></nav>
       <header class="page-header"><h1>LESSON 02A — List Implementations</h1><p class="page-subtitle">Collections Framework · ListDemo.java</p></header>
-      <div class="lesson-meta"><span class="meta-pill accent">ListDemo</span><span class="meta-pill">113 lines</span><span class="meta-pill">~2 min read</span></div><div class="lesson-intro"><p>ArrayList  — dynamic array; O(1) random access; O(n) insert/remove at middle<br>LinkedList — doubly-linked; O(1) at head/tail; O(n) random access; implements Deque too<br>Vector     — like ArrayList but synchronized; legacy, prefer Collections.synchronizedList<br>Stack      — extends Vector; legacy, prefer ArrayDeque</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;When to use ArrayList vs LinkedList?&quot; =&gt;ArrayList: frequent reads, infrequent inserts/removes in middle</li><li>&quot;How does ArrayList resize?&quot; =&gt; Creates new array of 1.5x capacity, copies elements</li><li>&quot;What is initial capacity of ArrayList?&quot; =&gt; 10; can pre-size to avoid copies</li></ul></aside><div class="code-section"><div class="code-bar"><span class="code-lang">ListDemo.java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+      <div class="lesson-meta"><span class="meta-pill accent">ListDemo</span><span class="meta-pill">113 lines</span><span class="meta-pill">~2 min read</span></div><div class="lesson-intro"><p>ArrayList  — dynamic array; O(1) random access; O(n) insert/remove at middle<br>LinkedList — doubly-linked; O(1) at head/tail; O(n) random access; implements Deque too<br>Vector     — like ArrayList but synchronized; legacy, prefer Collections.synchronizedList<br>Stack      — extends Vector; legacy, prefer ArrayDeque</p></div><aside class="interview-callout"><div class="callout-label">◎ SDE2 Interview Focus</div><ul><li>&quot;When to use ArrayList vs LinkedList?&quot; =&gt; ArrayList: frequent reads, infrequent inserts/removes in middle</li><li>&quot;How does ArrayList resize?&quot; =&gt; Creates new array of 1.5x capacity, copies elements</li><li>&quot;What is initial capacity of ArrayList?&quot; =&gt; 10; can pre-size to avoid copies</li></ul></aside><div class="code-section"><div class="code-bar"><span class="code-lang">ListDemo.java</span><button type="button" onclick="copyCode(this)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
 <span class="normal">  4</span>
