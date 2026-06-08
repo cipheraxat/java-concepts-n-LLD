@@ -28,9 +28,9 @@
   --radius: 16px;
   --radius-sm: 12px;
   --radius-xs: 9999px;
-  --sidebar: 260px;
-  --toc: 300px;
-  --content-pad: 2rem;
+  --sidebar: 240px;
+  --toc: 260px;
+  --content-pad-x: 0.75rem;
   --header: 53px;
   --serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -322,27 +322,27 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .content {
   width: 100%;
   max-width: none;
-  padding: 0 var(--content-pad) 3rem;
-  border-right: 1px solid var(--border);
+  padding: 0 var(--content-pad-x) 2rem;
+  border-right: none;
   min-height: calc(100vh - var(--header));
 }
 
 .content.has-toc {
   max-width: none;
-  padding: 0 var(--content-pad) 3rem calc(var(--content-pad) + 0.5rem);
+  padding: 0 var(--content-pad-x) 2rem;
 }
 
 .lesson-page {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) var(--toc);
-  gap: 2.5rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
 .lesson-main {
   min-width: 0;
   max-width: none;
+  width: 100%;
+  order: 2;
 }
 
 .breadcrumbs {
@@ -1062,18 +1062,23 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 /* ── TOC ── */
 
 .lesson-toc {
-  position: sticky;
-  top: calc(var(--header) + 1rem);
-  padding: 1rem 0 1rem 1rem;
-  border-left: 1px solid var(--border);
-  min-width: var(--toc);
+  position: static;
+  order: 1;
+  padding: 0.65rem 0;
+  margin-bottom: 0.5rem;
+  border-left: none;
+  border-bottom: 1px solid var(--border);
+  min-width: 0;
+  width: 100%;
 }
 
 .toc-label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--text-heading);
-  margin-bottom: 0.65rem;
+  color: var(--text-tertiary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .lesson-toc ol {
@@ -1081,24 +1086,42 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   margin: 0;
   padding: 0;
   border: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
 .lesson-toc a {
-  display: block;
-  padding: 0.4rem 0;
-  font-size: 0.875rem;
-  font-weight: 400;
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 500;
   color: var(--text-secondary);
-  border: none;
-  line-height: 1.4;
-  word-break: break-word;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  background: var(--bg-elevated);
+  line-height: 1.3;
+  white-space: nowrap;
 }
 
-.lesson-toc a:hover { color: var(--text-heading); text-decoration: none; }
+.lesson-toc a:hover {
+  color: var(--text-heading);
+  border-color: var(--accent);
+  text-decoration: none;
+}
 
-.lesson-toc a.active { color: var(--accent); font-weight: 700; }
+.lesson-toc a.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  font-weight: 700;
+}
 
-.lesson-toc a[href="#mock-questions"] { color: var(--accent); font-weight: 700; }
+.lesson-toc a[href="#mock-questions"] {
+  color: var(--accent);
+  border-color: var(--accent);
+  font-weight: 700;
+}
 
 /* ── Nav prev/next ── */
 
@@ -1396,13 +1419,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 
   .content, .content.has-toc {
     max-width: 100%;
-    border-right: none;
-    padding: 0 1.15rem 3rem;
-  }
-
-  .lesson-toc {
-    border-left: none;
-    padding-left: 0;
+    padding: 0 var(--content-pad-x) 2rem;
   }
 
   .sidebar {
@@ -1428,28 +1445,13 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
     z-index: 55;
   }
 
-  .lesson-page { grid-template-columns: 1fr; }
-
-  .lesson-toc {
-    position: static;
-    margin: 0;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--border);
-    background: transparent;
-  }
-
   .lesson-toc ol {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
+    gap: 0.3rem;
   }
 
   .lesson-toc a {
-    padding: 0.25rem 0.6rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xs);
-    background: var(--bg-elevated);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    white-space: normal;
   }
 
   .hero h1 { font-size: 1.4rem; }
