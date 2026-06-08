@@ -4,15 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>03 — Generics — Java SDE2 Lessons</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/pygments.css">
 </head>
 <body>
-  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+  <header class="topbar">
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+    <a class="topbar-brand" href="../index.html">
+      <span class="brand-icon">Jv</span>
+      Java SDE2 Prep
+    </a>
+    <div class="topbar-actions">
+      <a class="topbar-link" href="https://github.com/cipheraxat/java-concepts-n-LLD" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </header>
+  <div class="nav-overlay" onclick="document.body.classList.remove('nav-open')"></div>
   <div class="layout">
-    <nav class="sidebar"><div class="nav-brand"><a href="../index.html">Java SDE2</a></div>
+    <nav class="sidebar"><p class="sidebar-label">Lessons</p>
 <ul class="nav-list">
-<li class="nav-topic"><a href="../topics/oop-concepts.html">01 — OOP Concepts</a>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">01</span>OOP Concepts<a class="topic-link" href="../topics/oop-concepts.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/oop-concepts/AbstractionDemo.html">AbstractionDemo</a></li>
 <li><a href="../lessons/oop-concepts/EncapsulationDemo.html">EncapsulationDemo</a></li>
@@ -21,8 +36,10 @@
 <li><a href="../lessons/oop-concepts/ObjectMethodsDemo.html">ObjectMethodsDemo</a></li>
 <li><a href="../lessons/oop-concepts/PolymorphismDemo.html">PolymorphismDemo</a></li>
 </ul>
-</li>
-<li class="nav-topic"><a href="../topics/collections-framework.html">02 — Collections Framework</a>
+</details></li>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">02</span>Collections Framework<a class="topic-link" href="../topics/collections-framework.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/collections-framework/AdvancedMapDemo.html">AdvancedMapDemo</a></li>
 <li><a href="../lessons/collections-framework/CollectionsHierarchyDemo.html">CollectionsHierarchyDemo</a></li>
@@ -31,81 +48,103 @@
 <li><a href="../lessons/collections-framework/MapDemo.html">MapDemo</a></li>
 <li><a href="../lessons/collections-framework/QueueDequeDemo.html">QueueDequeDemo</a></li>
 </ul>
-</li>
-<li class="nav-topic"><a href="../topics/generics.html">03 — Generics</a>
+</details></li>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">03</span>Generics<a class="topic-link" href="../topics/generics.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/generics/GenericClassDemo.html">GenericClassDemo</a></li>
 <li><a href="../lessons/generics/WildcardDemo.html">WildcardDemo</a></li>
 </ul>
-</li>
-<li class="nav-topic"><a href="../topics/exception-handling.html">04 — Exception Handling</a>
+</details></li>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">04</span>Exception Handling<a class="topic-link" href="../topics/exception-handling.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/exception-handling/ExceptionHierarchyDemo.html">ExceptionHierarchyDemo</a></li>
 <li><a href="../lessons/exception-handling/TryWithResourcesDemo.html">TryWithResourcesDemo</a></li>
 </ul>
-</li>
-<li class="nav-topic"><a href="../topics/multithreading-concurrency.html">05 — Multithreading &amp; Concurrency</a>
+</details></li>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">05</span>Multithreading &amp; Concurrency<a class="topic-link" href="../topics/multithreading-concurrency.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/multithreading-concurrency/ConcurrentCollectionsDemo.html">ConcurrentCollectionsDemo</a></li>
 <li><a href="../lessons/multithreading-concurrency/ConcurrentUtilsDemo.html">ConcurrentUtilsDemo</a></li>
 <li><a href="../lessons/multithreading-concurrency/ExecutorServiceDemo.html">ExecutorServiceDemo</a></li>
 <li><a href="../lessons/multithreading-concurrency/ThreadBasicsDemo.html">ThreadBasicsDemo</a></li>
 </ul>
-</li>
-<li class="nav-topic"><a href="../topics/java8-features.html">06 — Java 8+ Features</a>
+</details></li>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">06</span>Java 8+ Features<a class="topic-link" href="../topics/java8-features.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/java8-features/LambdaFunctionalDemo.html">LambdaFunctionalDemo</a></li>
 <li><a href="../lessons/java8-features/OptionalDemo.html">OptionalDemo</a></li>
 <li><a href="../lessons/java8-features/StreamAPIDemo.html">StreamAPIDemo</a></li>
 </ul>
-</li>
-<li class="nav-topic"><a href="../topics/design-patterns.html">07 — Design Patterns</a>
+</details></li>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">07</span>Design Patterns<a class="topic-link" href="../topics/design-patterns.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/design-patterns/BehavioralPatternDemo.html">BehavioralPatternDemo</a></li>
 <li><a href="../lessons/design-patterns/SingletonDemo.html">SingletonDemo</a></li>
 </ul>
-</li>
-<li class="nav-topic"><a href="../topics/jvm-internals.html">08 — JVM Internals</a>
+</details></li>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">08</span>JVM Internals<a class="topic-link" href="../topics/jvm-internals.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/jvm-internals/JVMInternalsDemo.html">JVMInternalsDemo</a></li>
 </ul>
-</li>
-<li class="nav-topic"><a href="../topics/string-handling.html">09 — String Handling</a>
+</details></li>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">09</span>String Handling<a class="topic-link" href="../topics/string-handling.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/string-handling/StringHandlingDemo.html">StringHandlingDemo</a></li>
 </ul>
-</li>
-<li class="nav-topic"><a href="../topics/solid-principles.html">10 — SOLID Principles</a>
+</details></li>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">10</span>SOLID Principles<a class="topic-link" href="../topics/solid-principles.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/solid-principles/SOLIDDemo.html">SOLIDDemo</a></li>
 </ul>
-</li>
-<li class="nav-topic"><a href="../topics/access-modifiers.html">11 — Access Modifiers</a>
+</details></li>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">11</span>Access Modifiers<a class="topic-link" href="../topics/access-modifiers.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/access-modifiers/AccessModifiersDemo.html">AccessModifiersDemo</a></li>
 </ul>
-</li>
-<li class="nav-topic"><a href="../topics/static-and-final.html">12 — static &amp; final</a>
+</details></li>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">12</span>static &amp; final<a class="topic-link" href="../topics/static-and-final.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/static-and-final/StaticFinalDemo.html">StaticFinalDemo</a></li>
 </ul>
-</li>
-<li class="nav-topic"><a href="../topics/inner-classes.html">13 — Inner Classes</a>
+</details></li>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">13</span>Inner Classes<a class="topic-link" href="../topics/inner-classes.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/inner-classes/InnerClassesDemo.html">InnerClassesDemo</a></li>
 </ul>
-</li>
-<li class="nav-topic"><a href="../topics/wrapper-classes.html">14 — Wrapper Classes</a>
+</details></li>
+<li class="nav-topic">
+<details>
+<summary><span class="topic-num">14</span>Wrapper Classes<a class="topic-link" href="../topics/wrapper-classes.html" onclick="event.stopPropagation()">overview</a></summary>
 <ul class="nav-lessons">
 <li><a href="../lessons/wrapper-classes/WrapperAutoboxingDemo.html">WrapperAutoboxingDemo</a></li>
 </ul>
-</li>
+</details></li>
 </ul></nav>
     <main class="content">
-      <header class="page-header">
-        <h1>03 — Generics</h1>
-        <p class="page-subtitle">generics</p>
-      </header>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="sep">/</span><span class="current">Generics</span></nav>
+      <header class="page-header"><h1>03 — Generics</h1><p class="page-subtitle">generics</p></header>
       <section class="readme"><h1 id="lesson-03-generics-sde2-interview">Lesson 03 — Generics (SDE2 Interview)</h1>
 <h2 id="topics-covered">Topics Covered</h2>
 <ol>
@@ -158,16 +197,33 @@
 <li><code>GenericClassDemo.java</code> — Generic class, methods, bounded types</li>
 <li><code>WildcardDemo.java</code> — ?, extends, super wildcards + PECS</li>
 <li><code>TypeErasureDemo.java</code> — Erasure, raw types, heap pollution</li>
-</ul></section><section class="lesson-cards"><h2>Source Files</h2><div class="card-grid">
-<a class="lesson-card" href="../lessons/generics/GenericClassDemo.html"><span class="card-title">GenericClassDemo</span><span class="card-meta">.java</span></a>
-<a class="lesson-card" href="../lessons/generics/WildcardDemo.html"><span class="card-title">WildcardDemo</span><span class="card-meta">.java</span></a>
+</ul></section><section class="lesson-cards"><p class="section-title">Source Files</p><div class="card-grid">
+<a class="lesson-card" href="../lessons/generics/GenericClassDemo.html"><span class="card-title">GenericClassDemo</span><span class="card-meta">GenericClassDemo.java</span></a>
+<a class="lesson-card" href="../lessons/generics/WildcardDemo.html"><span class="card-title">WildcardDemo</span><span class="card-meta">WildcardDemo.java</span></a>
 </div></section>
       <footer class="page-footer">
-        <a href="../index.html">← Back to index</a>
+        <a href="../index.html">← All lessons</a>
+        <span>32 demos · 14 topics</span>
       </footer>
     </main>
   </div>
+  <div class="toast" id="toast">Copied!</div>
   <script>
+    function copyCode(btn) {
+      var code = document.querySelector('.highlight pre');
+      if (!code) return;
+      navigator.clipboard.writeText(code.innerText).then(function() {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        var t = document.getElementById('toast');
+        t.classList.add('show');
+        setTimeout(function() {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+          t.classList.remove('show');
+        }, 2000);
+      });
+    }
     document.querySelectorAll('pre code').forEach(function(block) {
       block.setAttribute('tabindex', '0');
     });
