@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07 — Design Patterns — Java SDE2 Lessons</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/pygments.css">
+</head>
+<body>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+  <div class="layout">
+    <nav class="sidebar"><div class="nav-brand"><a href="../index.html">Java SDE2</a></div>
+<ul class="nav-list">
+<li class="nav-topic"><a href="../topics/oop-concepts.html">01 — OOP Concepts</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/oop-concepts/AbstractionDemo.html">AbstractionDemo</a></li>
+<li><a href="../lessons/oop-concepts/EncapsulationDemo.html">EncapsulationDemo</a></li>
+<li><a href="../lessons/oop-concepts/InheritanceDemo.html">InheritanceDemo</a></li>
+<li><a href="../lessons/oop-concepts/InterfaceDemo.html">InterfaceDemo</a></li>
+<li><a href="../lessons/oop-concepts/ObjectMethodsDemo.html">ObjectMethodsDemo</a></li>
+<li><a href="../lessons/oop-concepts/PolymorphismDemo.html">PolymorphismDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/collections-framework.html">02 — Collections Framework</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/collections-framework/AdvancedMapDemo.html">AdvancedMapDemo</a></li>
+<li><a href="../lessons/collections-framework/CollectionsHierarchyDemo.html">CollectionsHierarchyDemo</a></li>
+<li><a href="../lessons/collections-framework/ComparatorComparableDemo.html">ComparatorComparableDemo</a></li>
+<li><a href="../lessons/collections-framework/ListDemo.html">ListDemo</a></li>
+<li><a href="../lessons/collections-framework/MapDemo.html">MapDemo</a></li>
+<li><a href="../lessons/collections-framework/QueueDequeDemo.html">QueueDequeDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/generics.html">03 — Generics</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/generics/GenericClassDemo.html">GenericClassDemo</a></li>
+<li><a href="../lessons/generics/WildcardDemo.html">WildcardDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/exception-handling.html">04 — Exception Handling</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/exception-handling/ExceptionHierarchyDemo.html">ExceptionHierarchyDemo</a></li>
+<li><a href="../lessons/exception-handling/TryWithResourcesDemo.html">TryWithResourcesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/multithreading-concurrency.html">05 — Multithreading &amp; Concurrency</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/multithreading-concurrency/ConcurrentCollectionsDemo.html">ConcurrentCollectionsDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ConcurrentUtilsDemo.html">ConcurrentUtilsDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ExecutorServiceDemo.html">ExecutorServiceDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ThreadBasicsDemo.html">ThreadBasicsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/java8-features.html">06 — Java 8+ Features</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/java8-features/LambdaFunctionalDemo.html">LambdaFunctionalDemo</a></li>
+<li><a href="../lessons/java8-features/OptionalDemo.html">OptionalDemo</a></li>
+<li><a href="../lessons/java8-features/StreamAPIDemo.html">StreamAPIDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/design-patterns.html">07 — Design Patterns</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/design-patterns/BehavioralPatternDemo.html">BehavioralPatternDemo</a></li>
+<li><a href="../lessons/design-patterns/SingletonDemo.html">SingletonDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/jvm-internals.html">08 — JVM Internals</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/jvm-internals/JVMInternalsDemo.html">JVMInternalsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/string-handling.html">09 — String Handling</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/string-handling/StringHandlingDemo.html">StringHandlingDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/solid-principles.html">10 — SOLID Principles</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/solid-principles/SOLIDDemo.html">SOLIDDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/access-modifiers.html">11 — Access Modifiers</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/access-modifiers/AccessModifiersDemo.html">AccessModifiersDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/static-and-final.html">12 — static &amp; final</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/static-and-final/StaticFinalDemo.html">StaticFinalDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/inner-classes.html">13 — Inner Classes</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/inner-classes/InnerClassesDemo.html">InnerClassesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/wrapper-classes.html">14 — Wrapper Classes</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/wrapper-classes/WrapperAutoboxingDemo.html">WrapperAutoboxingDemo</a></li>
+</ul>
+</li>
+</ul></nav>
+    <main class="content">
+      <header class="page-header">
+        <h1>07 — Design Patterns</h1>
+        <p class="page-subtitle">design_patterns</p>
+      </header>
+      <section class="readme"><h1 id="lesson-07-design-patterns-sde2-interview">Lesson 07 — Design Patterns (SDE2 Interview)</h1>
+<h2 id="topics-covered">Topics Covered</h2>
+<h3 id="creational">Creational</h3>
+<ol>
+<li><strong>Singleton</strong> — single instance, thread safety, double-checked locking</li>
+<li><strong>Factory Method</strong> — subclass decides which class to create</li>
+<li><strong>Abstract Factory</strong> — family of related objects</li>
+<li><strong>Builder</strong> — construct complex objects step-by-step</li>
+</ol>
+<h3 id="structural">Structural</h3>
+<ol>
+<li><strong>Decorator</strong> — add behavior dynamically (extends over inheritance)</li>
+<li><strong>Adapter</strong> — bridge incompatible interfaces</li>
+<li><strong>Proxy</strong> — control access to another object (lazy init, logging, security)</li>
+<li><strong>Composite</strong> — tree structures of uniform interface</li>
+</ol>
+<h3 id="behavioral">Behavioral</h3>
+<ol>
+<li><strong>Observer</strong> — event-driven notifications (pub/sub)</li>
+<li><strong>Strategy</strong> — swap algorithms at runtime</li>
+<li><strong>Template Method</strong> — skeleton algorithm, subclass fills in steps</li>
+<li><strong>Command</strong> — encapsulate request as object</li>
+</ol>
+<h2 id="key-interview-points">Key Interview Points</h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>When to use</th>
+<th>Java Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Singleton</td>
+<td>One shared resource (config, registry)</td>
+<td>Runtime.getRuntime(), Spring @Component</td>
+</tr>
+<tr>
+<td>Builder</td>
+<td>Many optional constructor params</td>
+<td>StringBuilder, Lombok @Builder, HttpRequest</td>
+</tr>
+<tr>
+<td>Factory</td>
+<td>Decouple creation from usage</td>
+<td>Calendar.getInstance(), Collections.sort()</td>
+</tr>
+<tr>
+<td>Observer</td>
+<td>Decoupled event notification</td>
+<td>Java events, Spring ApplicationEvent</td>
+</tr>
+<tr>
+<td>Strategy</td>
+<td>Interchangeable algorithms</td>
+<td>Comparator, LayoutManager</td>
+</tr>
+<tr>
+<td>Decorator</td>
+<td>Add behavior without inheritance</td>
+<td>BufferedReader(FileReader), Stream pipeline</td>
+</tr>
+<tr>
+<td>Template Method</td>
+<td>Shared skeleton, diff steps</td>
+<td>AbstractList, Servlet</td>
+</tr>
+</tbody>
+</table>
+<h2 id="files-in-this-lesson">Files in this Lesson</h2>
+<ul>
+<li><code>SingletonDemo.java</code> — 5 ways to implement, thread safety, break-proofing</li>
+<li><code>BuilderFactoryDemo.java</code> — Builder + Factory patterns</li>
+<li><code>ObserverStrategyDemo.java</code> — Observer + Strategy patterns</li>
+<li><code>DecoratorProxyDemo.java</code> — Decorator + Proxy patterns</li>
+</ul></section><section class="lesson-cards"><h2>Source Files</h2><div class="card-grid">
+<a class="lesson-card" href="../lessons/design-patterns/BehavioralPatternDemo.html"><span class="card-title">BehavioralPatternDemo</span><span class="card-meta">.java</span></a>
+<a class="lesson-card" href="../lessons/design-patterns/SingletonDemo.html"><span class="card-title">SingletonDemo</span><span class="card-meta">.java</span></a>
+</div></section>
+      <footer class="page-footer">
+        <a href="../index.html">← Back to index</a>
+      </footer>
+    </main>
+  </div>
+  <script>
+    document.querySelectorAll('pre code').forEach(function(block) {
+      block.setAttribute('tabindex', '0');
+    });
+  </script>
+</body>
+</html>

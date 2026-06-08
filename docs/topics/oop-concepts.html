@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 — OOP Concepts — Java SDE2 Lessons</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/pygments.css">
+</head>
+<body>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+  <div class="layout">
+    <nav class="sidebar"><div class="nav-brand"><a href="../index.html">Java SDE2</a></div>
+<ul class="nav-list">
+<li class="nav-topic"><a href="../topics/oop-concepts.html">01 — OOP Concepts</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/oop-concepts/AbstractionDemo.html">AbstractionDemo</a></li>
+<li><a href="../lessons/oop-concepts/EncapsulationDemo.html">EncapsulationDemo</a></li>
+<li><a href="../lessons/oop-concepts/InheritanceDemo.html">InheritanceDemo</a></li>
+<li><a href="../lessons/oop-concepts/InterfaceDemo.html">InterfaceDemo</a></li>
+<li><a href="../lessons/oop-concepts/ObjectMethodsDemo.html">ObjectMethodsDemo</a></li>
+<li><a href="../lessons/oop-concepts/PolymorphismDemo.html">PolymorphismDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/collections-framework.html">02 — Collections Framework</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/collections-framework/AdvancedMapDemo.html">AdvancedMapDemo</a></li>
+<li><a href="../lessons/collections-framework/CollectionsHierarchyDemo.html">CollectionsHierarchyDemo</a></li>
+<li><a href="../lessons/collections-framework/ComparatorComparableDemo.html">ComparatorComparableDemo</a></li>
+<li><a href="../lessons/collections-framework/ListDemo.html">ListDemo</a></li>
+<li><a href="../lessons/collections-framework/MapDemo.html">MapDemo</a></li>
+<li><a href="../lessons/collections-framework/QueueDequeDemo.html">QueueDequeDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/generics.html">03 — Generics</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/generics/GenericClassDemo.html">GenericClassDemo</a></li>
+<li><a href="../lessons/generics/WildcardDemo.html">WildcardDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/exception-handling.html">04 — Exception Handling</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/exception-handling/ExceptionHierarchyDemo.html">ExceptionHierarchyDemo</a></li>
+<li><a href="../lessons/exception-handling/TryWithResourcesDemo.html">TryWithResourcesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/multithreading-concurrency.html">05 — Multithreading &amp; Concurrency</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/multithreading-concurrency/ConcurrentCollectionsDemo.html">ConcurrentCollectionsDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ConcurrentUtilsDemo.html">ConcurrentUtilsDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ExecutorServiceDemo.html">ExecutorServiceDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ThreadBasicsDemo.html">ThreadBasicsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/java8-features.html">06 — Java 8+ Features</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/java8-features/LambdaFunctionalDemo.html">LambdaFunctionalDemo</a></li>
+<li><a href="../lessons/java8-features/OptionalDemo.html">OptionalDemo</a></li>
+<li><a href="../lessons/java8-features/StreamAPIDemo.html">StreamAPIDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/design-patterns.html">07 — Design Patterns</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/design-patterns/BehavioralPatternDemo.html">BehavioralPatternDemo</a></li>
+<li><a href="../lessons/design-patterns/SingletonDemo.html">SingletonDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/jvm-internals.html">08 — JVM Internals</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/jvm-internals/JVMInternalsDemo.html">JVMInternalsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/string-handling.html">09 — String Handling</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/string-handling/StringHandlingDemo.html">StringHandlingDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/solid-principles.html">10 — SOLID Principles</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/solid-principles/SOLIDDemo.html">SOLIDDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/access-modifiers.html">11 — Access Modifiers</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/access-modifiers/AccessModifiersDemo.html">AccessModifiersDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/static-and-final.html">12 — static &amp; final</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/static-and-final/StaticFinalDemo.html">StaticFinalDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/inner-classes.html">13 — Inner Classes</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/inner-classes/InnerClassesDemo.html">InnerClassesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/wrapper-classes.html">14 — Wrapper Classes</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/wrapper-classes/WrapperAutoboxingDemo.html">WrapperAutoboxingDemo</a></li>
+</ul>
+</li>
+</ul></nav>
+    <main class="content">
+      <header class="page-header">
+        <h1>01 — OOP Concepts</h1>
+        <p class="page-subtitle">oop_concepts</p>
+      </header>
+      <section class="readme"><h1 id="lesson-01-oop-concepts-sde2-interview">Lesson 01 — OOP Concepts (SDE2 Interview)</h1>
+<h2 id="topics-covered">Topics Covered</h2>
+<ol>
+<li>Encapsulation</li>
+<li>Inheritance (single, multi-level, hierarchical)</li>
+<li>Polymorphism (compile-time &amp; runtime)</li>
+<li>Abstraction (abstract class vs interface)</li>
+<li>Association, Aggregation, Composition</li>
+<li><code>final</code>, <code>static</code>, <code>this</code>, <code>super</code> keywords</li>
+<li>Method Overloading vs Overriding rules</li>
+<li>Covariant return types</li>
+<li>Constructor chaining</li>
+<li>Object class methods (<code>equals</code>, <code>hashCode</code>, <code>toString</code>, <code>clone</code>)</li>
+</ol>
+<h2 id="key-interview-points">Key Interview Points</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Quick Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Abstraction vs Encapsulation</td>
+<td>Abstraction hides <em>what</em> (design); Encapsulation hides <em>how</em> (implementation/data)</td>
+</tr>
+<tr>
+<td>Abstract class vs Interface</td>
+<td>Abstract class has state + partial impl; Interface is a pure contract (Java 8+ allows default methods)</td>
+</tr>
+<tr>
+<td>Overloading vs Overriding</td>
+<td>Overloading = same name, diff params (compile-time); Overriding = same sig in subclass (runtime)</td>
+</tr>
+<tr>
+<td>Why override <code>hashCode</code> with <code>equals</code>?</td>
+<td>Contract: equal objects must have same hash. Breaks HashMap/Set otherwise</td>
+</tr>
+<tr>
+<td><code>IS-A</code> vs <code>HAS-A</code></td>
+<td>IS-A = Inheritance; HAS-A = Composition/Aggregation</td>
+</tr>
+<tr>
+<td>Can constructors be inherited?</td>
+<td>No. But <code>super()</code> calls parent constructor</td>
+</tr>
+<tr>
+<td>Can we override <code>static</code> methods?</td>
+<td>No — static methods are hidden, not overridden (no runtime polymorphism)</td>
+</tr>
+<tr>
+<td>Can we override <code>private</code> methods?</td>
+<td>No — private methods are not visible to subclass</td>
+</tr>
+</tbody>
+</table>
+<h2 id="files-in-this-lesson">Files in this Lesson</h2>
+<ul>
+<li><code>EncapsulationDemo.java</code> — Getter/setter, data hiding</li>
+<li><code>InheritanceDemo.java</code> — Single, multi-level, method hiding</li>
+<li><code>PolymorphismDemo.java</code> — Overloading, overriding, dynamic dispatch</li>
+<li><code>AbstractionDemo.java</code> — Abstract class vs Interface</li>
+<li><code>InterfaceDemo.java</code> — Interface contract, default methods, multiple implementation, marker interface</li>
+<li><code>CompositionDemo.java</code> — Composition vs Aggregation vs Association</li>
+<li><code>ObjectMethodsDemo.java</code> — equals, hashCode, toString, clone</li>
+</ul></section><section class="lesson-cards"><h2>Source Files</h2><div class="card-grid">
+<a class="lesson-card" href="../lessons/oop-concepts/AbstractionDemo.html"><span class="card-title">AbstractionDemo</span><span class="card-meta">.java</span></a>
+<a class="lesson-card" href="../lessons/oop-concepts/EncapsulationDemo.html"><span class="card-title">EncapsulationDemo</span><span class="card-meta">.java</span></a>
+<a class="lesson-card" href="../lessons/oop-concepts/InheritanceDemo.html"><span class="card-title">InheritanceDemo</span><span class="card-meta">.java</span></a>
+<a class="lesson-card" href="../lessons/oop-concepts/InterfaceDemo.html"><span class="card-title">InterfaceDemo</span><span class="card-meta">.java</span></a>
+<a class="lesson-card" href="../lessons/oop-concepts/ObjectMethodsDemo.html"><span class="card-title">ObjectMethodsDemo</span><span class="card-meta">.java</span></a>
+<a class="lesson-card" href="../lessons/oop-concepts/PolymorphismDemo.html"><span class="card-title">PolymorphismDemo</span><span class="card-meta">.java</span></a>
+</div></section>
+      <footer class="page-footer">
+        <a href="../index.html">← Back to index</a>
+      </footer>
+    </main>
+  </div>
+  <script>
+    document.querySelectorAll('pre code').forEach(function(block) {
+      block.setAttribute('tabindex', '0');
+    });
+  </script>
+</body>
+</html>

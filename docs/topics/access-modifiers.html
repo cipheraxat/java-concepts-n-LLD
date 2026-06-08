@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11 — Access Modifiers — Java SDE2 Lessons</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/pygments.css">
+</head>
+<body>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+  <div class="layout">
+    <nav class="sidebar"><div class="nav-brand"><a href="../index.html">Java SDE2</a></div>
+<ul class="nav-list">
+<li class="nav-topic"><a href="../topics/oop-concepts.html">01 — OOP Concepts</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/oop-concepts/AbstractionDemo.html">AbstractionDemo</a></li>
+<li><a href="../lessons/oop-concepts/EncapsulationDemo.html">EncapsulationDemo</a></li>
+<li><a href="../lessons/oop-concepts/InheritanceDemo.html">InheritanceDemo</a></li>
+<li><a href="../lessons/oop-concepts/InterfaceDemo.html">InterfaceDemo</a></li>
+<li><a href="../lessons/oop-concepts/ObjectMethodsDemo.html">ObjectMethodsDemo</a></li>
+<li><a href="../lessons/oop-concepts/PolymorphismDemo.html">PolymorphismDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/collections-framework.html">02 — Collections Framework</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/collections-framework/AdvancedMapDemo.html">AdvancedMapDemo</a></li>
+<li><a href="../lessons/collections-framework/CollectionsHierarchyDemo.html">CollectionsHierarchyDemo</a></li>
+<li><a href="../lessons/collections-framework/ComparatorComparableDemo.html">ComparatorComparableDemo</a></li>
+<li><a href="../lessons/collections-framework/ListDemo.html">ListDemo</a></li>
+<li><a href="../lessons/collections-framework/MapDemo.html">MapDemo</a></li>
+<li><a href="../lessons/collections-framework/QueueDequeDemo.html">QueueDequeDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/generics.html">03 — Generics</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/generics/GenericClassDemo.html">GenericClassDemo</a></li>
+<li><a href="../lessons/generics/WildcardDemo.html">WildcardDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/exception-handling.html">04 — Exception Handling</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/exception-handling/ExceptionHierarchyDemo.html">ExceptionHierarchyDemo</a></li>
+<li><a href="../lessons/exception-handling/TryWithResourcesDemo.html">TryWithResourcesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/multithreading-concurrency.html">05 — Multithreading &amp; Concurrency</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/multithreading-concurrency/ConcurrentCollectionsDemo.html">ConcurrentCollectionsDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ConcurrentUtilsDemo.html">ConcurrentUtilsDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ExecutorServiceDemo.html">ExecutorServiceDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ThreadBasicsDemo.html">ThreadBasicsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/java8-features.html">06 — Java 8+ Features</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/java8-features/LambdaFunctionalDemo.html">LambdaFunctionalDemo</a></li>
+<li><a href="../lessons/java8-features/OptionalDemo.html">OptionalDemo</a></li>
+<li><a href="../lessons/java8-features/StreamAPIDemo.html">StreamAPIDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/design-patterns.html">07 — Design Patterns</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/design-patterns/BehavioralPatternDemo.html">BehavioralPatternDemo</a></li>
+<li><a href="../lessons/design-patterns/SingletonDemo.html">SingletonDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/jvm-internals.html">08 — JVM Internals</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/jvm-internals/JVMInternalsDemo.html">JVMInternalsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/string-handling.html">09 — String Handling</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/string-handling/StringHandlingDemo.html">StringHandlingDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/solid-principles.html">10 — SOLID Principles</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/solid-principles/SOLIDDemo.html">SOLIDDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/access-modifiers.html">11 — Access Modifiers</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/access-modifiers/AccessModifiersDemo.html">AccessModifiersDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/static-and-final.html">12 — static &amp; final</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/static-and-final/StaticFinalDemo.html">StaticFinalDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/inner-classes.html">13 — Inner Classes</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/inner-classes/InnerClassesDemo.html">InnerClassesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/wrapper-classes.html">14 — Wrapper Classes</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/wrapper-classes/WrapperAutoboxingDemo.html">WrapperAutoboxingDemo</a></li>
+</ul>
+</li>
+</ul></nav>
+    <main class="content">
+      <header class="page-header">
+        <h1>11 — Access Modifiers</h1>
+        <p class="page-subtitle">access_modifiers</p>
+      </header>
+      <section class="readme"><h1 id="lesson-11-access-modifiers-sde2-interview">Lesson 11 — Access Modifiers (SDE2 Interview)</h1>
+<h2 id="topics-covered">Topics Covered</h2>
+<ol>
+<li>Four access levels: <code>private</code>, default (package-private), <code>protected</code>, <code>public</code></li>
+<li>Access modifier scope table</li>
+<li>Private constructors (Singleton, Utility, Factory)</li>
+<li>Access widening rules on method overriding</li>
+<li>Access modifiers on interfaces (implicit <code>public</code>)</li>
+<li>Top-level class restrictions (<code>public</code> or default only)</li>
+<li>Nested/inner class access rules</li>
+<li><code>protected</code> access across packages (inheritance vs reference)</li>
+</ol>
+<h2 id="key-interview-points">Key Interview Points</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Quick Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order (restrictive → open)</td>
+<td><code>private</code> → default → <code>protected</code> → <code>public</code></td>
+</tr>
+<tr>
+<td>Default access keyword?</td>
+<td>No keyword — simply omit the modifier (package-private)</td>
+</tr>
+<tr>
+<td>Top-level class modifiers?</td>
+<td>Only <code>public</code> or default. Cannot be <code>private</code> or <code>protected</code></td>
+</tr>
+<tr>
+<td>Protected across packages?</td>
+<td>Subclass can access via <code>this</code>/inheritance, NOT via parent reference</td>
+</tr>
+<tr>
+<td>Override visibility rule?</td>
+<td>Overriding method CANNOT be MORE restrictive than parent (Liskov)</td>
+</tr>
+<tr>
+<td>Private constructor use?</td>
+<td>Singleton, utility class, factory method, builder pattern</td>
+</tr>
+<tr>
+<td>Interface method access?</td>
+<td>Implicitly <code>public</code> (except <code>private</code> helper methods in Java 9+)</td>
+</tr>
+<tr>
+<td>Interface field access?</td>
+<td>Implicitly <code>public static final</code></td>
+</tr>
+<tr>
+<td>Inner class access?</td>
+<td>Can access ALL outer members including <code>private</code></td>
+</tr>
+<tr>
+<td>Static nested class access?</td>
+<td>Can access outer's <code>private static</code> members only</td>
+</tr>
+<tr>
+<td>Can you override <code>private</code> methods?</td>
+<td>No — not visible to subclass; child defines a NEW method</td>
+</tr>
+<tr>
+<td><code>protected</code> vs default?</td>
+<td><code>protected</code> adds subclass access in other packages; default is package-only</td>
+</tr>
+</tbody>
+</table>
+<h2 id="access-scope-table">Access Scope Table</h2>
+<pre><code>┌───────────┬───────┬─────────┬────────────────┬───────┐
+│ Modifier  │ Class │ Package │ Subclass       │ World │
+│           │       │         │ (diff package) │       │
+├───────────┼───────┼─────────┼────────────────┼───────┤
+│ private   │  ✅   │   ❌    │      ❌        │  ❌   │
+│ default   │  ✅   │   ✅    │      ❌        │  ❌   │
+│ protected │  ✅   │   ✅    │      ✅        │  ❌   │
+│ public    │  ✅   │   ✅    │      ✅        │  ✅   │
+└───────────┴───────┴─────────┴────────────────┴───────┘
+</code></pre>
+<h2 id="files-in-this-lesson">Files in this Lesson</h2>
+<ul>
+<li><code>AccessModifiersDemo.java</code> — All four modifiers, overriding rules, interfaces, nested classes, private constructors</li>
+</ul></section><section class="lesson-cards"><h2>Source Files</h2><div class="card-grid">
+<a class="lesson-card" href="../lessons/access-modifiers/AccessModifiersDemo.html"><span class="card-title">AccessModifiersDemo</span><span class="card-meta">.java</span></a>
+</div></section>
+      <footer class="page-footer">
+        <a href="../index.html">← Back to index</a>
+      </footer>
+    </main>
+  </div>
+  <script>
+    document.querySelectorAll('pre code').forEach(function(block) {
+      block.setAttribute('tabindex', '0');
+    });
+  </script>
+</body>
+</html>

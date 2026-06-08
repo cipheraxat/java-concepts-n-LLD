@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JVMInternalsDemo — Java SDE2 Lessons</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+  <div class="layout">
+    <nav class="sidebar"><div class="nav-brand"><a href="../../index.html">Java SDE2</a></div>
+<ul class="nav-list">
+<li class="nav-topic"><a href="../../topics/oop-concepts.html">01 — OOP Concepts</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/oop-concepts/AbstractionDemo.html">AbstractionDemo</a></li>
+<li><a href="../../lessons/oop-concepts/EncapsulationDemo.html">EncapsulationDemo</a></li>
+<li><a href="../../lessons/oop-concepts/InheritanceDemo.html">InheritanceDemo</a></li>
+<li><a href="../../lessons/oop-concepts/InterfaceDemo.html">InterfaceDemo</a></li>
+<li><a href="../../lessons/oop-concepts/ObjectMethodsDemo.html">ObjectMethodsDemo</a></li>
+<li><a href="../../lessons/oop-concepts/PolymorphismDemo.html">PolymorphismDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/collections-framework.html">02 — Collections Framework</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/collections-framework/AdvancedMapDemo.html">AdvancedMapDemo</a></li>
+<li><a href="../../lessons/collections-framework/CollectionsHierarchyDemo.html">CollectionsHierarchyDemo</a></li>
+<li><a href="../../lessons/collections-framework/ComparatorComparableDemo.html">ComparatorComparableDemo</a></li>
+<li><a href="../../lessons/collections-framework/ListDemo.html">ListDemo</a></li>
+<li><a href="../../lessons/collections-framework/MapDemo.html">MapDemo</a></li>
+<li><a href="../../lessons/collections-framework/QueueDequeDemo.html">QueueDequeDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/generics.html">03 — Generics</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/generics/GenericClassDemo.html">GenericClassDemo</a></li>
+<li><a href="../../lessons/generics/WildcardDemo.html">WildcardDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/exception-handling.html">04 — Exception Handling</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/exception-handling/ExceptionHierarchyDemo.html">ExceptionHierarchyDemo</a></li>
+<li><a href="../../lessons/exception-handling/TryWithResourcesDemo.html">TryWithResourcesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/multithreading-concurrency.html">05 — Multithreading &amp; Concurrency</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/multithreading-concurrency/ConcurrentCollectionsDemo.html">ConcurrentCollectionsDemo</a></li>
+<li><a href="../../lessons/multithreading-concurrency/ConcurrentUtilsDemo.html">ConcurrentUtilsDemo</a></li>
+<li><a href="../../lessons/multithreading-concurrency/ExecutorServiceDemo.html">ExecutorServiceDemo</a></li>
+<li><a href="../../lessons/multithreading-concurrency/ThreadBasicsDemo.html">ThreadBasicsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/java8-features.html">06 — Java 8+ Features</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/java8-features/LambdaFunctionalDemo.html">LambdaFunctionalDemo</a></li>
+<li><a href="../../lessons/java8-features/OptionalDemo.html">OptionalDemo</a></li>
+<li><a href="../../lessons/java8-features/StreamAPIDemo.html">StreamAPIDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/design-patterns.html">07 — Design Patterns</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/design-patterns/BehavioralPatternDemo.html">BehavioralPatternDemo</a></li>
+<li><a href="../../lessons/design-patterns/SingletonDemo.html">SingletonDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/jvm-internals.html">08 — JVM Internals</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/jvm-internals/JVMInternalsDemo.html">JVMInternalsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/string-handling.html">09 — String Handling</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/string-handling/StringHandlingDemo.html">StringHandlingDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/solid-principles.html">10 — SOLID Principles</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/solid-principles/SOLIDDemo.html">SOLIDDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/access-modifiers.html">11 — Access Modifiers</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/access-modifiers/AccessModifiersDemo.html">AccessModifiersDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/static-and-final.html">12 — static &amp; final</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/static-and-final/StaticFinalDemo.html">StaticFinalDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/inner-classes.html">13 — Inner Classes</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/inner-classes/InnerClassesDemo.html">InnerClassesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/wrapper-classes.html">14 — Wrapper Classes</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/wrapper-classes/WrapperAutoboxingDemo.html">WrapperAutoboxingDemo</a></li>
+</ul>
+</li>
+</ul></nav>
+    <main class="content">
+      <header class="page-header">
+        <h1>JVMInternalsDemo</h1>
+        <p class="page-subtitle">08 — JVM Internals · JVMInternalsDemo.java</p>
+      </header>
+      <section class="code-section"><div class="code-meta"><span>JVMInternalsDemo.java</span><button type="button" onclick="navigator.clipboard.writeText(document.querySelector('pre code').innerText)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">lessons.jvm_internals</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * LESSON 08 — JVM Internals (SDE2 Interview)</span>
+<span class="cm"> *</span>
+<span class="cm"> * SDE2 Interview Questions (conceptual — no runnable code for all):</span>
+<span class="cm"> *  - &quot;What are the JVM memory areas?&quot;</span>
+<span class="cm"> *  - &quot;What is the difference between Heap and Stack?&quot;</span>
+<span class="cm"> *  - &quot;How does Garbage Collection work?&quot;</span>
+<span class="cm"> *  - &quot;What is the difference between minor GC and major GC?&quot;</span>
+<span class="cm"> *  - &quot;What is a ClassLoader?&quot;</span>
+<span class="cm"> *  - &quot;What is the Java Memory Model (JMM)?&quot;</span>
+<span class="cm"> *  - &quot;What is JIT compilation?&quot;</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JVMInternalsDemo</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="cm">/*</span>
+<span class="cm">     * ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="cm">     *  JVM MEMORY AREAS</span>
+<span class="cm">     * ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="cm">     *</span>
+<span class="cm">     *  1. HEAP (shared across threads)</span>
+<span class="cm">     *     ├── Young Generation</span>
+<span class="cm">     *     │   ├── Eden Space     — new objects allocated here</span>
+<span class="cm">     *     │   ├── Survivor S0    — after first GC that survives</span>
+<span class="cm">     *     │   └── Survivor S1    — second pass</span>
+<span class="cm">     *     └── Old Generation (Tenured) — long-lived objects promoted here</span>
+<span class="cm">     *</span>
+<span class="cm">     *  2. METHOD AREA / METASPACE (Java 8+, shared)</span>
+<span class="cm">     *     — class metadata, static variables, runtime constant pool</span>
+<span class="cm">     *     — PermGen in Java 7 and before (fixed size, often caused OutOfMemoryError)</span>
+<span class="cm">     *     — Metaspace in Java 8+ (uses native memory, auto-grows, configurable max)</span>
+<span class="cm">     *</span>
+<span class="cm">     *  3. STACK (per thread)</span>
+<span class="cm">     *     — one stack frame per method call</span>
+<span class="cm">     *     — each frame: local variables, operand stack, return address</span>
+<span class="cm">     *     — StackOverflowError if too deep (default ~512 frames)</span>
+<span class="cm">     *</span>
+<span class="cm">     *  4. PC REGISTER (per thread)</span>
+<span class="cm">     *     — address of currently executing JVM instruction</span>
+<span class="cm">     *</span>
+<span class="cm">     *  5. NATIVE METHOD STACK (per thread)</span>
+<span class="cm">     *     — for native (JNI) method calls</span>
+<span class="cm">     *</span>
+<span class="cm">     * ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="cm">     *  GARBAGE COLLECTION</span>
+<span class="cm">     * ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="cm">     *</span>
+<span class="cm">     *  HOW GC WORKS:</span>
+<span class="cm">     *  1. Mark phase: identify all objects reachable from GC roots</span>
+<span class="cm">     *     (GC roots: local variables in active threads, static fields, JNI references)</span>
+<span class="cm">     *  2. Sweep phase: reclaim memory of unreachable objects</span>
+<span class="cm">     *  3. Compact phase: defragment memory (not all collectors do this)</span>
+<span class="cm">     *</span>
+<span class="cm">     *  GENERATIONAL HYPOTHESIS:</span>
+<span class="cm">     *  &quot;Most objects die young&quot; → collect young gen frequently (fast), old gen occasionally (slow)</span>
+<span class="cm">     *</span>
+<span class="cm">     *  MINOR GC: Collect Young Generation</span>
+<span class="cm">     *   - Eden → survivors (objects that survive)</span>
+<span class="cm">     *   - Stop-The-World (short pause, typically &lt; 100ms)</span>
+<span class="cm">     *   - Objects that survive enough minor GCs get promoted to Old Gen</span>
+<span class="cm">     *</span>
+<span class="cm">     *  MAJOR GC (Full GC): Collects Old Generation</span>
+<span class="cm">     *   - Much longer pause (seconds for large heaps with Serial/Parallel GC)</span>
+<span class="cm">     *   - Usually also includes Young Gen</span>
+<span class="cm">     *</span>
+<span class="cm">     *</span>
+<span class="cm">     *  GC COLLECTORS:</span>
+<span class="cm">     *  ┌─────────────────────────────────────────────────────────────────────────┐</span>
+<span class="cm">     *  │ Collector      │ Default      │ Characteristics                         │</span>
+<span class="cm">     *  ├─────────────────────────────────────────────────────────────────────────┤</span>
+<span class="cm">     *  │ Serial GC      │ Small heaps  │ Single thread, simple, high pause      │</span>
+<span class="cm">     *  │ Parallel GC    │ Java 8 def   │ Multi-thread, throughput-focused        │</span>
+<span class="cm">     *  │ CMS            │ (deprecated) │ Concurrent, low-pause, fragmentation    │</span>
+<span class="cm">     *  │ G1 GC          │ Java 9+ def  │ Region-based, predictable pause goals  │</span>
+<span class="cm">     *  │ ZGC            │ Java 15+     │ Sub-millisecond pauses, scalable        │</span>
+<span class="cm">     *  │ Shenandoah     │ Java 12+     │ Concurrent compaction, low latency      │</span>
+<span class="cm">     *  └─────────────────────────────────────────────────────────────────────────┘</span>
+<span class="cm">     *</span>
+<span class="cm">     * ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="cm">     *  CLASS LOADING</span>
+<span class="cm">     * ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="cm">     *</span>
+<span class="cm">     *  Class Loaders (parent delegation model):</span>
+<span class="cm">     *  Bootstrap ClassLoader → Extension (Platform) ClassLoader → Application ClassLoader</span>
+<span class="cm">     *</span>
+<span class="cm">     *  Steps:</span>
+<span class="cm">     *  1. Loading    — reads .class bytes from source (file, jar, network)</span>
+<span class="cm">     *  2. Linking</span>
+<span class="cm">     *     a. Verification  — verify bytecode is valid and safe</span>
+<span class="cm">     *     b. Preparation   — allocate memory for static fields, set to defaults</span>
+<span class="cm">     *     c. Resolution    — resolve symbolic references to actual references</span>
+<span class="cm">     *  3. Initialization — run &lt;clinit&gt; static initializer blocks</span>
+<span class="cm">     *</span>
+<span class="cm">     *  Class is initialized ONCE (thread-safe per JLS). This is why</span>
+<span class="cm">     *  Initialization-on-Demand Holder singleton is safe.</span>
+<span class="cm">     *</span>
+<span class="cm">     * ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="cm">     *  JIT COMPILATION</span>
+<span class="cm">     * ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="cm">     *</span>
+<span class="cm">     *  Interpreter: executes bytecode line by line (slow for hot code)</span>
+<span class="cm">     *  JIT: identifies &quot;hot&quot; code (methods/loops called many times) and compiles to native machine code</span>
+<span class="cm">     *  Tiered Compilation (Java 8+):</span>
+<span class="cm">     *    Level 0: Interpreter</span>
+<span class="cm">     *    Level 1-3: C1 compiler (fast, less optimized)</span>
+<span class="cm">     *    Level 4: C2 compiler (slow, heavily optimized)</span>
+<span class="cm">     *</span>
+<span class="cm">     *  Common JIT Optimizations:</span>
+<span class="cm">     *  - Inlining: replace method call with method body (biggest impact)</span>
+<span class="cm">     *  - Dead code elimination</span>
+<span class="cm">     *  - Escape analysis: if object doesn&#39;t escape method → stack allocate (no GC)</span>
+<span class="cm">     *  - Loop unrolling</span>
+<span class="cm">     *  - Devirtualization: if only one implementation of interface → direct call</span>
+<span class="cm">     *</span>
+<span class="cm">     * ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="cm">     *  JAVA MEMORY MODEL (JMM)</span>
+<span class="cm">     * ═══════════════════════════════════════════════════════════════════════════</span>
+<span class="cm">     *</span>
+<span class="cm">     *  Problem: CPU caches and instruction reordering make memory updates non-visible</span>
+<span class="cm">     *  Solution: JMM defines when writes become visible to other threads</span>
+<span class="cm">     *</span>
+<span class="cm">     *  Happens-Before rules:</span>
+<span class="cm">     *  - Monitor unlock happens-before subsequent lock on same monitor</span>
+<span class="cm">     *  - volatile write happens-before subsequent volatile read</span>
+<span class="cm">     *  - Thread.start() happens-before any action in started thread</span>
+<span class="cm">     *  - Thread&#39;s last action happens-before Thread.join() returns</span>
+<span class="cm">     *  - Object construction happens-before finalizer</span>
+<span class="cm">     *</span>
+<span class="cm">     *  volatile: guarantees visibility (no caching), prevents reordering around the access</span>
+<span class="cm">     *  synchronized: guarantees visibility + atomicity (mutual exclusion on monitor)</span>
+<span class="cm">     */</span>
+
+<span class="w">    </span><span class="c1">// ─── Demonstrable GC behavior ────────────────────────────────────────────────</span>
+
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HeavyObject</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1024</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="c1">// 1MB</span>
+
+<span class="w">        </span><span class="c1">// Old-style finalization is deprecated; avoid using finalize() in modern Java.</span>
+<span class="w">        </span><span class="c1">// Use java.lang.ref.Cleaner to manage cleanup of native resources instead.</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">gcDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;=== GC Demo ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Heap before: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Runtime</span><span class="p">.</span><span class="na">getRuntime</span><span class="p">().</span><span class="na">totalMemory</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;MB used&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Create objects that become eligible for GC</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">HeavyObject</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HeavyObject</span><span class="p">();</span><span class="w"> </span><span class="c1">// allocated in Eden</span>
+<span class="w">            </span><span class="c1">// obj goes out of scope here — eligible for GC</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">gc</span><span class="p">();</span><span class="w">  </span><span class="c1">// Suggestion — not guaranteed (never do this in production!)</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;After GC suggestion: memory may or may not be reclaimed&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Heap after: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Runtime</span><span class="p">.</span><span class="na">getRuntime</span><span class="p">().</span><span class="na">freeMemory</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;MB free&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ─── Stack vs Heap ───────────────────────────────────────────────────────────</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">stackHeapDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Stack vs Heap ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * Stack:</span>
+<span class="cm">         *  - int x = 5;         → stored on stack (primitive)</span>
+<span class="cm">         *  - String ref = &quot;hi&quot;; → &#39;ref&#39; is on stack, String object is on heap (or String pool)</span>
+<span class="cm">         *  - Each method call = new stack frame</span>
+<span class="cm">         *  - Automatically freed when method returns</span>
+<span class="cm">         *</span>
+<span class="cm">         * Heap:</span>
+<span class="cm">         *  - new Object()       → always on heap (unless escape analysis allows stack allocation)</span>
+<span class="cm">         *  - All instance fields → heap</span>
+<span class="cm">         *  - String pool is in Heap since Java 7 (was in PermGen in Java 6)</span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w">                    </span><span class="c1">// x on stack</span>
+<span class="w">        </span><span class="n">Integer</span><span class="w"> </span><span class="n">boxed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">             </span><span class="c1">// autoboxing: new Integer on heap (or cached for -128..127)</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;hi&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// str reference on stack, String object on heap</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">interned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hi&quot;</span><span class="p">;</span><span class="w">        </span><span class="c1">// in String pool (special area in heap)</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Stack var: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Heap object: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Same pool object? &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">interned</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;hi&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// true (String pool)</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;New String == pooled? &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">str</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">interned</span><span class="p">));</span><span class="w"> </span><span class="c1">// false</span>
+
+<span class="w">        </span><span class="c1">// Integer cache: -128 to 127 are cached (interned)</span>
+<span class="w">        </span><span class="n">Integer</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">127</span><span class="p">;</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">127</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Integer</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;127 == 127: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">));</span><span class="w"> </span><span class="c1">// true (cached)</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;128 == 128: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">d</span><span class="p">));</span><span class="w"> </span><span class="c1">// false (not cached, new objects)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ─── Weak/Soft/Phantom References ─────────────────────────────────────────</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">referenceTypesDemo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Reference Types ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * Strong reference: default — Object obj = new Object() — GC NEVER collects while reachable</span>
+<span class="cm">         * Soft reference: collected only when JVM needs memory (good for caches)</span>
+<span class="cm">         * Weak reference: collected at ANY GC run (good for WeakHashMap, canonical maps)</span>
+<span class="cm">         * Phantom reference: object already finalized but not yet reclaimed (rarely used directly)</span>
+<span class="cm">         *</span>
+<span class="cm">         * java.lang.ref.WeakReference&lt;MyObj&gt; ref = new WeakReference&lt;&gt;(obj);</span>
+<span class="cm">         * ref.get() returns null after GC collects the referent</span>
+<span class="cm">         *</span>
+<span class="cm">         * Common use: WeakHashMap — keys held weakly; entry removed when key is GC&#39;d</span>
+<span class="cm">         *             Perfect for association of metadata without preventing GC</span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">ref</span><span class="p">.</span><span class="na">WeakReference</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">weak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">ref</span><span class="p">.</span><span class="na">WeakReference</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;weak&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">ref</span><span class="p">.</span><span class="na">SoftReference</span><span class="o">&lt;</span><span class="kt">byte</span><span class="o">[]&gt;</span><span class="w"> </span><span class="n">soft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">ref</span><span class="p">.</span><span class="na">SoftReference</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">]</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Weak ref: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">weak</span><span class="p">.</span><span class="na">get</span><span class="p">());</span><span class="w">  </span><span class="c1">// may or may not be null</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Soft ref: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">soft</span><span class="p">.</span><span class="na">get</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;present&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;collected&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ─── JVM Flags cheat sheet ──────────────────────────────────────────────────</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">jvmFlagsInfo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Common JVM Flags ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">         * Memory:</span>
+<span class="cm">         *   -Xms512m              — initial heap size</span>
+<span class="cm">         *   -Xmx2g                — max heap size (set equal to -Xms to avoid resizing)</span>
+<span class="cm">         *   -Xss1m                — thread stack size</span>
+<span class="cm">         *   -XX:MetaspaceSize=256m — initial metaspace size</span>
+<span class="cm">         *   -XX:MaxMetaspaceSize=512m</span>
+<span class="cm">         *</span>
+<span class="cm">         * GC:</span>
+<span class="cm">         *   -XX:+UseG1GC           — use G1 collector</span>
+<span class="cm">         *   -XX:+UseZGC            — use ZGC (Java 15+)</span>
+<span class="cm">         *   -XX:MaxGCPauseMillis=200 — target pause time for G1</span>
+<span class="cm">         *   -verbose:gc            — print GC logs</span>
+<span class="cm">         *   -XX:+PrintGCDetails</span>
+<span class="cm">         *</span>
+<span class="cm">         * Diagnostics:</span>
+<span class="cm">         *   -XX:+HeapDumpOnOutOfMemoryError  — dump heap on OOM</span>
+<span class="cm">         *   -XX:HeapDumpPath=/tmp/dump.hprof</span>
+<span class="cm">         *   -XX:+PrintCompilation          — JIT compilation events</span>
+<span class="cm">         */</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;JVM version: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="s">&quot;java.version&quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Available processors: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Runtime</span><span class="p">.</span><span class="na">getRuntime</span><span class="p">().</span><span class="na">availableProcessors</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Max heap: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Runtime</span><span class="p">.</span><span class="na">getRuntime</span><span class="p">().</span><span class="na">maxMemory</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1024</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;MB&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">gcDemo</span><span class="p">();</span>
+<span class="w">        </span><span class="n">stackHeapDemo</span><span class="p">();</span>
+<span class="w">        </span><span class="n">referenceTypesDemo</span><span class="p">();</span>
+<span class="w">        </span><span class="n">jvmFlagsInfo</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</section>
+      <footer class="page-footer">
+        <a href="../../index.html">← Back to index</a>
+      </footer>
+    </main>
+  </div>
+  <script>
+    document.querySelectorAll('pre code').forEach(function(block) {
+      block.setAttribute('tabindex', '0');
+    });
+  </script>
+</body>
+</html>

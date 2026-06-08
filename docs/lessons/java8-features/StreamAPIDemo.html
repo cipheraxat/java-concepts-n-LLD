@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamAPIDemo — Java SDE2 Lessons</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/pygments.css">
+</head>
+<body>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+  <div class="layout">
+    <nav class="sidebar"><div class="nav-brand"><a href="../../index.html">Java SDE2</a></div>
+<ul class="nav-list">
+<li class="nav-topic"><a href="../../topics/oop-concepts.html">01 — OOP Concepts</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/oop-concepts/AbstractionDemo.html">AbstractionDemo</a></li>
+<li><a href="../../lessons/oop-concepts/EncapsulationDemo.html">EncapsulationDemo</a></li>
+<li><a href="../../lessons/oop-concepts/InheritanceDemo.html">InheritanceDemo</a></li>
+<li><a href="../../lessons/oop-concepts/InterfaceDemo.html">InterfaceDemo</a></li>
+<li><a href="../../lessons/oop-concepts/ObjectMethodsDemo.html">ObjectMethodsDemo</a></li>
+<li><a href="../../lessons/oop-concepts/PolymorphismDemo.html">PolymorphismDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/collections-framework.html">02 — Collections Framework</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/collections-framework/AdvancedMapDemo.html">AdvancedMapDemo</a></li>
+<li><a href="../../lessons/collections-framework/CollectionsHierarchyDemo.html">CollectionsHierarchyDemo</a></li>
+<li><a href="../../lessons/collections-framework/ComparatorComparableDemo.html">ComparatorComparableDemo</a></li>
+<li><a href="../../lessons/collections-framework/ListDemo.html">ListDemo</a></li>
+<li><a href="../../lessons/collections-framework/MapDemo.html">MapDemo</a></li>
+<li><a href="../../lessons/collections-framework/QueueDequeDemo.html">QueueDequeDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/generics.html">03 — Generics</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/generics/GenericClassDemo.html">GenericClassDemo</a></li>
+<li><a href="../../lessons/generics/WildcardDemo.html">WildcardDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/exception-handling.html">04 — Exception Handling</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/exception-handling/ExceptionHierarchyDemo.html">ExceptionHierarchyDemo</a></li>
+<li><a href="../../lessons/exception-handling/TryWithResourcesDemo.html">TryWithResourcesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/multithreading-concurrency.html">05 — Multithreading &amp; Concurrency</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/multithreading-concurrency/ConcurrentCollectionsDemo.html">ConcurrentCollectionsDemo</a></li>
+<li><a href="../../lessons/multithreading-concurrency/ConcurrentUtilsDemo.html">ConcurrentUtilsDemo</a></li>
+<li><a href="../../lessons/multithreading-concurrency/ExecutorServiceDemo.html">ExecutorServiceDemo</a></li>
+<li><a href="../../lessons/multithreading-concurrency/ThreadBasicsDemo.html">ThreadBasicsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/java8-features.html">06 — Java 8+ Features</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/java8-features/LambdaFunctionalDemo.html">LambdaFunctionalDemo</a></li>
+<li><a href="../../lessons/java8-features/OptionalDemo.html">OptionalDemo</a></li>
+<li><a href="../../lessons/java8-features/StreamAPIDemo.html">StreamAPIDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/design-patterns.html">07 — Design Patterns</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/design-patterns/BehavioralPatternDemo.html">BehavioralPatternDemo</a></li>
+<li><a href="../../lessons/design-patterns/SingletonDemo.html">SingletonDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/jvm-internals.html">08 — JVM Internals</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/jvm-internals/JVMInternalsDemo.html">JVMInternalsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/string-handling.html">09 — String Handling</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/string-handling/StringHandlingDemo.html">StringHandlingDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/solid-principles.html">10 — SOLID Principles</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/solid-principles/SOLIDDemo.html">SOLIDDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/access-modifiers.html">11 — Access Modifiers</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/access-modifiers/AccessModifiersDemo.html">AccessModifiersDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/static-and-final.html">12 — static &amp; final</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/static-and-final/StaticFinalDemo.html">StaticFinalDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/inner-classes.html">13 — Inner Classes</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/inner-classes/InnerClassesDemo.html">InnerClassesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../../topics/wrapper-classes.html">14 — Wrapper Classes</a>
+<ul class="nav-lessons">
+<li><a href="../../lessons/wrapper-classes/WrapperAutoboxingDemo.html">WrapperAutoboxingDemo</a></li>
+</ul>
+</li>
+</ul></nav>
+    <main class="content">
+      <header class="page-header">
+        <h1>StreamAPIDemo</h1>
+        <p class="page-subtitle">06 — Java 8+ Features · StreamAPIDemo.java</p>
+      </header>
+      <section class="code-section"><div class="code-meta"><span>StreamAPIDemo.java</span><button type="button" onclick="navigator.clipboard.writeText(document.querySelector('pre code').innerText)">Copy</button></div><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">lessons.java8_features</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.stream.*</span><span class="p">;</span>
+
+
+<span class="cm">/**</span>
+<span class="cm"> * LESSON 06B — Stream API (Most Important Java 8 Feature for Interviews)</span>
+<span class="cm"> *</span>
+<span class="cm"> * Stream pipeline: Source → Intermediate ops (lazy) → Terminal op (eager, triggers execution)</span>
+<span class="cm"> *</span>
+<span class="cm"> * SDE2 Interview Questions:</span>
+<span class="cm"> *  - &quot;Can you reuse a stream?&quot; =&gt; NO — streams are single-use. Throws IllegalStateException.</span>
+<span class="cm"> *  - &quot;What is the difference between map and flatMap?&quot;</span>
+<span class="cm"> *    =&gt; map: 1-to-1; flatMap: 1-to-0..n (flattens Stream&lt;Stream&lt;T&gt;&gt; to Stream&lt;T&gt;)</span>
+<span class="cm"> *  - &quot;When would you use reduce?&quot; =&gt; Aggregate: sum, product, max, custom accumulation</span>
+<span class="cm"> *  - &quot;parallelStream() pitfalls?&quot; =&gt; Stateful ops (sorted), shared mutable state, small datasets</span>
+<span class="cm"> *  - &quot;Collectors.groupingBy vs partitioningBy?&quot;</span>
+<span class="cm"> *    =&gt; groupingBy: group by key (Map&lt;K, List&lt;T&gt;&gt;); partitioningBy: split into true/false groups</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StreamAPIDemo</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">record</span> <span class="nc">Employee</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">dept</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">salary</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">employees</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Employee</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w">   </span><span class="s">&quot;Engineering&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">95000</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">),</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Employee</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="w">     </span><span class="s">&quot;Engineering&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">87000</span><span class="p">,</span><span class="w"> </span><span class="mi">28</span><span class="p">),</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Employee</span><span class="p">(</span><span class="s">&quot;Charlie&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Marketing&quot;</span><span class="p">,</span><span class="w">   </span><span class="mi">72000</span><span class="p">,</span><span class="w"> </span><span class="mi">35</span><span class="p">),</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Employee</span><span class="p">(</span><span class="s">&quot;Dave&quot;</span><span class="p">,</span><span class="w">    </span><span class="s">&quot;Engineering&quot;</span><span class="p">,</span><span class="mi">105000</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">),</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Employee</span><span class="p">(</span><span class="s">&quot;Eve&quot;</span><span class="p">,</span><span class="w">     </span><span class="s">&quot;HR&quot;</span><span class="p">,</span><span class="w">          </span><span class="mi">65000</span><span class="p">,</span><span class="w"> </span><span class="mi">27</span><span class="p">),</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Employee</span><span class="p">(</span><span class="s">&quot;Frank&quot;</span><span class="p">,</span><span class="w">   </span><span class="s">&quot;Marketing&quot;</span><span class="p">,</span><span class="w">   </span><span class="mi">78000</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="p">),</span>
+<span class="w">            </span><span class="k">new</span><span class="w"> </span><span class="n">Employee</span><span class="p">(</span><span class="s">&quot;Grace&quot;</span><span class="p">,</span><span class="w">   </span><span class="s">&quot;HR&quot;</span><span class="p">,</span><span class="w">          </span><span class="mi">70000</span><span class="p">,</span><span class="w"> </span><span class="mi">29</span><span class="p">)</span>
+<span class="w">        </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span><span class="w"> </span><span class="n">emps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">employees</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// ════════════════════════════════════════════════════════════════════════</span>
+<span class="w">        </span><span class="c1">// SECTION 1 — SOURCE</span>
+<span class="w">        </span><span class="c1">// How streams are created. No processing happens here.</span>
+<span class="w">        </span><span class="c1">// ════════════════════════════════════════════════════════════════════════</span>
+
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">arr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;=== Sources ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Collection.stream() — most common; sequential by default</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Collection.stream(): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">count</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; employees&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Stream.of() — from individual values</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Stream.of():          &quot;</span><span class="p">);</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bob&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Charlie&quot;</span><span class="p">).</span><span class="na">forEach</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">));</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Arrays.stream() — from a primitive or object array</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Arrays.stream(arr) sum: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">arr</span><span class="p">).</span><span class="na">sum</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// IntStream.range / rangeClosed — primitive int sequences (no boxing)</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;range(0,5):       &quot;</span><span class="p">);</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">).</span><span class="na">forEach</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">));</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;rangeClosed(1,5): &quot;</span><span class="p">);</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">rangeClosed</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">).</span><span class="na">forEach</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">));</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Stream.iterate / Stream.generate — infinite; must pair with limit()</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;iterate x2:       &quot;</span><span class="p">);</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">iterate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">).</span><span class="na">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="na">forEach</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">));</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;generate randoms: &quot;</span><span class="p">);</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">generate</span><span class="p">(</span><span class="n">Math</span><span class="p">::</span><span class="n">random</span><span class="p">).</span><span class="na">limit</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="na">map</span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%.2f&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">)).</span><span class="na">forEach</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">));</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+
+
+<span class="w">        </span><span class="c1">// ════════════════════════════════════════════════════════════════════════</span>
+<span class="w">        </span><span class="c1">// SECTION 2 — INTERMEDIATE OPERATIONS</span>
+<span class="w">        </span><span class="c1">// Lazy — they transform the stream but do NOT execute until a terminal op</span>
+<span class="w">        </span><span class="c1">// is called. Each returns a new Stream.</span>
+<span class="w">        </span><span class="c1">//</span>
+<span class="w">        </span><span class="c1">//  filter(Predicate)        — keep elements matching condition</span>
+<span class="w">        </span><span class="c1">//  map(Function)            — 1-to-1 transform each element</span>
+<span class="w">        </span><span class="c1">//  flatMap(Function)        — 1-to-many, then flatten into one stream</span>
+<span class="w">        </span><span class="c1">//  sorted() / sorted(Comp)  — natural or custom order</span>
+<span class="w">        </span><span class="c1">//  distinct()               — remove duplicates (uses equals/hashCode)</span>
+<span class="w">        </span><span class="c1">//  limit(n)                 — keep only first n elements</span>
+<span class="w">        </span><span class="c1">//  skip(n)                  — discard first n elements</span>
+<span class="w">        </span><span class="c1">//  peek(Consumer)           — side-effect for debugging; does NOT consume</span>
+<span class="w">        </span><span class="c1">// ════════════════════════════════════════════════════════════════════════</span>
+
+<span class="w">        </span><span class="c1">// ── filter + map + sorted ──────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== filter + map + sorted ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">engNames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">dept</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Engineering&quot;</span><span class="p">))</span><span class="w">  </span><span class="c1">// intermediate: lazy</span>
+<span class="w">            </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">name</span><span class="p">)</span><span class="w">                           </span><span class="c1">// intermediate: lazy</span>
+<span class="w">            </span><span class="p">.</span><span class="na">sorted</span><span class="p">()</span><span class="w">                                      </span><span class="c1">// intermediate: lazy</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w">                 </span><span class="c1">// terminal: triggers execution</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Engineering employees: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">engNames</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// ── distinct + limit + skip ────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== distinct + limit + skip ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">depts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">dept</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">distinct</span><span class="p">()</span><span class="w">   </span><span class="c1">// removes duplicate department names</span>
+<span class="w">            </span><span class="p">.</span><span class="na">sorted</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Unique departments: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">depts</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">sorted</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparing</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">name</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">skip</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">    </span><span class="c1">// discard first 2 (pagination offset)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">limit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w">   </span><span class="c1">// take next 3   (page size)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Page(skip=2, limit=3): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">page</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">name</span><span class="p">).</span><span class="na">toList</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// ── flatMap ────────────────────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== flatMap ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">nested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">flat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nested</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">flatMap</span><span class="p">(</span><span class="n">Collection</span><span class="p">::</span><span class="n">stream</span><span class="p">)</span><span class="w">  </span><span class="c1">// Stream&lt;List&lt;Integer&gt;&gt; → Stream&lt;Integer&gt;</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Flattened: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">flat</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Practical: unique words from a list of sentences</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sentences</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;java streams&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello java&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sentences</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">flatMap</span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">)))</span><span class="w">  </span><span class="c1">// split each sentence into words</span>
+<span class="w">            </span><span class="p">.</span><span class="na">distinct</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">sorted</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Unique words: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">words</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// ── peek (debug only — never rely on it for side effects) ──────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== peek (debug) ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">peekedCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">salary</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">80000</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">peek</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  [peek] processing: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">name</span><span class="p">()))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">count</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  Count earning &gt;80k: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">peekedCount</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// ── mapToDouble / mapToInt (primitive specialisations) ─────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== mapToDouble / mapToInt ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">double</span><span class="o">[]</span><span class="w"> </span><span class="n">salaries</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">mapToDouble</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">salary</span><span class="p">)</span><span class="w">  </span><span class="c1">// Stream&lt;Employee&gt; → DoubleStream (no boxing)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">toArray</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Salary array length: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">salaries</span><span class="p">.</span><span class="na">length</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">ages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">mapToInt</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">age</span><span class="p">)</span><span class="w">        </span><span class="c1">// Stream&lt;Employee&gt; → IntStream</span>
+<span class="w">            </span><span class="p">.</span><span class="na">toArray</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Age array: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">toString</span><span class="p">(</span><span class="n">ages</span><span class="p">));</span>
+
+
+<span class="w">        </span><span class="c1">// ════════════════════════════════════════════════════════════════════════</span>
+<span class="w">        </span><span class="c1">// SECTION 3 — TERMINAL OPERATIONS</span>
+<span class="w">        </span><span class="c1">// Eager — trigger the stream pipeline and produce a result or side-effect.</span>
+<span class="w">        </span><span class="c1">// After a terminal op the stream is consumed and cannot be reused.</span>
+<span class="w">        </span><span class="c1">//</span>
+<span class="w">        </span><span class="c1">//  collect(Collector)           — gather into collection / map / string</span>
+<span class="w">        </span><span class="c1">//  reduce(identity, BinaryOp)   — fold elements into a single value</span>
+<span class="w">        </span><span class="c1">//  forEach(Consumer)            — iterate for side-effects</span>
+<span class="w">        </span><span class="c1">//  count()                      — number of elements</span>
+<span class="w">        </span><span class="c1">//  min(Comparator)              — smallest element</span>
+<span class="w">        </span><span class="c1">//  max(Comparator)              — largest element</span>
+<span class="w">        </span><span class="c1">//  sum() / average()            — primitive stream shortcuts</span>
+<span class="w">        </span><span class="c1">//  anyMatch / allMatch / noneMatch — short-circuit boolean checks</span>
+<span class="w">        </span><span class="c1">//  findFirst() / findAny()      — return first / any element (Optional)</span>
+<span class="w">        </span><span class="c1">// ════════════════════════════════════════════════════════════════════════</span>
+
+<span class="w">        </span><span class="c1">// ── reduce ────────────────────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== reduce / sum / average ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">totalSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">mapToDouble</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">salary</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">sum</span><span class="p">();</span><span class="w">   </span><span class="c1">// terminal: sum is a shortcut for reduce(0, Double::sum)</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Total salary: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">totalSalary</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">OptionalDouble</span><span class="w"> </span><span class="n">avgSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">mapToDouble</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">salary</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">average</span><span class="p">();</span><span class="w"> </span><span class="c1">// terminal</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Avg salary: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">avgSalary</span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// Custom reduce: compute factorial — reduce(identity, accumulator)</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">factorial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntStream</span><span class="p">.</span><span class="na">rangeClosed</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">reduce</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1*1*2*3*4*5</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;5! = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">factorial</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Array sum via terminal</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">arraySum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">arr</span><span class="p">).</span><span class="na">sum</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Array sum: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">arraySum</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// ── min / max ─────────────────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== min / max ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Employee</span><span class="w"> </span><span class="n">richest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparingDouble</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">salary</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">();</span><span class="w">  </span><span class="c1">// throws NoSuchElementException if stream is empty</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Highest earner: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">richest</span><span class="p">.</span><span class="na">name</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; $&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">richest</span><span class="p">.</span><span class="na">salary</span><span class="p">());</span>
+
+<span class="w">        </span><span class="n">Employee</span><span class="w"> </span><span class="n">youngest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">Comparator</span><span class="p">.</span><span class="na">comparingInt</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">age</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">orElseThrow</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Youngest: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">youngest</span><span class="p">.</span><span class="na">name</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; age &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">youngest</span><span class="p">.</span><span class="na">age</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// ── count ─────────────────────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== count ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">highEarners</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">salary</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">80000</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">count</span><span class="p">();</span><span class="w">  </span><span class="c1">// terminal</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Earning &gt;80k: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">highEarners</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// ── anyMatch / allMatch / noneMatch (short-circuit) ───────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== anyMatch / allMatch / noneMatch ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Any HR?      &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">anyMatch</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">dept</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;HR&quot;</span><span class="p">)));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;All adults?  &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">allMatch</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">age</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">18</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;None Sales?  &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">noneMatch</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">dept</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Sales&quot;</span><span class="p">)));</span>
+
+<span class="w">        </span><span class="c1">// ── findFirst / findAny ───────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== findFirst / findAny ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">dept</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;HR&quot;</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">findFirst</span><span class="p">();</span><span class="w">  </span><span class="c1">// deterministic — first in encounter order</span>
+<span class="w">        </span><span class="n">first</span><span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;First HR employee: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">name</span><span class="p">()));</span>
+
+<span class="w">        </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">parallelStream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">dept</span><span class="p">().</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;Marketing&quot;</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">findAny</span><span class="p">();</span><span class="w">    </span><span class="c1">// non-deterministic in parallel — whichever thread finds first</span>
+<span class="w">        </span><span class="n">any</span><span class="p">.</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Any Marketing employee: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">name</span><span class="p">()));</span>
+
+<span class="w">        </span><span class="c1">// ── forEach ───────────────────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== forEach ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Names (forEach): &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">name</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">limit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+
+
+<span class="w">        </span><span class="c1">// ════════════════════════════════════════════════════════════════════════</span>
+<span class="w">        </span><span class="c1">// SECTION 4 — PARALLEL STREAMS</span>
+<span class="w">        </span><span class="c1">// Splits work across threads in ForkJoinPool.commonPool().</span>
+<span class="w">        </span><span class="c1">// Use when: large data, CPU-bound, stateless, order doesn&#39;t matter.</span>
+<span class="w">        </span><span class="c1">// Avoid when: small data, stateful ops, shared mutable state, I/O bound.</span>
+<span class="w">        </span><span class="c1">// ════════════════════════════════════════════════════════════════════════</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== parallelStream — count ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">parallelCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">parallelStream</span><span class="p">()</span><span class="w">   </span><span class="c1">// splits work across CPU cores</span>
+<span class="w">            </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">salary</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">70000</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">count</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Parallel count (&gt;70k): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">parallelCount</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== parallelStream — sum ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">parallelTotalSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">parallelStream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">mapToDouble</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">salary</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">sum</span><span class="p">();</span><span class="w">   </span><span class="c1">// sum is safe for parallel (associative operation)</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Parallel total salary: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">parallelTotalSalary</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// WARNING: avoid shared mutable state in parallel streams</span>
+<span class="w">        </span><span class="c1">// BAD example (race condition):</span>
+<span class="w">        </span><span class="c1">//   List&lt;String&gt; shared = new ArrayList&lt;&gt;();</span>
+<span class="w">        </span><span class="c1">//   emps.parallelStream().forEach(e -&gt; shared.add(e.name())); // NOT thread-safe!</span>
+<span class="w">        </span><span class="c1">// GOOD: use collect() instead — it handles thread safety internally</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">safeNames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">parallelStream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">name</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w">  </span><span class="c1">// safe</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Safe parallel collect: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">safeNames</span><span class="p">.</span><span class="na">size</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; names&quot;</span><span class="p">);</span>
+
+
+<span class="w">        </span><span class="c1">// ════════════════════════════════════════════════════════════════════════</span>
+<span class="w">        </span><span class="c1">// SECTION 5 — COLLECTORS</span>
+<span class="w">        </span><span class="c1">// Collectors are strategies passed to collect() to accumulate stream</span>
+<span class="w">        </span><span class="c1">// elements into a result container (List, Map, String, etc.)</span>
+<span class="w">        </span><span class="c1">//</span>
+<span class="w">        </span><span class="c1">//  toList() / toSet() / toUnmodifiableList()</span>
+<span class="w">        </span><span class="c1">//  joining(delimiter, prefix, suffix)</span>
+<span class="w">        </span><span class="c1">//  groupingBy(classifier)           — Map&lt;K, List&lt;T&gt;&gt;</span>
+<span class="w">        </span><span class="c1">//  groupingBy(classifier, downstream) — with a secondary collector</span>
+<span class="w">        </span><span class="c1">//  partitioningBy(predicate)        — Map&lt;Boolean, List&lt;T&gt;&gt;</span>
+<span class="w">        </span><span class="c1">//  toMap(keyMapper, valueMapper)</span>
+<span class="w">        </span><span class="c1">//  counting()                       — downstream: count per group</span>
+<span class="w">        </span><span class="c1">//  averagingDouble / summingDouble  — downstream: numeric aggregation</span>
+<span class="w">        </span><span class="c1">//  teeing(c1, c2, merger)           — Java 12+: apply two collectors at once</span>
+<span class="w">        </span><span class="c1">// ════════════════════════════════════════════════════════════════════════</span>
+
+<span class="w">        </span><span class="c1">// ── toList / toSet ─────────────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== toList / toSet ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nameList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">name</span><span class="p">).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+<span class="w">        </span><span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w">  </span><span class="n">deptSet</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">dept</span><span class="p">).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toSet</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Name list: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nameList</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Dept set:  &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">deptSet</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// ── joining ───────────────────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== joining ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">namesCsv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">name</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">sorted</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">joining</span><span class="p">(</span><span class="s">&quot;, &quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;[&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="p">));</span><span class="w"> </span><span class="c1">// delimiter, prefix, suffix</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;All names: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">namesCsv</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// ── toMap ─────────────────────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== toMap ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nameToSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toMap</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">Employee</span><span class="p">::</span><span class="n">salary</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Alice salary: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nameToSalary</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// ── groupingBy ────────────────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== groupingBy ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">byDept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">dept</span><span class="p">));</span><span class="w">  </span><span class="c1">// key = dept name</span>
+<span class="w">        </span><span class="n">byDept</span><span class="p">.</span><span class="na">forEach</span><span class="p">((</span><span class="n">dept</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dept</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">name</span><span class="p">).</span><span class="na">toList</span><span class="p">()));</span>
+
+<span class="w">        </span><span class="c1">// groupingBy with downstream collectors</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== groupingBy + downstream (averagingDouble / counting) ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">avgByDept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">dept</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">Collectors</span><span class="p">.</span><span class="na">averagingDouble</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">salary</span><span class="p">)));</span><span class="w"> </span><span class="c1">// avg salary per dept</span>
+<span class="w">        </span><span class="n">avgByDept</span><span class="p">.</span><span class="na">forEach</span><span class="p">((</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">avg</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;  %s avg salary: %.0f%n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">avg</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">countByDept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">groupingBy</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">dept</span><span class="p">,</span><span class="w"> </span><span class="n">Collectors</span><span class="p">.</span><span class="na">counting</span><span class="p">()));</span><span class="w"> </span><span class="c1">// headcount</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;  Headcount: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">countByDept</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// ── partitioningBy ────────────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== partitioningBy ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">Boolean</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Employee</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">seniorJunior</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">partitioningBy</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="na">salary</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">80000</span><span class="p">));</span><span class="w"> </span><span class="c1">// true / false buckets</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Senior (&gt;=80k): &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">seniorJunior</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="kc">true</span><span class="p">).</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">name</span><span class="p">).</span><span class="na">toList</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Junior (&lt;80k):  &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">seniorJunior</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="kc">false</span><span class="p">).</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">name</span><span class="p">).</span><span class="na">toList</span><span class="p">());</span>
+
+<span class="w">        </span><span class="c1">// ── teeing (Java 12+) ─────────────────────────────────────────────────</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n=== Collectors.teeing (Java 12+) ===&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Runs two collectors in one pass, then merges results — avoids two full iterations</span>
+<span class="w">        </span><span class="kd">record</span> <span class="nc">Stats</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">avg</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">        </span><span class="n">Stats</span><span class="w"> </span><span class="n">stats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">emps</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">teeing</span><span class="p">(</span>
+<span class="w">                </span><span class="n">Collectors</span><span class="p">.</span><span class="na">counting</span><span class="p">(),</span>
+<span class="w">                </span><span class="n">Collectors</span><span class="p">.</span><span class="na">averagingDouble</span><span class="p">(</span><span class="n">Employee</span><span class="p">::</span><span class="n">salary</span><span class="p">),</span>
+<span class="w">                </span><span class="n">Stats</span><span class="p">::</span><span class="k">new</span><span class="w">  </span><span class="c1">// merger: (Long, Double) -&gt; Stats</span>
+<span class="w">            </span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Count: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stats</span><span class="p">.</span><span class="na">count</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;, Avg salary: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stats</span><span class="p">.</span><span class="na">avg</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</section>
+      <footer class="page-footer">
+        <a href="../../index.html">← Back to index</a>
+      </footer>
+    </main>
+  </div>
+  <script>
+    document.querySelectorAll('pre code').forEach(function(block) {
+      block.setAttribute('tabindex', '0');
+    });
+  </script>
+</body>
+</html>

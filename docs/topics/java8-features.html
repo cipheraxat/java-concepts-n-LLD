@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06 — Java 8+ Features — Java SDE2 Lessons</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/pygments.css">
+</head>
+<body>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+  <div class="layout">
+    <nav class="sidebar"><div class="nav-brand"><a href="../index.html">Java SDE2</a></div>
+<ul class="nav-list">
+<li class="nav-topic"><a href="../topics/oop-concepts.html">01 — OOP Concepts</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/oop-concepts/AbstractionDemo.html">AbstractionDemo</a></li>
+<li><a href="../lessons/oop-concepts/EncapsulationDemo.html">EncapsulationDemo</a></li>
+<li><a href="../lessons/oop-concepts/InheritanceDemo.html">InheritanceDemo</a></li>
+<li><a href="../lessons/oop-concepts/InterfaceDemo.html">InterfaceDemo</a></li>
+<li><a href="../lessons/oop-concepts/ObjectMethodsDemo.html">ObjectMethodsDemo</a></li>
+<li><a href="../lessons/oop-concepts/PolymorphismDemo.html">PolymorphismDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/collections-framework.html">02 — Collections Framework</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/collections-framework/AdvancedMapDemo.html">AdvancedMapDemo</a></li>
+<li><a href="../lessons/collections-framework/CollectionsHierarchyDemo.html">CollectionsHierarchyDemo</a></li>
+<li><a href="../lessons/collections-framework/ComparatorComparableDemo.html">ComparatorComparableDemo</a></li>
+<li><a href="../lessons/collections-framework/ListDemo.html">ListDemo</a></li>
+<li><a href="../lessons/collections-framework/MapDemo.html">MapDemo</a></li>
+<li><a href="../lessons/collections-framework/QueueDequeDemo.html">QueueDequeDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/generics.html">03 — Generics</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/generics/GenericClassDemo.html">GenericClassDemo</a></li>
+<li><a href="../lessons/generics/WildcardDemo.html">WildcardDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/exception-handling.html">04 — Exception Handling</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/exception-handling/ExceptionHierarchyDemo.html">ExceptionHierarchyDemo</a></li>
+<li><a href="../lessons/exception-handling/TryWithResourcesDemo.html">TryWithResourcesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/multithreading-concurrency.html">05 — Multithreading &amp; Concurrency</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/multithreading-concurrency/ConcurrentCollectionsDemo.html">ConcurrentCollectionsDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ConcurrentUtilsDemo.html">ConcurrentUtilsDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ExecutorServiceDemo.html">ExecutorServiceDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ThreadBasicsDemo.html">ThreadBasicsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/java8-features.html">06 — Java 8+ Features</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/java8-features/LambdaFunctionalDemo.html">LambdaFunctionalDemo</a></li>
+<li><a href="../lessons/java8-features/OptionalDemo.html">OptionalDemo</a></li>
+<li><a href="../lessons/java8-features/StreamAPIDemo.html">StreamAPIDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/design-patterns.html">07 — Design Patterns</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/design-patterns/BehavioralPatternDemo.html">BehavioralPatternDemo</a></li>
+<li><a href="../lessons/design-patterns/SingletonDemo.html">SingletonDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/jvm-internals.html">08 — JVM Internals</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/jvm-internals/JVMInternalsDemo.html">JVMInternalsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/string-handling.html">09 — String Handling</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/string-handling/StringHandlingDemo.html">StringHandlingDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/solid-principles.html">10 — SOLID Principles</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/solid-principles/SOLIDDemo.html">SOLIDDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/access-modifiers.html">11 — Access Modifiers</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/access-modifiers/AccessModifiersDemo.html">AccessModifiersDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/static-and-final.html">12 — static &amp; final</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/static-and-final/StaticFinalDemo.html">StaticFinalDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/inner-classes.html">13 — Inner Classes</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/inner-classes/InnerClassesDemo.html">InnerClassesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/wrapper-classes.html">14 — Wrapper Classes</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/wrapper-classes/WrapperAutoboxingDemo.html">WrapperAutoboxingDemo</a></li>
+</ul>
+</li>
+</ul></nav>
+    <main class="content">
+      <header class="page-header">
+        <h1>06 — Java 8+ Features</h1>
+        <p class="page-subtitle">java8_features</p>
+      </header>
+      <section class="readme"><h1 id="lesson-06-java-8-features-sde2-interview">Lesson 06 — Java 8+ Features (SDE2 Interview)</h1>
+<h2 id="topics-covered">Topics Covered</h2>
+<ol>
+<li>Lambda expressions — syntax, effectively final, capturing variables</li>
+<li>Functional interfaces — Function, Predicate, Consumer, Supplier, BiFunction</li>
+<li>Method references — static, instance, constructor</li>
+<li>Stream API — intermediate vs terminal, lazy evaluation, parallel streams</li>
+<li>Optional — avoiding NPE, map/filter/orElse/orElseThrow</li>
+<li>Default and static interface methods</li>
+<li>Date/Time API (java.time) — LocalDate, LocalDateTime, ZonedDateTime, Duration</li>
+<li>Java 9-17 additions: <code>var</code>, records, sealed classes, text blocks, switch expressions</li>
+</ol>
+<h2 id="key-interview-points">Key Interview Points</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Quick Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lambda vs anonymous class</td>
+<td>Lambda: no <code>this</code> capture, no shadow variables, more concise. Anonymous class has own <code>this</code>.</td>
+</tr>
+<tr>
+<td>What is a functional interface?</td>
+<td>Interface with exactly one abstract method. <code>@FunctionalInterface</code> enforces this.</td>
+</tr>
+<tr>
+<td>Lazy evaluation in Streams</td>
+<td>Intermediate ops (filter/map) only execute when terminal op (collect/count) is called</td>
+</tr>
+<tr>
+<td><code>Stream.of()</code> vs <code>Arrays.stream()</code></td>
+<td>Arrays.stream supports primitives (IntStream); Stream.of boxes them</td>
+</tr>
+<tr>
+<td><code>flatMap</code> vs <code>map</code></td>
+<td>map: 1-to-1 transform; flatMap: 1-to-many (flattens nested streams)</td>
+</tr>
+<tr>
+<td><code>Optional.get()</code> pitfall</td>
+<td>Throws NoSuchElementException if empty. Use <code>orElse</code>/<code>orElseThrow</code>/<code>ifPresent</code> instead</td>
+</tr>
+<tr>
+<td><code>parallelStream()</code> when?</td>
+<td>CPU-bound tasks on large collections. NOT IO-bound or stateful ops. Overhead for small collections</td>
+</tr>
+</tbody>
+</table>
+<h2 id="files-in-this-lesson">Files in this Lesson</h2>
+<ul>
+<li><code>LambdaFunctionalDemo.java</code> — Lambdas, functional interfaces, method references</li>
+<li><code>StreamAPIDemo.java</code> — Full Stream API operations</li>
+<li><code>OptionalDemo.java</code> — Optional patterns and pitfalls</li>
+<li><code>DateTimeDemo.java</code> — java.time API</li>
+<li><code>ModernJavaDemo.java</code> — Records, sealed classes, var, switch expressions, text blocks</li>
+</ul></section><section class="lesson-cards"><h2>Source Files</h2><div class="card-grid">
+<a class="lesson-card" href="../lessons/java8-features/LambdaFunctionalDemo.html"><span class="card-title">LambdaFunctionalDemo</span><span class="card-meta">.java</span></a>
+<a class="lesson-card" href="../lessons/java8-features/OptionalDemo.html"><span class="card-title">OptionalDemo</span><span class="card-meta">.java</span></a>
+<a class="lesson-card" href="../lessons/java8-features/StreamAPIDemo.html"><span class="card-title">StreamAPIDemo</span><span class="card-meta">.java</span></a>
+</div></section>
+      <footer class="page-footer">
+        <a href="../index.html">← Back to index</a>
+      </footer>
+    </main>
+  </div>
+  <script>
+    document.querySelectorAll('pre code').forEach(function(block) {
+      block.setAttribute('tabindex', '0');
+    });
+  </script>
+</body>
+</html>

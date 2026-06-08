@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Core Java — SDE2 Interview Prep — Java SDE2 Lessons</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/pygments.css">
+</head>
+<body>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+  <div class="layout">
+    <nav class="sidebar"><div class="nav-brand"><a href="index.html">Java SDE2</a></div>
+<ul class="nav-list">
+<li class="nav-topic"><a href="topics/oop-concepts.html">01 — OOP Concepts</a>
+<ul class="nav-lessons">
+<li><a href="lessons/oop-concepts/AbstractionDemo.html">AbstractionDemo</a></li>
+<li><a href="lessons/oop-concepts/EncapsulationDemo.html">EncapsulationDemo</a></li>
+<li><a href="lessons/oop-concepts/InheritanceDemo.html">InheritanceDemo</a></li>
+<li><a href="lessons/oop-concepts/InterfaceDemo.html">InterfaceDemo</a></li>
+<li><a href="lessons/oop-concepts/ObjectMethodsDemo.html">ObjectMethodsDemo</a></li>
+<li><a href="lessons/oop-concepts/PolymorphismDemo.html">PolymorphismDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="topics/collections-framework.html">02 — Collections Framework</a>
+<ul class="nav-lessons">
+<li><a href="lessons/collections-framework/AdvancedMapDemo.html">AdvancedMapDemo</a></li>
+<li><a href="lessons/collections-framework/CollectionsHierarchyDemo.html">CollectionsHierarchyDemo</a></li>
+<li><a href="lessons/collections-framework/ComparatorComparableDemo.html">ComparatorComparableDemo</a></li>
+<li><a href="lessons/collections-framework/ListDemo.html">ListDemo</a></li>
+<li><a href="lessons/collections-framework/MapDemo.html">MapDemo</a></li>
+<li><a href="lessons/collections-framework/QueueDequeDemo.html">QueueDequeDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="topics/generics.html">03 — Generics</a>
+<ul class="nav-lessons">
+<li><a href="lessons/generics/GenericClassDemo.html">GenericClassDemo</a></li>
+<li><a href="lessons/generics/WildcardDemo.html">WildcardDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="topics/exception-handling.html">04 — Exception Handling</a>
+<ul class="nav-lessons">
+<li><a href="lessons/exception-handling/ExceptionHierarchyDemo.html">ExceptionHierarchyDemo</a></li>
+<li><a href="lessons/exception-handling/TryWithResourcesDemo.html">TryWithResourcesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="topics/multithreading-concurrency.html">05 — Multithreading &amp; Concurrency</a>
+<ul class="nav-lessons">
+<li><a href="lessons/multithreading-concurrency/ConcurrentCollectionsDemo.html">ConcurrentCollectionsDemo</a></li>
+<li><a href="lessons/multithreading-concurrency/ConcurrentUtilsDemo.html">ConcurrentUtilsDemo</a></li>
+<li><a href="lessons/multithreading-concurrency/ExecutorServiceDemo.html">ExecutorServiceDemo</a></li>
+<li><a href="lessons/multithreading-concurrency/ThreadBasicsDemo.html">ThreadBasicsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="topics/java8-features.html">06 — Java 8+ Features</a>
+<ul class="nav-lessons">
+<li><a href="lessons/java8-features/LambdaFunctionalDemo.html">LambdaFunctionalDemo</a></li>
+<li><a href="lessons/java8-features/OptionalDemo.html">OptionalDemo</a></li>
+<li><a href="lessons/java8-features/StreamAPIDemo.html">StreamAPIDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="topics/design-patterns.html">07 — Design Patterns</a>
+<ul class="nav-lessons">
+<li><a href="lessons/design-patterns/BehavioralPatternDemo.html">BehavioralPatternDemo</a></li>
+<li><a href="lessons/design-patterns/SingletonDemo.html">SingletonDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="topics/jvm-internals.html">08 — JVM Internals</a>
+<ul class="nav-lessons">
+<li><a href="lessons/jvm-internals/JVMInternalsDemo.html">JVMInternalsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="topics/string-handling.html">09 — String Handling</a>
+<ul class="nav-lessons">
+<li><a href="lessons/string-handling/StringHandlingDemo.html">StringHandlingDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="topics/solid-principles.html">10 — SOLID Principles</a>
+<ul class="nav-lessons">
+<li><a href="lessons/solid-principles/SOLIDDemo.html">SOLIDDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="topics/access-modifiers.html">11 — Access Modifiers</a>
+<ul class="nav-lessons">
+<li><a href="lessons/access-modifiers/AccessModifiersDemo.html">AccessModifiersDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="topics/static-and-final.html">12 — static &amp; final</a>
+<ul class="nav-lessons">
+<li><a href="lessons/static-and-final/StaticFinalDemo.html">StaticFinalDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="topics/inner-classes.html">13 — Inner Classes</a>
+<ul class="nav-lessons">
+<li><a href="lessons/inner-classes/InnerClassesDemo.html">InnerClassesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="topics/wrapper-classes.html">14 — Wrapper Classes</a>
+<ul class="nav-lessons">
+<li><a href="lessons/wrapper-classes/WrapperAutoboxingDemo.html">WrapperAutoboxingDemo</a></li>
+</ul>
+</li>
+</ul></nav>
+    <main class="content">
+      <header class="page-header">
+        <h1>Core Java — SDE2 Interview Prep</h1>
+        <p class="page-subtitle">Syntax-highlighted lesson source</p>
+      </header>
+      <section class="readme"><h1 id="core-java-sde2-interview-preparation">Core Java — SDE2 Interview Preparation</h1>
+<blockquote>
+<p>Comprehensive Java lessons covering all topics tested in SDE2-level interviews.
+Each lesson contains theory, annotated code examples, and answers to common interview questions.</p>
+</blockquote>
+<hr />
+<h2 id="lesson-index">Lesson Index</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Topic</th>
+<th>Key Files</th>
+<th>Difficulty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td><a href="01_oop_concepts/README.md">OOP Concepts</a></td>
+<td>Encapsulation, Inheritance, Polymorphism, Abstraction</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>02</td>
+<td><a href="02_collections_framework/README.md">Collections Framework</a></td>
+<td>List, Map, Set, Queue, Comparator</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>03</td>
+<td><a href="03_generics/README.md">Generics</a></td>
+<td>Wildcards, PECS, Type Erasure</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>04</td>
+<td><a href="04_exception_handling/README.md">Exception Handling</a></td>
+<td>Checked/Unchecked, try-with-resources, Custom exceptions</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>05</td>
+<td><a href="05_multithreading_concurrency/README.md">Multithreading &amp; Concurrency</a></td>
+<td>Thread pools, CompletableFuture, Locks, Deadlock</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>06</td>
+<td><a href="06_java8_features/README.md">Java 8+ Features</a></td>
+<td>Lambdas, Streams, Optional, Records, Switch expressions</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>07</td>
+<td><a href="07_design_patterns/README.md">Design Patterns</a></td>
+<td>Singleton, Builder, Factory, Observer, Strategy, Decorator</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>08</td>
+<td><a href="08_jvm_internals/README.md">JVM Internals</a></td>
+<td>Memory areas, GC, ClassLoader, JIT, JMM</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>09</td>
+<td><a href="09_string_handling/README.md">String Handling</a></td>
+<td>Immutability, StringBuilder, String pool, Regex</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="10_solid_principles/README.md">SOLID Principles</a></td>
+<td>SRP, OCP, LSP, ISP, DIP with code</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="11_access_modifiers/README.md">Access Modifiers</a></td>
+<td>private, default, protected, public, overriding rules</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="12_static_and_final/README.md">static &amp; final Keywords</a></td>
+<td>static fields/methods/blocks, final variables/methods/classes, effectively final</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="inner_classes/README.md">Inner Classes</a></td>
+<td>Member inner, static nested, local inner, anonymous inner class</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="wrapper_classes/README.md">Wrapper Class, Autoboxing, Unboxing</a></td>
+<td>Primitive vs wrapper, Integer cache, boxing/unboxing pitfalls</td>
+<td>⭐⭐</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="sde2-interview-focus-areas">SDE2 Interview Focus Areas</h2>
+<h3 id="must-know-high-frequency">Must-Know (High Frequency)</h3>
+<pre><code>✅ HashMap internals (hashing, collision, Java 8 treeification, load factor)
+✅ Java Memory Model (volatile, happens-before, synchronized)
+✅ Thread pool configuration (core/max/queue/rejection policy)
+✅ CompletableFuture chaining (thenApply/thenCompose/thenCombine/exceptionally)
+✅ Stream API (groupingBy, flatMap, collect, reduce)
+✅ equals + hashCode contract
+✅ Generics wildcards (PECS rule)
+✅ Singleton patterns (enum, DCL, holder)
+✅ SOLID + Design Patterns (explain + code)
+✅ Checked vs Unchecked exceptions, try-with-resources
+</code></pre>
+<h3 id="common-interview-questions-by-category">Common Interview Questions by Category</h3>
+<h4 id="oop">OOP</h4>
+<ul>
+<li>What is the difference between abstract class and interface?</li>
+<li>Can we override static/private/final methods?</li>
+<li>What is dynamic method dispatch?</li>
+<li>Why override <code>hashCode</code> when you override <code>equals</code>?</li>
+</ul>
+<h4 id="collections">Collections</h4>
+<ul>
+<li>How does <code>HashMap</code> work internally?</li>
+<li><code>HashMap</code> vs <code>ConcurrentHashMap</code> vs <code>Hashtable</code>?</li>
+<li>When to use <code>TreeMap</code> vs <code>HashMap</code>?</li>
+<li>What is fail-fast vs fail-safe iterator?</li>
+</ul>
+<h4 id="concurrency">Concurrency</h4>
+<ul>
+<li>What is a race condition? How to fix it?</li>
+<li><code>synchronized</code> vs <code>ReentrantLock</code>?</li>
+<li><code>volatile</code> vs <code>AtomicInteger</code>?</li>
+<li>How to implement a thread-safe singleton?</li>
+<li>Producer-consumer using <code>BlockingQueue</code>?</li>
+<li>What causes a deadlock? How to prevent it?</li>
+</ul>
+<h4 id="java-8">Java 8+</h4>
+<ul>
+<li>Explain Java 8 Stream pipeline (lazy evaluation)</li>
+<li><code>map</code> vs <code>flatMap</code>?</li>
+<li><code>Optional.orElse</code> vs <code>orElseGet</code>?</li>
+<li>What are functional interfaces?</li>
+<li>What are Java Records? When to use them?</li>
+</ul>
+<h4 id="jvm">JVM</h4>
+<ul>
+<li>What is the difference between Heap and Stack?</li>
+<li>What is GC pausing (stop-the-world)?</li>
+<li>Why use G1GC over Parallel GC?</li>
+<li>What is type erasure?</li>
+</ul>
+<h4 id="design-patterns">Design Patterns</h4>
+<ul>
+<li>How to prevent Singleton from being broken by reflection?</li>
+<li>Builder vs Constructor?</li>
+<li>When to use Strategy vs if-else?</li>
+<li>What is the difference between Proxy and Decorator?</li>
+</ul>
+<hr />
+<h2 id="suggested-study-order">Suggested Study Order</h2>
+<p><strong>Week 1:</strong> OOP (01) → Collections (02) → Strings (09) → Exceptions (04)
+<strong>Week 2:</strong> Java 8+ (06) → Generics (03) → SOLID (10)
+<strong>Week 3:</strong> Concurrency (05) → Design Patterns (07) → JVM (08)</p>
+<hr />
+<h2 id="how-to-run-examples">How to Run Examples</h2>
+<pre><code class="language-bash"># Compile all lessons (from project root)
+javac --enable-preview --release 21 -d out \
+  lessons/**/*.java
+
+# Run a specific demo
+java --enable-preview -cp out lessons.oop_concepts.PolymorphismDemo
+java --enable-preview -cp out lessons.collections_framework.MapDemo
+java --enable-preview -cp out lessons.java8_features.StreamAPIDemo
+java --enable-preview -cp out lessons.multithreading_concurrency.ConcurrentUtilsDemo
+java --enable-preview -cp out lessons.inner_classes.InnerClassesDemo
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> <code>--enable-preview</code> is needed for sealed classes and some modern Java features.<br />
+Tested with Java 17 and Java 21.</p>
+</blockquote></section><section class="topic-grid"><h2>All Topics</h2><div class="card-grid">
+<a class="topic-card" href="topics/oop-concepts.html"><span class="card-title">01 — OOP Concepts</span><span class="card-meta">6 files</span></a>
+<a class="topic-card" href="topics/collections-framework.html"><span class="card-title">02 — Collections Framework</span><span class="card-meta">6 files</span></a>
+<a class="topic-card" href="topics/generics.html"><span class="card-title">03 — Generics</span><span class="card-meta">2 files</span></a>
+<a class="topic-card" href="topics/exception-handling.html"><span class="card-title">04 — Exception Handling</span><span class="card-meta">2 files</span></a>
+<a class="topic-card" href="topics/multithreading-concurrency.html"><span class="card-title">05 — Multithreading &amp; Concurrency</span><span class="card-meta">4 files</span></a>
+<a class="topic-card" href="topics/java8-features.html"><span class="card-title">06 — Java 8+ Features</span><span class="card-meta">3 files</span></a>
+<a class="topic-card" href="topics/design-patterns.html"><span class="card-title">07 — Design Patterns</span><span class="card-meta">2 files</span></a>
+<a class="topic-card" href="topics/jvm-internals.html"><span class="card-title">08 — JVM Internals</span><span class="card-meta">1 file</span></a>
+<a class="topic-card" href="topics/string-handling.html"><span class="card-title">09 — String Handling</span><span class="card-meta">1 file</span></a>
+<a class="topic-card" href="topics/solid-principles.html"><span class="card-title">10 — SOLID Principles</span><span class="card-meta">1 file</span></a>
+<a class="topic-card" href="topics/access-modifiers.html"><span class="card-title">11 — Access Modifiers</span><span class="card-meta">1 file</span></a>
+<a class="topic-card" href="topics/static-and-final.html"><span class="card-title">12 — static &amp; final</span><span class="card-meta">1 file</span></a>
+<a class="topic-card" href="topics/inner-classes.html"><span class="card-title">13 — Inner Classes</span><span class="card-meta">1 file</span></a>
+<a class="topic-card" href="topics/wrapper-classes.html"><span class="card-title">14 — Wrapper Classes</span><span class="card-meta">1 file</span></a>
+</div></section>
+      <footer class="page-footer">
+        <a href="index.html">← Back to index</a>
+      </footer>
+    </main>
+  </div>
+  <script>
+    document.querySelectorAll('pre code').forEach(function(block) {
+      block.setAttribute('tabindex', '0');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03 — Generics — Java SDE2 Lessons</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/pygments.css">
+</head>
+<body>
+  <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">☰</button>
+  <div class="layout">
+    <nav class="sidebar"><div class="nav-brand"><a href="../index.html">Java SDE2</a></div>
+<ul class="nav-list">
+<li class="nav-topic"><a href="../topics/oop-concepts.html">01 — OOP Concepts</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/oop-concepts/AbstractionDemo.html">AbstractionDemo</a></li>
+<li><a href="../lessons/oop-concepts/EncapsulationDemo.html">EncapsulationDemo</a></li>
+<li><a href="../lessons/oop-concepts/InheritanceDemo.html">InheritanceDemo</a></li>
+<li><a href="../lessons/oop-concepts/InterfaceDemo.html">InterfaceDemo</a></li>
+<li><a href="../lessons/oop-concepts/ObjectMethodsDemo.html">ObjectMethodsDemo</a></li>
+<li><a href="../lessons/oop-concepts/PolymorphismDemo.html">PolymorphismDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/collections-framework.html">02 — Collections Framework</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/collections-framework/AdvancedMapDemo.html">AdvancedMapDemo</a></li>
+<li><a href="../lessons/collections-framework/CollectionsHierarchyDemo.html">CollectionsHierarchyDemo</a></li>
+<li><a href="../lessons/collections-framework/ComparatorComparableDemo.html">ComparatorComparableDemo</a></li>
+<li><a href="../lessons/collections-framework/ListDemo.html">ListDemo</a></li>
+<li><a href="../lessons/collections-framework/MapDemo.html">MapDemo</a></li>
+<li><a href="../lessons/collections-framework/QueueDequeDemo.html">QueueDequeDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/generics.html">03 — Generics</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/generics/GenericClassDemo.html">GenericClassDemo</a></li>
+<li><a href="../lessons/generics/WildcardDemo.html">WildcardDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/exception-handling.html">04 — Exception Handling</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/exception-handling/ExceptionHierarchyDemo.html">ExceptionHierarchyDemo</a></li>
+<li><a href="../lessons/exception-handling/TryWithResourcesDemo.html">TryWithResourcesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/multithreading-concurrency.html">05 — Multithreading &amp; Concurrency</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/multithreading-concurrency/ConcurrentCollectionsDemo.html">ConcurrentCollectionsDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ConcurrentUtilsDemo.html">ConcurrentUtilsDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ExecutorServiceDemo.html">ExecutorServiceDemo</a></li>
+<li><a href="../lessons/multithreading-concurrency/ThreadBasicsDemo.html">ThreadBasicsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/java8-features.html">06 — Java 8+ Features</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/java8-features/LambdaFunctionalDemo.html">LambdaFunctionalDemo</a></li>
+<li><a href="../lessons/java8-features/OptionalDemo.html">OptionalDemo</a></li>
+<li><a href="../lessons/java8-features/StreamAPIDemo.html">StreamAPIDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/design-patterns.html">07 — Design Patterns</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/design-patterns/BehavioralPatternDemo.html">BehavioralPatternDemo</a></li>
+<li><a href="../lessons/design-patterns/SingletonDemo.html">SingletonDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/jvm-internals.html">08 — JVM Internals</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/jvm-internals/JVMInternalsDemo.html">JVMInternalsDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/string-handling.html">09 — String Handling</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/string-handling/StringHandlingDemo.html">StringHandlingDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/solid-principles.html">10 — SOLID Principles</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/solid-principles/SOLIDDemo.html">SOLIDDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/access-modifiers.html">11 — Access Modifiers</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/access-modifiers/AccessModifiersDemo.html">AccessModifiersDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/static-and-final.html">12 — static &amp; final</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/static-and-final/StaticFinalDemo.html">StaticFinalDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/inner-classes.html">13 — Inner Classes</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/inner-classes/InnerClassesDemo.html">InnerClassesDemo</a></li>
+</ul>
+</li>
+<li class="nav-topic"><a href="../topics/wrapper-classes.html">14 — Wrapper Classes</a>
+<ul class="nav-lessons">
+<li><a href="../lessons/wrapper-classes/WrapperAutoboxingDemo.html">WrapperAutoboxingDemo</a></li>
+</ul>
+</li>
+</ul></nav>
+    <main class="content">
+      <header class="page-header">
+        <h1>03 — Generics</h1>
+        <p class="page-subtitle">generics</p>
+      </header>
+      <section class="readme"><h1 id="lesson-03-generics-sde2-interview">Lesson 03 — Generics (SDE2 Interview)</h1>
+<h2 id="topics-covered">Topics Covered</h2>
+<ol>
+<li>Generic classes and methods</li>
+<li>Bounded type parameters (<code>&lt;T extends Comparable&lt;T&gt;&gt;</code>)</li>
+<li>Wildcards: <code>?</code>, <code>? extends T</code> (upper bounded), <code>? super T</code> (lower bounded)</li>
+<li>PECS principle (Producer Extends, Consumer Super)</li>
+<li>Type erasure — what it is and its implications</li>
+<li>Reifiable vs non-reifiable types</li>
+<li>Generic methods vs class-level generics</li>
+<li>Raw types and why they're dangerous</li>
+</ol>
+<h2 id="key-interview-points">Key Interview Points</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Quick Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What is type erasure?</td>
+<td>JVM erases generic type info at compile time; all <code>List&lt;T&gt;</code> become <code>List</code> at runtime</td>
+</tr>
+<tr>
+<td><code>List&lt;?&gt;</code> vs <code>List&lt;Object&gt;</code></td>
+<td><code>List&lt;?&gt;</code> is read-only (unknown type), <code>List&lt;Object&gt;</code> accepts any Object but loses type safety</td>
+</tr>
+<tr>
+<td>PECS rule</td>
+<td>Producer (you read from it) → use <code>extends</code>; Consumer (you write to it) → use <code>super</code></td>
+</tr>
+<tr>
+<td>Can you create <code>new T[]</code>?</td>
+<td>NO — type erasure means T is unknown at runtime; use <code>Object[]</code> and cast</td>
+</tr>
+<tr>
+<td>Can you catch generic exceptions?</td>
+<td>NO — <code>catch(T e)</code> doesn't compile due to erasure</td>
+</tr>
+<tr>
+<td><code>List&lt;Integer&gt;</code> subtype of <code>List&lt;Number&gt;</code>?</td>
+<td>NO — generics are invariant; use <code>List&lt;? extends Number&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="files-in-this-lesson">Files in this Lesson</h2>
+<ul>
+<li><code>GenericClassDemo.java</code> — Generic class, methods, bounded types</li>
+<li><code>WildcardDemo.java</code> — ?, extends, super wildcards + PECS</li>
+<li><code>TypeErasureDemo.java</code> — Erasure, raw types, heap pollution</li>
+</ul></section><section class="lesson-cards"><h2>Source Files</h2><div class="card-grid">
+<a class="lesson-card" href="../lessons/generics/GenericClassDemo.html"><span class="card-title">GenericClassDemo</span><span class="card-meta">.java</span></a>
+<a class="lesson-card" href="../lessons/generics/WildcardDemo.html"><span class="card-title">WildcardDemo</span><span class="card-meta">.java</span></a>
+</div></section>
+      <footer class="page-footer">
+        <a href="../index.html">← Back to index</a>
+      </footer>
+    </main>
+  </div>
+  <script>
+    document.querySelectorAll('pre code').forEach(function(block) {
+      block.setAttribute('tabindex', '0');
+    });
+  </script>
+</body>
+</html>
